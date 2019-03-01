@@ -8,10 +8,12 @@ public class Bloque implements Serializable{
     DatosContainer datos;
 
     //Constructor por defecto. Asignar tal cual
+    //TODO anton
     public Bloque(String hashPrevio, int tipoBloque, int numBloque, int codLote, DatosContainer datos){
         
     }
 
     //Getters para todos los campos
+    //TODO anton
 
 }
