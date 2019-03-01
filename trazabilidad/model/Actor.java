@@ -8,20 +8,34 @@ public class Actor implements Serializable{
     String contraseñaSalt;
     String email;
     Actor usuarioPrevio;
+    Actor usuarioNext;
     int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer
+
+
+    private boolean actor_compare(Actor usuarioIntentaAcceder)
+    {
+        return (
+                    this.nombreUsuario.equals(usuarioIntentaAcceder.nombreUsuario) &&
+                    this.contraseñaPlana.equals(usuarioIntentaAcceder.contraseñaPlana)
+                );
+    }
 
     public Actor(){}
 
     //Constructor utilizado por la vista para pasarnos los datos
     //TODO gonzalo
     public Actor(String nombreUsuario, String contraseñaPlana){
-
+            this.nombreUsuario = nombreUsuario;
+            this.contraseñaPlana = contraseñaPlana;
     }
 
     //Constructor usado por la BBDD para instanciar el objeto que nos va a devolver
     //TODO gonzalo
-    public Actor(String nombreUsuario, String contraseñaSalt, String email, Actor usuarioPrevio, int tipoActor){
-
+    public Actor(String nombreUsuario, String contraseñaSalt, String email, int tipoActor){
+        this.nombreUsuario = nombreUsuario;
+        this.contraseñaSalt = contraseñaSalt;
+        this.email = email;
+        this.tipoActor = tipoActor;
     }
 
     //Funcion que, checkea si el Actor pasado como parametro se corresponde con este (this),
@@ -33,8 +47,18 @@ public class Actor implements Serializable{
     //lanza una excepcion genérica, y devolver null
     //TODO gonzalo
     public Actor logMe(Actor usuarioIntentaAcceder){
-
-        return null;
+        if(actor_compare(usuarioIntentaAcceder))
+        {
+            return this;
+        }
+        else if(this.usuarioPrevio != null)
+        {
+            return this.usuarioPrevio.logMe(usuarioIntentaAcceder);
+        }
+        else
+        {
+            return null;
+        }
     }
 
     //GETTERS
