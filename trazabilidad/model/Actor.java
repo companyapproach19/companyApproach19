@@ -3,13 +3,13 @@ import java.io.Serializable;
 //package trazabilidad.model;
 
 public class Actor implements Serializable{
-    String nombreUsuario;
-    String contraseñaPlana;
-    String contraseñaSalt;
-    String email;
+    
+    private String nombreUsuario;
+    private String contraseñaPlana;
+    private String contraseñaSalt;
+    private String email;
     Actor usuarioPrevio;
-    Actor usuarioNext;
-    int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer
+    private int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer
 
 
     private boolean actor_compare(Actor usuarioIntentaAcceder)
@@ -24,6 +24,7 @@ public class Actor implements Serializable{
 
     //Constructor utilizado por la vista para pasarnos los datos
     //TODO gonzalo
+
     public Actor(String nombreUsuario, String contraseñaPlana){
             this.nombreUsuario = nombreUsuario;
             this.contraseñaPlana = contraseñaPlana;
@@ -31,10 +32,12 @@ public class Actor implements Serializable{
 
     //Constructor usado por la BBDD para instanciar el objeto que nos va a devolver
     //TODO gonzalo
-    public Actor(String nombreUsuario, String contraseñaSalt, String email, int tipoActor){
+
+    public Actor(String nombreUsuario, String contraseñaSalt, String email,Actor usuarioPrevio, int tipoActor){
         this.nombreUsuario = nombreUsuario;
         this.contraseñaSalt = contraseñaSalt;
         this.email = email;
+        this.usuarioPrevio = usuarioPrevio;
         this.tipoActor = tipoActor;
     }
 
@@ -46,6 +49,7 @@ public class Actor implements Serializable{
     //Si usuarioPrevio==Actor vacio (campos nombre y mail vacios) (inicio de la lista), se 
     //lanza una excepcion genérica, y devolver null
     //TODO gonzalo
+
     public Actor logMe(Actor usuarioIntentaAcceder){
         if(actor_compare(usuarioIntentaAcceder))
         {
@@ -63,4 +67,30 @@ public class Actor implements Serializable{
 
     //GETTERS
     //TODO gonzalo
+
+    public String getNombreUsuario()
+    {
+        return this.nombreUsuario;
+    }
+
+    public String getContraseñaPlana()
+    {
+        return this.contraseñaPlana;
+    }
+
+    public String getContraseñaSalt()
+    {
+        return this.contraseñaSalt;
+    }
+
+    public String getEmail()
+    {
+        return this.email;
+    }
+
+    public int getTipoActor()
+    {
+        return this.tipoActor;
+    }
+
 }
