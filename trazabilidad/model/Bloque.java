@@ -1,11 +1,19 @@
 package trazabilidad.model;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.security.MessageDigest;
+import java.util.Base64;
+
 public class Bloque implements Serializable{
     private String hashPrevio;
     private int tipoBloque;
     private int numBloque;
     private int codLote;
     DatosContainer datos;
+	private long timeStamp;
 
     //Constructor por defecto. Asignar tal cual
     //TODO anton

@@ -1,9 +1,16 @@
 package trazabilidad.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Cadena{
     private String hashUltimoBloque;
     private int codLote;
     private int numBloques; //Cuenta el numero de bloques que hay en la Cadena
+    
+    
+    
+    private BBDDTemporal BBDD;
 
     //LEEME
     //Supongamos que tenemos una clase DDBB.operaciones con el método getBloque(String hash) que 
@@ -28,12 +35,12 @@ public class Cadena{
     //TODO alejandro
     public List<Bloque> getBloque(int tipoBloque){
     	List<Bloque> lista = new LinkedList<Bloque>();
-    	Bloque anadir = bbdd.getBloque(hashUltimoBloque) ;
+    	Bloque anadir = BBDD.getBloque(hashUltimoBloque) ;
     	for (int j=0;j<numBloques;j++) {    		
     		if (anadir.getTipoBloque()==tipoBloque) {
     			lista.add(anadir);    			
     		}
-    		anadir = bbdd.getBloque(anadir.getHashPrevio());    		
+    		anadir = BBDD.getBloque(anadir.getHashPrevio());    		
     	}
     	return lista;
     }
@@ -43,10 +50,10 @@ public class Cadena{
     //TODO alejandro
     public List<Bloque> getCadena(){
     	List<Bloque> lista = new LinkedList<Bloque>();
-    	Bloque anadir = bbdd.getBloque(hashUltimoBloque) ;
+    	Bloque anadir = BBDD.getBloque(hashUltimoBloque) ;
     	for (int j=0;j<numBloques;j++){
     		lista.add(anadir);	
-    		anadir = bbdd.getBloque(anadir.getHashPrevio());
+    		anadir = BBDD.getBloque(anadir.getHashPrevio());
     	}    	
     	return lista;
     }
@@ -68,9 +75,9 @@ public class Cadena{
     // de un bloque a otro hasta llegar a un bloque cuyo valor de hashPrevio sea "INICIO"
     //TODO alejandro
     public boolean checkConsistencia(){
-        Bloque anadir = bbdd.getBloque(hashUltimoBloque) ;
+        Bloque anadir = BBDD.getBloque(hashUltimoBloque) ;
     	for (int j=0;j<numBloques;j++){
-    		anadir = bbdd.getBloque(anadir.getHashPrevio());
+    		anadir = BBDD.getBloque(anadir.getHashPrevio());
     	}
     	if(anadir.getHashPrevio().equals("INICIO")){
     		return true;    		
@@ -83,7 +90,7 @@ public class Cadena{
     // (clase generica que encapsula todo lo que nos quieran pasar los grupos) y el tipo de informacion
     //añade el bloque a la cadena, haciendo todas las funciones criptográficas correspondientes.
     //TODO jorge
-    private void incorporarBloque(DatosContainer dc, int tipoBloque){
+    public void incorporarBloque(DatosContainer dc, int tipoBloque){
         /*
         1. Obtener la info que se tiene que poner de cabecera en el nuevo bloque: 
             -hashPrevio a partir de la variable hashUltimoBloque
@@ -107,4 +114,19 @@ public class Cadena{
         }
 
     }
+}
+
+
+class BBDDTemporal{
+	public boolean guardarBloque(Bloque q, String hash) {
+		return true;
+	}
+	
+	public void guardarCadena(Cadena c) {
+		
+	}
+	
+	public Bloque getBloque(String n) {
+		return null;
+	}
 }

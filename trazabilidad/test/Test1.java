@@ -1,5 +1,14 @@
-//package trazabilidad.test;
+package trazabilidad.test;
 
-public class Test1{
-    //TODO jorge
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class Test1 {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
 }

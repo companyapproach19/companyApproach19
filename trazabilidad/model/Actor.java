@@ -1,12 +1,13 @@
+package trazabilidad.model;
+
 import java.io.Serializable;
 
-//package trazabilidad.model;
-
 public class Actor implements Serializable{
+    static final long serialVersionUID=10L;
     
     private String nombreUsuario;
-    private String contraseñaPlana;
-    private String contraseñaSalt;
+    private String passwordPlana;
+    private String passwordSalt;
     private String email;
     Actor usuarioPrevio;
     private int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer
@@ -16,7 +17,7 @@ public class Actor implements Serializable{
     {
         return (
                     this.nombreUsuario.equals(usuarioIntentaAcceder.nombreUsuario) &&
-                    this.contraseñaPlana.equals(usuarioIntentaAcceder.contraseñaPlana)
+                    this.passwordPlana.equals(usuarioIntentaAcceder.passwordPlana)
                     /*Resto de condiciones que sean necesarias*/
                 );
     }
@@ -26,17 +27,17 @@ public class Actor implements Serializable{
     //Constructor utilizado por la vista para pasarnos los datos
     //TODO gonzalo
 
-    public Actor(String nombreUsuario, String contraseñaPlana){
+    public Actor(String nombreUsuario, String passwordPlana){
             this.nombreUsuario = nombreUsuario;
-            this.contraseñaPlana = contraseñaPlana;
+            this.passwordPlana = passwordPlana;
     }
 
     //Constructor usado por la BBDD para instanciar el objeto que nos va a devolver
     //TODO gonzalo
 
-    public Actor(String nombreUsuario, String contraseñaSalt, String email,Actor usuarioPrevio, int tipoActor){
+    public Actor(String nombreUsuario, String passwordSalt, String email,Actor usuarioPrevio, int tipoActor){
         this.nombreUsuario = nombreUsuario;
-        this.contraseñaSalt = contraseñaSalt;
+        this.passwordSalt = passwordSalt;
         this.email = email;
         this.usuarioPrevio = usuarioPrevio;
         this.tipoActor = tipoActor;
@@ -65,7 +66,7 @@ public class Actor implements Serializable{
             throw new Exception
                                 (
                                     "Error al logear usuario : " + usuarioIntentaAcceder.nombreUsuario +
-                                    " contraseña : " + usuarioIntentaAcceder.contraseñaPlana
+                                    " contraseña : " + usuarioIntentaAcceder.passwordPlana
                                 );
         }
     }
@@ -78,14 +79,14 @@ public class Actor implements Serializable{
         return this.nombreUsuario;
     }
 
-    public String getContraseñaPlana()
+    public String getpasswordPlana()
     {
-        return this.contraseñaPlana;
+        return this.passwordPlana;
     }
 
-    public String getContraseñaSalt()
+    public String getpasswordSalt()
     {
-        return this.contraseñaSalt;
+        return this.passwordSalt;
     }
 
     public String getEmail()

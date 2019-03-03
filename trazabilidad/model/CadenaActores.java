@@ -1,3 +1,5 @@
+package trazabilidad.model;
+
 import java.io.Serializable;
 
 //package trazabilidad.model;
@@ -16,12 +18,12 @@ public class CadenaActores implements Serializable{
     }
 
     //comprueba si el objeto Actor
-    private boolean is_user_val(Actor e)
+    private boolean is_user_val(Actor usuarioLogin)
     {
         return 
                 (
-                    usuarioLogin.contraseñaPlana != null &&
-                    usuarioLogin.nombreUsuario != null
+                    usuarioLogin.getpasswordPlana() != null &&
+                    usuarioLogin.getNombreUsuario() != null
                     /*Resto de condiciones que sean necesaria para
                     que el usurio sea valido*/
                 );
@@ -52,12 +54,9 @@ public class CadenaActores implements Serializable{
     //is_user_val se genera una excepcion generia.
 
     public Actor logeaUsuario(Actor usuarioLogin) throws Exception{
-        if(!is_user_val(nuevoActor))
+        if(!is_user_val(usuarioLogin))
         {
-            throw new Exception
-                                (
-                                    "Error al logear usuario, usuario no valido"
-                                );
+            throw new Exception("Error al logear usuario, usuario no valido");
         }
         return this.cola.logMe(usuarioLogin);
     }
