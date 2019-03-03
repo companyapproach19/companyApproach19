@@ -11,7 +11,23 @@ public static class BlockchainServices{
     //en DatosContainer, y guardarlo en la cadena con los metodos de la clase Cadena correspondientes
     //TODO alejandro
     public void guardarTraspaso(Traspaso traspaso){
+        //encapsularlo, sin tener los datos de la clase Traspaso no podemos encapsularlo
+        DatosContainer dc = traspaso;
+        int codLote = traspaso.getCodLote();
 
+        Cadena cadena = BBDD.getCadena(codLote);
+
+        cadena.incorporarBloque(dc, 0); //Cambiar cuando asignemos cada entero a cada tipo de bloque
+        /* Bloque bloque = new Bloque();
+
+    	Bloque bloque = null;
+    	
+    	Cadena cadena = new Cadena(0);    	
+    	
+    	//meterlo a la cadena
+    	cadena.incorporarBloque(dc,bloque.getTipoBloque()); */
+    	
+    	
     }
 
 

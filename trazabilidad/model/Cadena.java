@@ -18,21 +18,37 @@ public class Cadena{
     //Constructor por defecto
     //TODO alejandro
     public Cadena(int codLote){
-
+    	this.codLote=codLote;
+    	this.numBloques=0;
+	    this.hashUltimoBloque=null;
     }
 
     //Recorre toda la cadena y devuelve una lista con todos los bloques del tipo especificado.
     //Hay que pedirle a BBDD que nos de los bloques
     //TODO alejandro
     public List<Bloque> getBloque(int tipoBloque){
-
+    	List<Bloque> lista = new LinkedList<Bloque>();
+    	Bloque anadir = bbdd.getBloque(hashUltimoBloque) ;
+    	for (int j=0;j<numBloques;j++) {    		
+    		if (anadir.getTipoBloque()==tipoBloque) {
+    			lista.add(anadir);    			
+    		}
+    		anadir = bbdd.getBloque(anadir.getHashPrevio());    		
+    	}
+    	return lista;
     }
 
 
     //Recorre toda la cadena y devuelve una lista con todos los bloques
     //TODO alejandro
     public List<Bloque> getCadena(){
-
+    	List<Bloque> lista = new LinkedList<Bloque>();
+    	Bloque anadir = bbdd.getBloque(hashUltimoBloque) ;
+    	for (int j=0;j<numBloques;j++){
+    		lista.add(anadir);	
+    		anadir = bbdd.getBloque(anadir.getHashPrevio());
+    	}    	
+    	return lista;
     }
 
 
@@ -52,9 +68,14 @@ public class Cadena{
     // de un bloque a otro hasta llegar a un bloque cuyo valor de hashPrevio sea "INICIO"
     //TODO alejandro
     public boolean checkConsistencia(){
-        
-
-        return null;
+        Bloque anadir = bbdd.getBloque(hashUltimoBloque) ;
+    	for (int j=0;j<numBloques;j++){
+    		anadir = bbdd.getBloque(anadir.getHashPrevio());
+    	}
+    	if(anadir.getHashPrevio().equals("INICIO")){
+    		return true;    		
+    	}
+    	return false;
     }
 
 
