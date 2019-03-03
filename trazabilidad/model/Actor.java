@@ -17,6 +17,7 @@ public class Actor implements Serializable{
         return (
                     this.nombreUsuario.equals(usuarioIntentaAcceder.nombreUsuario) &&
                     this.contraseñaPlana.equals(usuarioIntentaAcceder.contraseñaPlana)
+                    /*Resto de condiciones que sean necesarias*/
                 );
     }
 
@@ -50,7 +51,7 @@ public class Actor implements Serializable{
     //lanza una excepcion genérica, y devolver null
     //TODO gonzalo
 
-    public Actor logMe(Actor usuarioIntentaAcceder){
+    public Actor logMe(Actor usuarioIntentaAcceder) throws Exception{
         if(actor_compare(usuarioIntentaAcceder))
         {
             return this;
@@ -61,7 +62,11 @@ public class Actor implements Serializable{
         }
         else
         {
-            return null;
+            throw new Exception
+                                (
+                                    "Error al logear usuario : " + usuarioIntentaAcceder.nombreUsuario +
+                                    " contraseña : " + usuarioIntentaAcceder.contraseñaPlana
+                                );
         }
     }
 

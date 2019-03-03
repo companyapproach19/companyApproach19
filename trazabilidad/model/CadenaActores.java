@@ -15,16 +15,16 @@ public class CadenaActores implements Serializable{
         this.length = 0;
     }
 
-    private add_firts_actor(Actor e)
-    {
-        e.usuarioPrevio = null;
-        this.cola = e;
-    }
-
     //comprueba si el objeto Actor
     private boolean is_user_val(Actor e)
     {
-        return usuarioLogin.contraseñaPlana != null && usuarioLogin.nombreUsuario != null;
+        return 
+                (
+                    usuarioLogin.contraseñaPlana != null &&
+                    usuarioLogin.nombreUsuario != null
+                    /*Resto de condiciones que sean necesaria para
+                    que el usurio sea valido*/
+                );
     }
 
     //retorna la longitud de la cadena
@@ -39,24 +39,26 @@ public class CadenaActores implements Serializable{
     //Devuelve id de usuario
     //TODO gonzalo
 
-    public int addActor(Actor nuevoActor){
+    public int addActor(Actor nuevoActor) {
         
-        if(this.cola == null)
-        {
-            add_firts_actor(nuevoActor);
-        }
-        else
-        {
-            nuevoActor.usuarioPrevio = this.cola;
-            this.cola = nuevoActor;
-        }
+        nuevoActor.usuarioPrevio = this.cola;
+        this.cola = nuevoActor;
         this.length++;
+        return 0/*id del usuario*/;
     }
 
     //Método que llama al metodo logMe del ultimo Actor de la lista, y reenvia lo que le
-    //devuelva.
+    //devuelva, y en caso de no ser un usurario valido segun las condiciones definida en
+    //is_user_val se genera una excepcion generia.
 
-    public Actor logeaUsuario(Actor usuarioLogin){
+    public Actor logeaUsuario(Actor usuarioLogin) throws Exception{
+        if(!is_user_val(nuevoActor))
+        {
+            throw new Exception
+                                (
+                                    "Error al logear usuario, usuario no valido"
+                                );
+        }
         return this.cola.logMe(usuarioLogin);
     }
 
