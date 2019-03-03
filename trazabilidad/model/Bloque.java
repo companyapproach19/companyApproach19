@@ -10,11 +10,35 @@ public class Bloque implements Serializable{
     //Constructor por defecto. Asignar tal cual
     //TODO anton
     public Bloque(String hashPrevio, int tipoBloque, int numBloque, int codLote, DatosContainer datos){
-        
+        this.hashPrevio = hashPrevio;
+        this.tipoBloque = tipoBloque;
+        this.numBloque = numBloque;
+        this.codLote = codLote;
+        this.datos = datos;
     }
-
+    
     //Getters para todos los campos
     //TODO anton
+    
+    public  String getHashPrevio(){
+        return this.hashPrevio;
+    }
+    
+    public  int getTipoBloque(){
+        return this.tipoBloque;
+    }
+    
+    public  int getNumBloque(){
+        return this.numBloque;
+    }
+    
+    public  int getCodLote(){
+        return this.codLote;
+    }
+    
+    public  DatosContainer getDatos(){
+        return this.datos;
+    }
 
     public String getHashCode() {
 		try {
@@ -46,7 +70,7 @@ public class Bloque implements Serializable{
         return Base64.getEncoder().encodeToString(baos.toByteArray()); 
     }
 
-    private void setTimeStamp() {
+  private void setTimeStamp() {
 		this.timeStamp=System.currentTimeMillis();
 	}
 }
