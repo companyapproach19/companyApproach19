@@ -76,5 +76,14 @@ public class Cadena{
         5. Actualizar tabla de referencia de hash+
         6. LLamar a BBDD para almacenar la tabla de referencia
         */
+
+        Bloque nuevoBloque = new Bloque(this.hashUltimoBloque,tipoBloque, this.numBloques++, this.codLote, dc);
+        String hashNuevo = nuevoBloque.getHashCode();
+        boolean insercionCorrecta = BBDD.guardarBloque(nuevoBloque, hashNuevo);
+        if(insercionCorrecta){
+            this.hashUltimoBloque=hashNuevo;
+            BBDD.guardarCadena(this);
+        }
+
     }
 }
