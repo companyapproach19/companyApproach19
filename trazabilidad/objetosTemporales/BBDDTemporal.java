@@ -3,12 +3,15 @@ package trazabilidad.objetosTemporales;
 import java.util.HashMap;
 import java.util.Map;
 
+import trazabilidad.model.Actor;
 import trazabilidad.model.Bloque;
 import trazabilidad.model.Cadena;
+import trazabilidad.model.CadenaActores;
 
 public class BBDDTemporal{
 	Map<String, Bloque> mapaBloques = new HashMap<String, Bloque>();
 	Map<Integer, Cadena> mapaCadenas = new HashMap<Integer, Cadena>();
+	CadenaActores cadenaActores = new CadenaActores();
 	
 	public BBDDTemporal() {}
 	
@@ -29,9 +32,26 @@ public class BBDDTemporal{
 		return mapaCadenas.get(codLote);
 	}
 	
+	
+	//Esta funcion en principio no la hemos acordado con BBDD, pero habra que hacerlo
 	public void createCadena(int codLote) {
 		Cadena cadena = new Cadena(codLote);
 		cadena.setBBDDTemporal(this);
 		mapaCadenas.put(codLote, cadena);
 	}
+	
+	
+	public void guardarCadenaActores(CadenaActores cad) {
+		this.cadenaActores=cad;
+	}
+
+	public CadenaActores getCadenaActores() {
+		return this.cadenaActores;
+	}
+	
+	
+	
+	
+	
+	
 }

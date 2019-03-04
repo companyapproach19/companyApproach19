@@ -8,7 +8,7 @@ import trazabilidad.BlockchainServices;
 import trazabilidad.objetosTemporales.BBDDTemporal;
 import trazabilidad.objetosTemporales.Traspaso;
 
-class Test1 {
+class TestTrazabilidad {
 
 	@Test
 	void test() {

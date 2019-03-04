@@ -56,15 +56,25 @@ public class BlockchainServices{
     //extrae la informacion del traspaso y la devuelve.
     //TODO anton
     public Traspaso getTraspaso(int codLote){
+//    	Cadena cadena = BBDD.getCadena(codLote);
+//    	List<Bloque> bloques = cadena.getCadena();
+//    	int i =0;
+//    	while(i<bloques.size()){
+//    		if(bloques.get(i).getTipoBloque() == 0){
+//    			return (Traspaso) bloques.get(i).getDatos();
+//    		}
+//    		i++;
+//    	}
+//    	return null;
+    	
+    	
+    	
     	Cadena cadena = BBDD.getCadena(codLote);
-    	List<Bloque> bloques = cadena.getCadena();
-    	int i =0;
-    	while(i<bloques.size()){
-    		if(bloques.get(i).getTipoBloque() == 0){
-    			return (Traspaso) bloques.get(i).getDatos();
-    		}
-    		i++;
+    	List<Bloque> bloques = cadena.getBloque(0);
+    	if(!bloques.isEmpty()) {
+    		return (Traspaso) bloques.get(bloques.size()-1).getDatos();
     	}
     	return null;
+    	
     } 
 }

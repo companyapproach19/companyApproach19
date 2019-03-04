@@ -55,10 +55,12 @@ public class Actor implements Serializable{
     public Actor logMe(Actor usuarioIntentaAcceder) throws Exception{
         if(actor_compare(usuarioIntentaAcceder))
         {
-            return this;
+        	System.out.println("Usuario encontrado.");
+        	return this;
         }
         else if(this.usuarioPrevio != null)
         {
+        	System.out.println("Usuario NO encontrado. Hemos probado: "+this.getNombreUsuario());
             return this.usuarioPrevio.logMe(usuarioIntentaAcceder);
         }
         else
@@ -66,7 +68,7 @@ public class Actor implements Serializable{
             throw new Exception
                                 (
                                     "Error al logear usuario : " + usuarioIntentaAcceder.nombreUsuario +
-                                    " contraseÃ±a : " + usuarioIntentaAcceder.passwordPlana
+                                    " contraseña : " + usuarioIntentaAcceder.passwordPlana
                                 );
         }
     }

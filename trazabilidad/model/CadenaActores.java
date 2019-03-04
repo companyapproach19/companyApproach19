@@ -2,15 +2,17 @@ package trazabilidad.model;
 
 import java.io.Serializable;
 
+import trazabilidad.objetosTemporales.BBDDTemporal;
+
 //package trazabilidad.model;
 
 public class CadenaActores implements Serializable{
     private Actor cola; //Fin de a list
     private int length; //Tamaño de la lista
-
+  
+    
     //Constructor generico, inicializar lista
     //TODO gonzalo
-
     public CadenaActores()
     {
         this.cola = null;
