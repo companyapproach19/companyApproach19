@@ -1,6 +1,10 @@
 package trazabilidad;
 
+import java.util.List;
+
 import trazabilidad.model.*;
+import trazabilidad.objetosTemporales.BBDDTemporal;
+import trazabilidad.objetosTemporales.Traspaso;
 
 //Esta es la clase a la que van a llamar el resto de grupos para hacer sus
 //gestiones con respecto a añadir cosas al blockchain
@@ -8,6 +12,13 @@ public class BlockchainServices{
 	
 	//Temproal
 	BBDDTemporal BBDD;
+	public void init(BBDDTemporal bd) {
+		this.BBDD=bd;
+	}
+	public BlockchainServices() {}
+	public boolean checkConsistencia(int codLote) {
+		return BBDD.getCadena(codLote).checkConsistencia();		
+	}
 
     //Aun tienen que definir los otros grupos cual va a ser la clase
     //que nos van a pasar de con la informacion del traspaso. No se si sera
@@ -45,33 +56,15 @@ public class BlockchainServices{
     //extrae la informacion del traspaso y la devuelve.
     //TODO anton
     public Traspaso getTraspaso(int codLote){
+    	Cadena cadena = BBDD.getCadena(codLote);
+    	List<Bloque> bloques = cadena.getCadena();
+    	int i =0;
+    	while(i<bloques.size()){
+    		if(bloques.get(i).getTipoBloque() == 0){
+    			return (Traspaso) bloques.get(i).getDatos();
+    		}
+    	}
     	return null;
-    }
+    } 
 }
 
-
-
-
-//Temporal
-class Traspaso extends DatosContainer{
-	public int getCodLote() {
-		return 0;
-	}
-}
-class BBDDTemporal{
-	public boolean guardarBloque(Bloque q, String hash) {
-		return true;
-	}
-	
-	public void guardarCadena(Cadena c) {
-		
-	}
-	
-	public Bloque getBloque(String n) {
-		return null;
-	}
-	
-	public Cadena getCadena(int codLote) {
-		return null;
-	}
-}

@@ -3,31 +3,26 @@ package trazabilidad.model;
 import java.util.LinkedList;
 import java.util.List;
 
+import trazabilidad.objetosTemporales.BBDDTemporal;
+
 public class Cadena{
     private String hashUltimoBloque;
     private int codLote;
     private int numBloques; //Cuenta el numero de bloques que hay en la Cadena
     
     
-    
-    private BBDDTemporal BBDD;
-
-    //LEEME
-    //Supongamos que tenemos una clase DDBB.operaciones con el método getBloque(String hash) que 
-    //devuelve un Bloque con el hash indicado.
-
-    //Tambien tenemos otro metodo en esa clase guardarBloque(Bloque b) que guarda el bloque asociandolo
-    //al hash que lleve en su propiedad.
-
-
-
+    //Temporal para pruebas
+    private BBDDTemporal BBDD = new BBDDTemporal();
+    public void setBBDDTemporal(BBDDTemporal bd) {
+    	this.BBDD=bd;
+    }
 
     //Constructor por defecto
     //TODO alejandro
     public Cadena(int codLote){
     	this.codLote=codLote;
     	this.numBloques=0;
-	    this.hashUltimoBloque=null;
+	    this.hashUltimoBloque="INICIO";
     }
 
     //Recorre toda la cadena y devuelve una lista con todos los bloques del tipo especificado.
@@ -76,7 +71,7 @@ public class Cadena{
     //TODO alejandro
     public boolean checkConsistencia(){
         Bloque anadir = BBDD.getBloque(hashUltimoBloque) ;
-    	for (int j=0;j<numBloques;j++){
+    	for (int j=0;j<numBloques-1;j++){
     		anadir = BBDD.getBloque(anadir.getHashPrevio());
     	}
     	if(anadir.getHashPrevio().equals("INICIO")){
@@ -110,23 +105,8 @@ public class Cadena{
         boolean insercionCorrecta = BBDD.guardarBloque(nuevoBloque, hashNuevo);
         if(insercionCorrecta){
             this.hashUltimoBloque=hashNuevo;
-            BBDD.guardarCadena(this);
+            BBDD.guardarCadena(this, this.codLote);
         }
 
     }
-}
-
-
-class BBDDTemporal{
-	public boolean guardarBloque(Bloque q, String hash) {
-		return true;
-	}
-	
-	public void guardarCadena(Cadena c) {
-		
-	}
-	
-	public Bloque getBloque(String n) {
-		return null;
-	}
 }
