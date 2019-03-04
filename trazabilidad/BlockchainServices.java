@@ -63,6 +63,7 @@ public class BlockchainServices{
     		if(bloques.get(i).getTipoBloque() == 0){
     			return (Traspaso) bloques.get(i).getDatos();
     		}
+    		i++;
     	}
     	return null;
     } 
