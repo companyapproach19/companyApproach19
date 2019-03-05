@@ -1,4 +1,4 @@
-package ISO;
+//package ISO;
 import java.lang.Thread;
 
 public class Molienda {
@@ -6,11 +6,11 @@ public class Molienda {
 @SuppressWarnings("deprecation")
 private static void moler() throws InterruptedException {
 	java.util.Date fechaActual = new java.util.Date();
-	System.out.println("Día: "+fechaActual.getDate());
+	System.out.println("DÃ­a: "+fechaActual.getDate());
 	System.out.println("Moliendo...");
 	Thread.sleep(3000);
 	fechaActual.setDate(fechaActual.getDate()+1); 
-	System.out.println("Proceso de molienda finalizado. Día: "+fechaActual.getDate());
+	System.out.println("Proceso de molienda finalizado. DÃ­a: "+fechaActual.getDate());
 }
 		
 public static void main (String[]args) throws InterruptedException {
