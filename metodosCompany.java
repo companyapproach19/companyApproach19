@@ -16,8 +16,8 @@ public class metodosCompany {
 
 		String serverAddress = "localhost:3306";
 		String db = "company";
-		String user = "admin_company";
-		String pass = "ADMc#1mp#2ny";
+		String user = "*******";
+		String pass = "*******";
 		String url = "http://dlsiisv.fi.upm.es/phpmyadmin/index.php" + serverAddress;
 		conn = DriverManager.getConnection(url, user, pass);
 		System.out.println("Conectado a la base de datos!" + "\n");
