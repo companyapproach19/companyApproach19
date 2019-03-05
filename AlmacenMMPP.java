@@ -1,4 +1,4 @@
-package ISO;
+//package ISO;
 public class AlmacenMMPP {
         private int capacidad;
         public static double maltaPilsner;
