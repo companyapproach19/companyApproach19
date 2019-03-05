@@ -22,8 +22,8 @@ public class Fabrica {
 	public String getCIF() {
 		return CIF;
 	}
-	public void setCIF(String cIF) {
-		CIF = cIF;
+	public void setCIF(String CIF) {
+		CIF = CIF;
 	}
 
 	public String getIdAlmacenMaterias() {
