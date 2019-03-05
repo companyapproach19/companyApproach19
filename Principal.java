@@ -4,7 +4,7 @@ public class Principal {
 	
 	private int contadorLote; //se debe actualizar para crear cada lote
 	
-	public Lote generarPedido(String tipo){
+	/*public Lote generarPedido(String tipo){
 		if (tipo.equals("Stout")) {
 			Lote lote = new Lote(contadorLote);
 			contadorLote++;
@@ -15,7 +15,7 @@ public class Principal {
 			return lote;
 		} else return null;
 		
-	}
+	}*/
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
