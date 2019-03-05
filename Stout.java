@@ -1,4 +1,4 @@
-//package ISO;
+package iSoftware;
 
 public class Stout {
 	private double maltaCaramelo;
@@ -15,8 +15,9 @@ public class Stout {
 	private int id;
 
 	public Stout() {
-		id = AlmacenMMPP.getId();
-		AlmacenMMPP.setId(AlmacenMMPP.getId() + 1);
+		id = Principal.getid();
+		id++;
+		Principal.setid(id);
 		agua = 24;
 		maltaBasePalida = 5500;
 		AlmacenMMPP.setMaltaBasePalida(AlmacenMMPP.getMaltaBasePalida() - 5500);
