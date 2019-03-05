@@ -1,4 +1,4 @@
-package ISO;
+//package ISO;
 public class Pilsner {
 	private double maltaPilsner;
 	private double maltaCaramelo;
