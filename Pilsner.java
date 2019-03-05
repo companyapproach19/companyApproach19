@@ -1,6 +1,4 @@
-
-public class Pilsner {
-
+package ISO;
 public class Pilsner {
 	private double maltaPilsner;
 	private double maltaCaramelo;
@@ -9,19 +7,21 @@ public class Pilsner {
 	//Las levaduras no tienen cantidad, es un error???????????????????????????
 	private boolean levaduraLager;
 	private double agua;
+	private int id;
 	
 	public Pilsner() {
+	id=AlmacenMMPP.getId();
+	AlmacenMMPP.setId(AlmacenMMPP.getId()+1);
 	agua=27.5;
 	maltaPilsner = 4000;
-	AlmacenMMMPP.setMaltaPilsner(AlmacenMMMPP.getMaltaPilsner-4000);
+	AlmacenMMPP.setMaltaPilsner(AlmacenMMPP.getMaltaPilsner()-4000);
 	maltaCaramelo = 500;
-	AlmacenMMMPP.setMaltaCaramelo(AlmacenMMMPP.getMaltaCaramelo-500);
+	AlmacenMMPP.setMaltaCaramelo(AlmacenMMPP.getMaltaCaramelo()-500);
 	lupuloPerle = 20;
-	AlmacenMMMPP.setLupuloPerle(AlmacenMMMPP.getLupuloPerle-20);
+	AlmacenMMPP.setLupuloPerle(AlmacenMMPP.getLupuloPerle()-20);
 	lupuloTettnanger = 40;
-	AlmacenMMMPP.setLupuloTettnanger(AlmacenMMMPP.getLupuloTettnanger-40);
+	AlmacenMMPP.setLupuloTettnanger(AlmacenMMPP.getLupuloTettnanger()-40);
 	//Falta la levadura
 	}	
 		
-}
 }
