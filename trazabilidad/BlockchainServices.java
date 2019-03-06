@@ -6,6 +6,7 @@ import trazabilidad.model.*;
 import trazabilidad.objetosTemporales.BBDDTemporal;
 import trazabilidad.objetosTemporales.Traspaso;
 
+
 //Esta es la clase a la que van a llamar el resto de grupos para hacer sus
 //gestiones con respecto a añadir cosas al blockchain
 public class BlockchainServices{
