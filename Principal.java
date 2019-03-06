@@ -1,8 +1,8 @@
-//package iSoftware;
+package iSoftware;
 import java.util.Scanner;
 public class Principal {
 	
-	private int contadorLote; //se debe actualizar para crear cada lote
+	private static int contadorLote; //se debe actualizar para crear cada lote
 	
 	/*public Lote generarPedido(String tipo){
 		if (tipo.equals("Stout")) {
@@ -16,13 +16,27 @@ public class Principal {
 		} else return null;
 		
 	}*/
-
+	
+	public static void setid(int id) { 
+		contadorLote = id;
+	}
+	public static int getid() {
+		return contadorLote;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner sca = new Scanner(System.in);
-		System.out.println("Inserte el pedido sobre el que desea consultar: ");
-		String lote = sca.nextLine();
-		int id = Integer.parseInt(lote);
+		try {
+
+			Scanner sca = new Scanner(System.in);
+			System.out.println("Inserte el pedido sobre el que desea consultar: ");
+			String lote = sca.nextLine();
+			int id = Integer.parseInt(lote);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 
