@@ -46,5 +46,6 @@ public class OrdenTrazabilidad implements Serializable{
 	public enum EstadoProceso{
 		EN_PROCESO, LISTO_PARA_ENTREGAR, EN_PROCESO_DE_ENTREGA, ENTREGADO
 	}
+	
 }
 
