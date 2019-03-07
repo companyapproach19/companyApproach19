@@ -28,17 +28,17 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username">
+						<input type="text" class="form-control" id="username">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input type="password" class="form-control" id="password">
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<input type="button" onclick="login()" value="Login" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
@@ -46,5 +46,30 @@
 		</div>
 	</div>
 </div>
+<script>
+
+  // TODO:  Llamar a la función correspondiente en la base de datos para obtener el json del actor que se ha loggeado
+  
+  // TODO: En lo que devuelva la función, si el login es correcto, mostrar la pantalla principal. Si no, mostrar la pantalla de error.
+
+  function login() {
+      if (document.getElementById("username").value == "username"
+	  && document.getElementById("password").value == "password") { //cambiar "username" por Actor.username del json igual con password
+	  vistaPrincipal()
+      }
+      else {
+	  vistaError()
+      }
+  }
+  
+  function vistaPrincipal() {
+      window.location.replace("vistaPrincipal.html");
+  }
+  // else
+  function vistaError() {
+      window.location.replace("vistaError.html");
+  }
+</script>
+
 </body>
 </html>
