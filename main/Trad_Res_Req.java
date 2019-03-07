@@ -19,7 +19,11 @@ import com.sun.net.httpserver.Headers;
 public class Trad_Res_Req {
 
 
-
+	/*
+	 Aqui estan todos los argumentos que resulten necesario para
+	 pasar inforcion entre grupos,(si fuese necesario), y para almacenar
+	 las correspondientes traducciones. 
+	 */
 	public Headers headers_req;
 	public JsonObject cookies;
 	public JsonObject params;
