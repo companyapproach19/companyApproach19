@@ -24,8 +24,7 @@ public class UsuariosService{
     	try {
 			return cad.logeaUsuario(usuarioIntentaLogin);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.err.println("Usuario no encontrado.");
+			System.err.println(e.getMessage());
 			return null;
 		}
     }

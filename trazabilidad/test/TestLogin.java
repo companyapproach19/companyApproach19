@@ -27,9 +27,12 @@ class TestLogin {
 		usrv.init(bd);
 		
 		
-		Actor ac1=new Actor("jorge4","jorge4");
+		Actor acCorrecto=new Actor("jorge","jorge");		
+		Actor resp=usrv.logUsuario(acCorrecto);
+		if(resp!=null)System.out.println(resp.getNombreUsuario());
 		
-		Actor resp=usrv.logUsuario(ac1);
+		Actor acIncorrecto=new Actor("jorge4","jorge4");		
+		resp=usrv.logUsuario(acIncorrecto);
 		if(resp!=null)System.out.println(resp.getNombreUsuario());
 	}
 
