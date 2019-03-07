@@ -1,10 +1,35 @@
-package iSoftware;
+package ISO;
 import java.util.*;
 //se implementa una pila FIFO : first in first out 
 public class AlmacenLotes{
 	public static int maxCapacidad=7;
 	public static LinkedList<Lote> lista  = new LinkedList<Lote>();
-    public AlmacenLotes() {//7 lotes simultáneamente    	
+	public static int id=1;
+    public static int getId() {
+		return id;
+	}
+
+	public static int getMaxCapacidad() {
+		return maxCapacidad;
+	}
+
+	public static void setMaxCapacidad(int maxCapacidad) {
+		AlmacenLotes.maxCapacidad = maxCapacidad;
+	}
+
+	public static LinkedList<Lote> getLista() {
+		return lista;
+	}
+
+	public static void setLista(LinkedList<Lote> lista) {
+		AlmacenLotes.lista = lista;
+	}
+
+	public static void setId(int id) {
+		AlmacenLotes.id = id;
+	}
+
+	public AlmacenLotes() {//7 lotes simultáneamente    	
     }
     
     public static void almacenarLote(Lote name) {
