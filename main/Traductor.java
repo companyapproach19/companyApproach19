@@ -30,7 +30,7 @@ public class Traductor {
 	}
 
 	
-
+	//Aqui se pasan las cookies a un jsonObject si la hubiera.
 	private JsonObject get_cookies_json(List<String> cookies){
 		String value;
 		String key;
@@ -55,7 +55,7 @@ public class Traductor {
 	}
 
 	
-
+	//Aqui se pasan los parametros a un jsonObject si la hubiera.
 	private JsonObject get_params(String url_query,String body_text){
 		String value;
 		String key;
