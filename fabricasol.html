@@ -41,6 +41,11 @@
                 </div>
 
     <form id="formulario" method="post" action="datos.php">
+      <label for="apellidos">Remitente:</label>
+        <select name="OS">
+        <option value="1">Fábrica</option>
+        </select>  
+        <p>
         <label for="nombre">Destino:</label>
         <input type="text" name="nombre" id="nombre" value="" required>
         <p>
@@ -81,14 +86,21 @@
         <p>
         <label for="producto3">Lúpulo centenial</label>
         <input type="checkbox" name="producto1" id="producto3" value="Lúpulo centenial">
-        <input type="number" name="cantidad1" id="cantidad3" value="" min="0" placeholder="Escribe la cantidad">
+        <input type="number" name="cantidad1" id="cantidad3" value="" min="0" placeholder="Escribe la cantidad">        
+        <p>
+        <label for="nombre">Mensaje:</label>
+        <input type="text" name="nombre" id="nombre" value="" placeholder="Escribe un mensaje">
          <div class="input">
         <p>
             <input type="submit" class = "btn btn-secondary" value="Enviar pedido">
             <input type="reset" class = "btn btn-secondary" value="Limpiar formulario">
         </div>
 </form>
-
+  <div>
+          <br>
+          <br>
+            <input type="submit" class = "btn btn-secondary" value="Volver">
+          </div>
 
 
 
