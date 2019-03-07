@@ -210,6 +210,60 @@ video {
     margin-left: 550px;
     margin-top: 50px;
 }
+.boton1 {
+  background-color: #A52A2A;
+  border-color: #8B4513;
+}
+
+.boton1:active, .boton1:focus, .boton1:hover {
+  background-color: #D2691E !important;
+  border-color: #D2691E !important;
+}
+.boton2 {
+  background-color: #A52A2A;
+  border-color: #8B4513;
+}
+
+.boton2:active, .boton2:focus, .boton2:hover {
+  background-color: #D2691E !important;
+  border-color: #D2691E !important;
+}
+.boton3 {
+  background-color: #A52A2A;
+  border-color: #8B4513;
+}
+
+.boton3:active, .boton3:focus, .boton3:hover {
+  background-color: #D2691E !important;
+  border-color: #D2691E !important;
+}
+.boton4 {
+  background-color: #A52A2A;
+  border-color: #8B4513;
+}
+
+.boton4:active, .boton4:focus, .boton4:hover {
+  background-color: #D2691E !important;
+  border-color: #D2691E !important;
+}
+.boton5 {
+  background-color: #A52A2A;
+  border-color: #8B4513;
+}
+
+.boton5:active, .boton5:focus, .boton5:hover {
+  background-color: #D2691E !important;
+  border-color: #D2691E !important;
+}
+.boton6 {
+  background-color: #A52A2A;
+  border-color: #8B4513;
+}
+
+.boton6:active, .boton6:focus, .boton6:hover {
+  background-color: #D2691E !important;
+  border-color: #D2691E !important;
+}
 .volver:active, .volver:focus, .volver:hover {
   background-color: #D2691E !important;
   border-color: #D2691E !important;
