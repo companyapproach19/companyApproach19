@@ -203,6 +203,16 @@ video {
   background-color: #D2691E !important;
   border-color: #D2691E !important;
 }
+.volver {
+  background-color: #A52A2A;
+    border-color: #8B4513;
+    margin-left: 550px;
+    margin-top: 50px;
+}
+.volver:active, .volver:focus, .volver:hover {
+  background-color: #D2691E !important;
+  border-color: #D2691E !important;
+}
 
 .input {
   font-weight: 300 !important;
