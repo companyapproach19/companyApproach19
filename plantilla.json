@@ -1,0 +1,14 @@
+{
+    "id": 20259,
+    "destinatario": "cooperativa",
+    "emisor": "fabrica",
+    "transportista": {
+	"empresa": "Correos",
+	"nombre": "Juan Jose Romagosa",
+	"fecha_recogida": "09-03-2019",
+	"fecha_entrega": "13-03-2019",
+    },
+    "mensaje": "Este pedido contiene material fragil.",
+    "estado": "En proceso",
+    "firmado": false
+}
