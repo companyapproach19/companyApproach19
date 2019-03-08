@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  height: 100%;
+  height: 150%;
   min-height: 35rem;
   position: relative;
   font-family: 'Critter';
@@ -130,6 +130,7 @@ video {
   }
 }
 
+
 .social-icons {
   position: absolute;
   margin-bottom: 2rem;
@@ -197,7 +198,7 @@ video {
 .btn-secondary {
   background-color: #A52A2A;
   border-color: #8B4513;
-  margin-right: 100px;
+  margin-left: 100px;
 
 }
 
@@ -205,12 +206,15 @@ video {
   background-color: #D2691E !important;
   border-color: #D2691E !important;
 }
-
+.progress {
+  margin-left: 200px;
+    margin-top: 50px;
+}
 .volver {
   background-color: #A52A2A;
     border-color: #8B4513;
     margin-left: 550px;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 .boton1 {
   background-color: #A52A2A;
