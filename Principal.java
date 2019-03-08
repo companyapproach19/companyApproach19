@@ -7,9 +7,9 @@ public class Principal {
 	private static java.util.Date fechaActual = new java.util.Date();
 
 	@SuppressWarnings("deprecation")
-	private static int moler(Lote lote) throws InterruptedException {
+	public static int moler(Lote lote) throws InterruptedException {
 		//java.util.Date fechaActual = new java.util.Date();
-		lote.setFecha_inicio(fechaActual);
+		//lote.setFecha_inicio(fechaActual);
 		System.out.println("Día: " + fechaActual.getDate());
 		System.out.println("Moliendo...");
 		Thread.sleep(3000);
@@ -19,7 +19,7 @@ public class Principal {
 	}
 	
 	@SuppressWarnings("deprecation")
-	private static int cocinar(Lote lote) throws InterruptedException {
+	public static int cocinar(Lote lote) throws InterruptedException {
 		System.out.println("Día: "+fechaActual.getDate());
 		System.out.println("Cociendo...");
 		Thread.sleep(3000);
@@ -34,8 +34,9 @@ public class Principal {
 		String answ = sc.nextLine();
 		switch(answ.toLowerCase()) {
 		case "s":
-			if(AlmacenLotes.getLista().size()==AlmacenLotes.getMaxCapacidad()) {
-				System.err.println("Alerta: El almacen de lotes esta completo. Recuerde que no podra almacenar el lote que va a producir si no vacia el almacen");
+			if(AlmacenLotes.getOcupado()==AlmacenLotes.getMaxCapacidad()) {
+				System.err.println("Alerta: El almacen de lotes esta completo. Recuerde que no podra almacenar el lote "+
+			"que va a producir si no vacia el almacen");
 			}
 			else {
 				Pilsner a; Stout b;
@@ -45,7 +46,8 @@ public class Principal {
 				switch(pilsner.toLowerCase()) {
 				case "s":
 					a = new Pilsner();
-					lote = new Lote(a);
+					lote = new Lote(a, fechaActual);
+					AlmacenLotes.almacenarLote(lote);
 					//System.out.println("Se está empezando a moler su lote de cerveza Pilsner.");
 					break;
 				case "n":
@@ -54,7 +56,7 @@ public class Principal {
 					switch(stout.toLowerCase()) {
 					case "s":
 						b = new Stout();
-						lote = new Lote(b);
+						lote = new Lote(b, fechaActual);
 						//System.out.println("Se está empezando a moler su lote de cerveza Stout.");
 					case "n":
 						break;
@@ -95,12 +97,18 @@ public class Principal {
 			System.out.println("Inserte el lote sobre el que desea consultar: ");
 			String lote = sca.nextLine();
 			int id = Integer.parseInt(lote);
-			if (id > AlmacenLotes.id) System.err.println("Lote introducido incorrecto.");
+			if (id > AlmacenLotes.id) {
+				System.err.println("Lote introducido incorrecto.");
+				break;
+			} else {
+				
+			}
 			break;
 		default:
 			System.err.println("Por favor, introduzca una 's' o una 'n'.");
 			break;
 		}
+		sc.close();
 		
 
 	}
