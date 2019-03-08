@@ -1,4 +1,4 @@
-package ISO;
+package iSoftware;
 
 public class Stout {
 	public static double maltaCaramelo;
@@ -13,33 +13,27 @@ public class Stout {
 	// Las levaduras no tienen cantidad, es un error???????????????????????????
 	public static boolean levaduraAle;
 	public static int id;
-	public static boolean molido;
-	public static boolean cocinado;
-	public static boolean fermentacion1;
-	public static boolean fermentacion2;
-	public static boolean embotellado;
-
 
 	public Stout() {
-		id = AlmacenLotes.getId();
-		AlmacenLotes.setId(AlmacenLotes.getId() + 1);
-		agua = 24;
-		maltaBasePalida = 5500;
-		AlmacenMMPP.setMaltaBasePalida(AlmacenMMPP.getMaltaBasePalida() - 5500);
-		maltaMunich = 1300;
-		AlmacenMMPP.setMaltaMunich(AlmacenMMPP.getMaltaMunich() - 1300);
-		cebadaTostada = 450;
-		AlmacenMMPP.setCebadaTostada(AlmacenMMPP.getCebadaTostada() - 450);
-		maltaNegra = 225;
-		AlmacenMMPP.setMaltaNegra(AlmacenMMPP.getMaltaNegra() - 225);
-		maltaCrystal = 140;
-		AlmacenMMPP.setMaltaCrystal(AlmacenMMPP.getMaltaCrystal() - 140);
-		maltaChocolate = 120;
-		AlmacenMMPP.setMaltaChocolate(AlmacenMMPP.getMaltaChocolate() - 120);
-		maltaCaramelo = 90;
-		AlmacenMMPP.setMaltaCaramelo(AlmacenMMPP.getMaltaCaramelo() - 90);
-		lupuloCentennial = 70;
-		AlmacenMMPP.setLupuloCentennial(AlmacenMMPP.getLupuloCentennial() - 70);
+		//id = AlmacenMMPP.getId();
+		//AlmacenMMPP.setId(AlmacenMMPP.getId() + 1);
+		agua = 11428571.4286;
+		maltaBasePalida = 2619047619.05;
+		AlmacenMMPP.setMaltaBasePalida(AlmacenMMPP.getMaltaBasePalida() - 2619047619.05);
+		maltaMunich = 619047619.048;
+		AlmacenMMPP.setMaltaMunich(AlmacenMMPP.getMaltaMunich() - 619047619.048);
+		cebadaTostada = 214285714.286;
+		AlmacenMMPP.setCebadaTostada(AlmacenMMPP.getCebadaTostada() - 214285714.286);
+		maltaNegra = 107142857.143;
+		AlmacenMMPP.setMaltaNegra(AlmacenMMPP.getMaltaNegra() - 107142857.143);
+		maltaCrystal = 66666666.6667;
+		AlmacenMMPP.setMaltaCrystal(AlmacenMMPP.getMaltaCrystal() - 66666666.6667);
+		maltaChocolate = 57142857.1429;
+		AlmacenMMPP.setMaltaChocolate(AlmacenMMPP.getMaltaChocolate() - 57142857.1429);
+		maltaCaramelo = 42857142.8571;
+		AlmacenMMPP.setMaltaCaramelo(AlmacenMMPP.getMaltaCaramelo() - 42857142.8571);
+		lupuloCentennial = 33333333.3333;
+		AlmacenMMPP.setLupuloCentennial(AlmacenMMPP.getLupuloCentennial() - 33333333.3333);
 		// Falta la levadura
 	}
 
