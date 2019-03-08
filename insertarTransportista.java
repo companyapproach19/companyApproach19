@@ -5,7 +5,7 @@
    * @throws ClassNotFoundException
    */
     private void insertarTransportista (Transportista transportista) throws SQLException, ClassNotFoundException{
-    	conectar();
+    	    conectar();
 	    String query = "INSERT INTO company.transportista (empresa, CIF) VALUES (?, ?);"; 
 	    PreparedStatement pst = conn.prepareStatement(query);
 	    pst.setString(1, transportista.getEmpresa());
