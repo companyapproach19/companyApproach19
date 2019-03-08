@@ -74,4 +74,44 @@
 
 </body>
 
+<script>
+//Recibe el Json
+var json = {
+    "id": 20259,
+    "destinatario": "cooperativa",
+    "emisor": "fabrica",
+    "transportista": {
+  "empresa": "Correos",
+  "nombre": "Juan Jose Romagosa",
+  "fecha_recogida": "09-03-2019",
+  "fecha_entrega": "13-03-2019",
+    },
+    "productos": [
+  { "nombre": "malta", "cantidad": 30 },
+  { "nombre": "cebada", "cantidad": 20 }
+    ],
+    "mensaje": "Este pedido contiene material fragil.",
+    "estado": "En proceso",
+    "firmado": false
+};
+
+//Aquí asigna a las distintas variables los valores que recibe del jspm
+var obj = JSON.parse(json);
+var destinatario = obj.emisor;
+var id = obj.id;
+var productos = obj.productos;
+//TODO: Bucle que Array
+var nomProducto1 = productos[0].nombre;
+var canProducto1 = productos[1].cantidad;
+
+//TODO: sacar por pantalla las variables anteriores
+
+//Todo
+  function toJson(){
+
+  }
+
+
+</script>
+
 </html>
