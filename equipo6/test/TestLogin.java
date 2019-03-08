@@ -1,18 +1,25 @@
-package trazabilidad.test;
+package equipo6.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.net.HttpURLConnection;
+
 import org.junit.jupiter.api.Test;
 
-import trazabilidad.UsuariosService;
-import trazabilidad.model.Actor;
-import trazabilidad.model.CadenaActores;
-import trazabilidad.objetosTemporales.BBDDTemporal;
+import equipo6.otros.UsuariosService;
+import equipo6.model.Actor;
+import equipo6.model.CadenaActores;
+import equipo6.objetosTemporales.BBDDTemporal;
 
 class TestLogin {
 
 	@Test
 	void test() {
+		testInterno();
+		testServicioWeb();
+	}
+	
+	void testInterno() {
 		BBDDTemporal bd = new BBDDTemporal();
 		CadenaActores cad = new CadenaActores();
 		Actor ac=new Actor("jorge","jorge");
@@ -34,6 +41,14 @@ class TestLogin {
 		Actor acIncorrecto=new Actor("jorge4","jorge4");		
 		resp=usrv.logUsuario(acIncorrecto);
 		if(resp!=null)System.out.println(resp.getNombreUsuario());
+	}
+	
+	void testServicioWeb() {
+//		URL url = new URL("http://example.com");
+//		HttpURLConnection con = (HttpURLConnection) url.openConnection();
+//		con.setRequestMethod("GET");
+//		
+//		con.getOutputStream()
 	}
 
 }

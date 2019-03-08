@@ -1,10 +1,9 @@
-package trazabilidad;
+package equipo6.otros;
 
 import java.util.List;
 
-import trazabilidad.model.*;
-import trazabilidad.objetosTemporales.BBDDTemporal;
-import trazabilidad.objetosTemporales.Traspaso;
+import equipo6.objetosTemporales.*;
+import equipo6.model.*;
 
 
 //Esta es la clase a la que van a llamar el resto de grupos para hacer sus

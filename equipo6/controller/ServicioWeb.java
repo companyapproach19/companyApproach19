@@ -1,4 +1,4 @@
-package trazabilidad;
+package equipo6.controller;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -8,15 +8,20 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
-import main.Traductor;
-import trazabilidad.model.Actor;
-import trazabilidad.model.CadenaActores;
-import trazabilidad.objetosTemporales.BBDDTemporal;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+import equipo6.model.*;
+import equipo6.objetosTemporales.*;
+import equipo6.otros.*;
 
 public class ServicioWeb {
 	public static void main(String[] args)throws Exception {
-
-
 		//Este codigo solo es necesario para crear un objeto servidor
 		//que en este caso escucharia en el puerto 80 (http)
 		HttpServer server = HttpServer.create(new InetSocketAddress(80), 0);
@@ -26,10 +31,9 @@ public class ServicioWeb {
 		server.setExecutor(null);
 
 		server.start();
-
-
-
 	}
+	
+	
 	
 	
 	static class LoginHandler implements HttpHandler {
@@ -40,6 +44,16 @@ public class ServicioWeb {
 	    	String[] params = requestBody.split(";");
 	    	if(params.length!=2) {
 	    		//Devolver error de peticion
+	    		
+	    		//Escribimos respuesta
+				byte[] response = "{\"error\":\"true\",\"mensaje\":\"Peticion incorrecta\"}".getBytes();
+				t.sendResponseHeaders(400, response.length);
+				OutputStream os = t.getResponseBody();
+				os.write(response);
+				os.close();
+				
+				t.close();
+	    		
 	    	}else {
 	    		String usuario = params[0];
 	    		String contra = params[1];

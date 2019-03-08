@@ -1,12 +1,9 @@
-package trazabilidad.objetosTemporales;
+package equipo6.objetosTemporales;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import trazabilidad.model.Actor;
-import trazabilidad.model.Bloque;
-import trazabilidad.model.Cadena;
-import trazabilidad.model.CadenaActores;
+import equipo6.model.*;
 
 public class BBDDTemporal{
 	Map<String, Bloque> mapaBloques = new HashMap<String, Bloque>();

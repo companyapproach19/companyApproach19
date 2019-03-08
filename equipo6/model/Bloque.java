@@ -1,4 +1,4 @@
-package trazabilidad.model;
+package equipo6.model;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

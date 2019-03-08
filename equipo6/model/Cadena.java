@@ -1,9 +1,9 @@
-package trazabilidad.model;
+package equipo6.model;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import trazabilidad.objetosTemporales.BBDDTemporal;
+import equipo6.objetosTemporales.*;
 
 public class Cadena{
     private String hashUltimoBloque;

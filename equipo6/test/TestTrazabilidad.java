@@ -1,12 +1,12 @@
-package trazabilidad.test;
+package equipo6.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import trazabilidad.BlockchainServices;
-import trazabilidad.objetosTemporales.BBDDTemporal;
-import trazabilidad.objetosTemporales.Traspaso;
+import equipo6.otros.BlockchainServices;
+import equipo6.objetosTemporales.BBDDTemporal;
+import equipo6.objetosTemporales.Traspaso;
 
 class TestTrazabilidad {
 
