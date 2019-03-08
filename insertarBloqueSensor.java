@@ -4,7 +4,7 @@
 	 * @throws ClassNotFoundException
 	 */
 	private void insertarBloqueSensor (Bloque sensor) throws SQLException, ClassNotFoundException {
-		conectar();
+	    conectar();
 	    String query = "INSERT INTO company.bloqueSensor (hashPrevio, tipoBloque, numBloque, codLote, datos) VALUES (?, ?, ?, ?, ?);"; 
 	    PreparedStatement pst = conn.prepareStatement(query);
 	    pst.setString(1, sensor.getHashPrevio());
