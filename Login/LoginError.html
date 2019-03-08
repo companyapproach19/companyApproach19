@@ -41,6 +41,7 @@
 						<input type="button" onclick="login()" value="Login" class="btn float-right login_btn">
 					</div>
 				</form>
+				<p class="error" id="mensajeError"><strong>Usuario o contraseña incorrectos</strong></p>
 			</div>
 			
 		</div>
@@ -57,14 +58,15 @@
       //Comprobamos que el usuario del json que nos devuelven coincide con el que nos han escrito
       if (document.getElementById("username").value == "username" ){ //cambiar "username" por Actor.username del JSON
 	      // && JSON.Actor.username != "error") { 
-	  vistaPrincipal()
+	  vistaPrincipal();
       }
       else {
-	  vistaError()
+	  vistaError();
       }
   }
   
   function vistaPrincipal() {
+      window.location.replace("vistaPrincipal.html");
       //switch(JSON.Actor.tipo) { case "Agricultor": window.location.replace("..") etc }
       window.location.replace("vistaPrincipal.html"); 
   }
@@ -75,4 +77,3 @@
 
 </body>
 </html>
-
