@@ -26,8 +26,12 @@ public class OrdenTrazabilidad implements Serializable{
 		private Actor destinatario;
 		//Estado del pedido
 		private EstadoOrden estado;
-		//Si el transportista firma
-		private boolean firmado;
+		
+		//El transportista firma en dos ocasiones del pedido:
+		//en la recogida del pedido (llegada al origen)
+		private boolean firmadoRecogida;
+		//en la entrega del pedido (llegada al destino)
+		private boolean firmadoEntrega;
 		
 		//TRANSPORTISTA
 		private Actor transportista;
@@ -37,18 +41,24 @@ public class OrdenTrazabilidad implements Serializable{
 		private Date fechaEntrega;
 		//TODO:El formato de la lista
 		//Dependera de la descodificacion de los json
-		private LinkedList productos ;
+		private String[] productos ;
+		//TODO: int o float
+		private int[] cantidad ;
 		
 		
-		public OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor, LinkedList productos) {
+		public OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor, 
+				String[] productos, int[] cantidad) {
 			this.id = identificador;
 			this.mensaje=mensaje;
 			this.actorOrigen=emisor;
 			this.destinatario=receptor;
 			this.estado=null;
-			this.firmado=false;
+			this.firmadoRecogida=false;
+			this.firmadoEntrega=false;
 			this.transportista=Actor.TRANSPORTISTA;
+			this.cantidad=cantidad;
 			this.productos=productos;
+			
 		}
 		
 		public void setEstadoProceso(EstadoOrden nuevo) {
@@ -79,8 +89,11 @@ public class OrdenTrazabilidad implements Serializable{
 			return estado;
 		}
 
-		public boolean isFirmado() {
-			return firmado;
+		public boolean isFirmadoRecogida() {
+			return firmadoRecogida;
+		}
+		public boolean isFirmadoEntrega() {
+			return firmadoEntrega;
 		}
 
 		public Actor getTransportista() {
