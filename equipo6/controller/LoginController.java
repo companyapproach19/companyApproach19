@@ -18,7 +18,7 @@ public class LoginController {
 	@Scope("request")
 	@ResponseBody
 	@RequestMapping("/loginUser")
-	public String loginUser(
+	public Actor loginUser(
 			@RequestParam(name="usuario", required=true) String usuario,
 			@RequestParam(name="pwd", required=true) String pwd,
 			Model model) {
@@ -31,7 +31,7 @@ public class LoginController {
 		Actor actorRespuesta = usrv.logUsuario(usuarioLogin);		
 		
 		//Devuelve el actor logeado como JSON
-		return getJSONFromActor(actorRespuesta);
+		return actorRespuesta;
 	}
 	
 	
