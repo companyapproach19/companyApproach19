@@ -102,7 +102,7 @@ public class OrdenTrazabilidad implements Serializable{
 		}
 
 		public enum Actor{
-		    PRODUCTOR, COOPERATIVA, FABRICA, RETAILER, TIENDA, TRANSPORTISTA
+		    PRODUCTOR, COOPERATIVA, FABRICA, RETAILER, TIENDA
 		}
 		
 		public enum EstadoOrden{
