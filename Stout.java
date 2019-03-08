@@ -30,11 +30,11 @@ public class Stout {
 		AlmacenMMPP.setMaltaNegra(AlmacenMMPP.getMaltaNegra() - 107142857.14285714285714285714286);
 		maltaCrystal = 66666666.666666666666666666666667;
 		AlmacenMMPP.setMaltaCrystal(AlmacenMMPP.getMaltaCrystal() - 66666666.666666666666666666666667);
-		maltaChocolate = 120; //120
+		maltaChocolate = 57142857.142857142857142857142857; //120
 		AlmacenMMPP.setMaltaChocolate(AlmacenMMPP.getMaltaChocolate() - 57142857.142857142857142857142857);
-		maltaCaramelo = 90; // 90
+		maltaCaramelo = 42857142.857142857142857142857143; // 90
 		AlmacenMMPP.setMaltaCaramelo(AlmacenMMPP.getMaltaCaramelo() - 42857142.857142857142857142857143);
-		lupuloCentennial = 70; // 70
+		lupuloCentennial = 33333333.333333333333333333333333; // 70
 		AlmacenMMPP.setLupuloCentennial(AlmacenMMPP.getLupuloCentennial() - 33333333.333333333333333333333333);
 		// Falta la levadura
 		//método setLevadura
