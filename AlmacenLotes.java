@@ -1,10 +1,11 @@
-package ISO;
+package iSoftware;
 import java.util.*;
 //se implementa una pila FIFO : first in first out 
 public class AlmacenLotes{
-	public static int maxCapacidad=7;
+	public static final int maxCapacidad=7;
 	public static LinkedList<Lote> lista  = new LinkedList<Lote>();
 	public static int id=1;
+	
     public static int getId() {
 		return id;
 	}
@@ -13,9 +14,9 @@ public class AlmacenLotes{
 		return maxCapacidad;
 	}
 
-	public static void setMaxCapacidad(int maxCapacidad) {
+	/*public static void setMaxCapacidad(int maxCapacidad) {
 		AlmacenLotes.maxCapacidad = maxCapacidad;
-	}
+	}*/
 
 	public static LinkedList<Lote> getLista() {
 		return lista;
@@ -29,28 +30,32 @@ public class AlmacenLotes{
 		AlmacenLotes.id = id;
 	}
 
-	public AlmacenLotes() {//7 lotes simultáneamente    	
+	public AlmacenLotes() {//7 lotes simultï¿½neamente   
+		for (int i=0; i<maxCapacidad; i++) {
+			lista.add(new Lote(new Stout())); //
+			
+		}
     }
     
     public static void almacenarLote(Lote name) {
     	if (lista.size()<=6) {
-    	lista.addFirst(name);
+    		lista.addFirst(name);
     	}
     	else {
-    		System.err.println("error de capacidad en AlmacenLotes: no caben más lotes.");
+    		System.err.println("error de capacidad en AlmacenLotes: no caben mÃ¡s lotes.");
     	}
    
 }
     public static Lote sacarLote() {
-    	//devuelve el lote  almacenado hace más tiempo -- pila FIFO
+    	//devuelve el lote  almacenado hace mï¿½s tiempo -- pila FIFO
     	
-    	if( lista.size() !=0 ) { 
-    		return lista.getLast();
+    		if( lista.size() !=0 ) { 
+    			return lista.getLast();
     		}
-    	else {
-    		System.err.println("No se puede sacar un lote, el almacén de lotes está vacío o contiene un número de lotes que"
-    				+ "excede la capacidad del almacén.");
-    		return null;
-    	}
+    		else {
+    			System.err.println("No se puede sacar un lote, el almacÃ©n de lotes estÃ¡ vacÃ­o o contiene un nÃºmero de lotes que"
+    				+ " excede la capacidad del almacÃ©n.");
+    			return null;
+    		}
 	}
 }
