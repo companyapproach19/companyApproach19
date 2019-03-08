@@ -1,4 +1,4 @@
-package ISO;
+package iSoftware;
 
 public class Stout {
 	public static double maltaCaramelo;
@@ -14,28 +14,48 @@ public class Stout {
 	public static boolean levaduraAle;
 	public static int id;
 
+
 	public Stout() {
-		id = AlmacenMMPP.getId();
-		AlmacenMMPP.setId(AlmacenMMPP.getId() + 1);
-		agua = 24;
-		maltaBasePalida = 5500;
-		AlmacenMMPP.setMaltaBasePalida(AlmacenMMPP.getMaltaBasePalida() - 5500);
-		maltaMunich = 1300;
-		AlmacenMMPP.setMaltaMunich(AlmacenMMPP.getMaltaMunich() - 1300);
-		cebadaTostada = 450;
-		AlmacenMMPP.setCebadaTostada(AlmacenMMPP.getCebadaTostada() - 450);
-		maltaNegra = 225;
-		AlmacenMMPP.setMaltaNegra(AlmacenMMPP.getMaltaNegra() - 225);
-		maltaCrystal = 140;
-		AlmacenMMPP.setMaltaCrystal(AlmacenMMPP.getMaltaCrystal() - 140);
-		maltaChocolate = 120;
-		AlmacenMMPP.setMaltaChocolate(AlmacenMMPP.getMaltaChocolate() - 120);
-		maltaCaramelo = 90;
-		AlmacenMMPP.setMaltaCaramelo(AlmacenMMPP.getMaltaCaramelo() - 90);
-		lupuloCentennial = 70;
-		AlmacenMMPP.setLupuloCentennial(AlmacenMMPP.getLupuloCentennial() - 70);
+		id = Principal.getid();
+		id++;
+		Principal.setid(id);
+		agua = 11428571.428571428571428571428571; //litros por cada 10.000.000 litros cerveza
+		maltaBasePalida = 2619047619.0476190476190476190476; //gramos por cada ...
+		AlmacenMMPP.setMaltaBasePalida(AlmacenMMPP.getMaltaBasePalida() - 2619047619.0476190476190476190476);
+		maltaMunich = 619047619.04761904761904761904762;
+		AlmacenMMPP.setMaltaMunich(AlmacenMMPP.getMaltaMunich() - 619047619.04761904761904761904762);
+		cebadaTostada = 214285714.28571428571428571428571;
+		AlmacenMMPP.setCebadaTostada(AlmacenMMPP.getCebadaTostada() - 214285714.28571428571428571428571);
+		maltaNegra = 107142857.14285714285714285714286;
+		AlmacenMMPP.setMaltaNegra(AlmacenMMPP.getMaltaNegra() - 107142857.14285714285714285714286);
+		maltaCrystal = 66666666.666666666666666666666667;
+		AlmacenMMPP.setMaltaCrystal(AlmacenMMPP.getMaltaCrystal() - 66666666.666666666666666666666667);
+		maltaChocolate = 120; //120
+		AlmacenMMPP.setMaltaChocolate(AlmacenMMPP.getMaltaChocolate() - 57142857.142857142857142857142857);
+		maltaCaramelo = 90; // 90
+		AlmacenMMPP.setMaltaCaramelo(AlmacenMMPP.getMaltaCaramelo() - 42857142.857142857142857142857143);
+		lupuloCentennial = 70; // 70
+		AlmacenMMPP.setLupuloCentennial(AlmacenMMPP.getLupuloCentennial() - 33333333.333333333333333333333333);
 		// Falta la levadura
+		//método setLevadura
+
 	}
+	
+	/*public static boolean setLevadura () {
+		return levaduraAle = true;
+	}
+	public static boolean hayLevadura (boolean lleva) {
+		if (lleva == true){
+		return true;
+		}
+		else{
+		return false
+		}
+	}
+	Si las levaduras no tienen cantidades se me ocurren éstos dos metodos bool para saber si el lote lleva o no 
+	levaduraAle
+	*/
+
 
 	public static double getMaltaCaramelo() {
 		return maltaCaramelo;
