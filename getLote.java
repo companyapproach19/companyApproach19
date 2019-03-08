@@ -5,7 +5,7 @@
     	ResultSet rs = pst.executeQuery(query);
     	Lote buscado = new Lote(rs.getInt(1), rs.getString(2));
     	pst.close();
-		rs.close();
+	rs.close();
     	conn.close();
     	return buscado;
     }
