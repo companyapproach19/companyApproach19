@@ -47,7 +47,7 @@ public class Stout {
 	}
 
 	public static void setMaltaCaramelo(double maltaCaramelo) {
-		maltaCaramelo = maltaCaramelo;
+		Stout.maltaCaramelo = maltaCaramelo;
 	}
 
 	public static double getMaltaBasePalida() {
@@ -55,7 +55,7 @@ public class Stout {
 	}
 
 	public static void setMaltaBasePalida(double maltaBasePalida) {
-		maltaBasePalida = maltaBasePalida;
+		Stout.maltaBasePalida = maltaBasePalida;
 	}
 
 	public static double getMaltaMunich() {
@@ -63,7 +63,7 @@ public class Stout {
 	}
 
 	public static void setMaltaMunich(double maltaMunich) {
-		maltaMunich = maltaMunich;
+		Stout.maltaMunich = maltaMunich;
 	}
 
 	public static double getMaltaNegra() {
@@ -71,7 +71,7 @@ public class Stout {
 	}
 
 	public static void setMaltaNegra(double maltaNegra) {
-		maltaNegra = maltaNegra;
+		Stout.maltaNegra = maltaNegra;
 	}
 
 	public static double getMaltaCrystal() {
@@ -79,7 +79,7 @@ public class Stout {
 	}
 
 	public static void setMaltaCrystal(double maltaCrystal) {
-		maltaCrystal = maltaCrystal;
+		Stout.maltaCrystal = maltaCrystal;
 	}
 
 	public static double getAgua() {
@@ -87,7 +87,7 @@ public class Stout {
 	}
 
 	public static void setAgua(double agua) {
-		agua = agua;
+		Stout.agua = agua;
 	}
 
 	public static double getMaltaChocolate() {
@@ -95,7 +95,7 @@ public class Stout {
 	}
 
 	public static void setMaltaChocolate(double maltaChocolate) {
-		maltaChocolate = maltaChocolate;
+		Stout.maltaChocolate = maltaChocolate;
 	}
 
 	public static double getCebadaTostada() {
@@ -103,7 +103,7 @@ public class Stout {
 	}
 
 	public static void setCebadaTostada(double cebadaTostada) {
-		cebadaTostada = cebadaTostada;
+		Stout.cebadaTostada = cebadaTostada;
 	}
 
 	public static double getLupuloCentennial() {
@@ -111,7 +111,7 @@ public class Stout {
 	}
 
 	public static void setLupuloCentennial(double lupuloCentennial) {
-		lupuloCentennial = lupuloCentennial;
+		Stout.lupuloCentennial = lupuloCentennial;
 	}
 
 	public static boolean isLevaduraAle() {
@@ -119,7 +119,7 @@ public class Stout {
 	}
 
 	public static void setLevaduraAle(boolean levaduraAle) {
-		levaduraAle = levaduraAle;
+		Stout.levaduraAle = levaduraAle;
 	}
 
 	public static int getId() {
