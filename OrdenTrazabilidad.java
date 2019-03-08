@@ -112,8 +112,12 @@ public class OrdenTrazabilidad implements Serializable{
 			return fechaEntrega;
 		}
 		
-		public LinkedList getProductos() {
+		public String[] getProductos() {
 			return productos;
+		}
+		
+		public int[] getCantidades() {
+			return cantidad;
 		}
 
 		public enum Actor{
