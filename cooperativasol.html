@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ v<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,46 +47,46 @@
         </select>  
         <p>
         <label for="nombre">Destino:</label>
-        <input type="text" name="nombre" id="nombre" value="" required>
+        <input type="text" name="destino" id="destino" value="" required>
         <p>
         <label for="apellidos">Identificador:</label>
-        <input type="text" name="apellidos" id="apellidos" value="" required>
+        <input type="text" name="id" id="id" value="" required>
         <p>
         <label for="producto1">Malta de base pálida</label>
         <input type="checkbox" name="producto1" id="producto1" value="Malta de base pálida">
         <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
         <p>
           <label for="producto1">Malta Munich</label>
-        <input type="checkbox" name="producto1" id="producto1" value="Malta Munich">
-        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <input type="checkbox" name="producto1" id="producto2" value="Malta Munich">
+        <input type="number" name="cantidad1" id="cantidad2" value="" min="0" placeholder="Escribe la cantidad">
         <p>
           <label for="producto1">Malta negra</label>
-        <input type="checkbox" name="producto1" id="producto1" value="Malta negra">
-        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <input type="checkbox" name="producto1" id="producto3" value="Malta negra">
+        <input type="number" name="cantidad1" id="cantidad3" value="" min="0" placeholder="Escribe la cantidad">
         <p>
           <label for="producto1">Malta crystal</label>
-        <input type="checkbox" name="producto1" id="producto1" value="Malta crystal">
-        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <input type="checkbox" name="producto1" id="producto4" value="Malta crystal">
+        <input type="number" name="cantidad1" id="cantidad4" value="" min="0" placeholder="Escribe la cantidad">
         <p>
           <label for="producto1">Malta chocolate</label>
-        <input type="checkbox" name="producto1" id="producto1" value="Malta chocolate">
-        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <input type="checkbox" name="producto1" id="producto5" value="Malta chocolate">
+        <input type="number" name="cantidad1" id="cantidad5" value="" min="0" placeholder="Escribe la cantidad">
         <p>
           <label for="producto1">Malta caramelo</label>
-        <input type="checkbox" name="producto1" id="producto1" value="Malta">
-        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <input type="checkbox" name="producto1" id="producto6" value="Malta">
+        <input type="number" name="cantidad1" id="cantidad6" value="" min="0" placeholder="Escribe la cantidad">
         <p>
         <label for="producto2">Cebada</label>
-        <input type="checkbox" name="producto2" id="producto2" value="Cebada">
-        <input type="number" name="cantidad2" id="cantidad2" min="0"  placeholder="Escribe la cantidad">     
+        <input type="checkbox" name="producto2" id="producto7" value="Cebada">
+        <input type="number" name="cantidad2" id="cantidad7" min="0"  placeholder="Escribe la cantidad">     
         <p>
            <label for="producto2">Cebada Tostada</label>
-        <input type="checkbox" name="producto2" id="producto2" value="Cebada Tostada">
-        <input type="number" name="cantidad2" id="cantidad2" min="0"  placeholder="Escribe la cantidad">     
+        <input type="checkbox" name="producto2" id="producto8" value="Cebada Tostada">
+        <input type="number" name="cantidad2" id="cantidad8" min="0"  placeholder="Escribe la cantidad">     
         <p>
         <label for="producto3">Lúpulo centenial</label>
-        <input type="checkbox" name="producto1" id="producto3" value="Lúpulo centenial">
-        <input type="number" name="cantidad1" id="cantidad3" value="" min="0" placeholder="Escribe la cantidad">        
+        <input type="checkbox" name="producto1" id="producto9" value="Lúpulo centenial">
+        <input type="number" name="cantidad1" id="cantidad9" value="" min="0" placeholder="Escribe la cantidad">        
         <p>
         <!--<label for="nombre">Mensaje:</label>
         <input type="text" name="nombre" id="nombre" value="" placeholder="Escribe un mensaje">-->
@@ -113,6 +113,60 @@
   <!-- Custom scripts for this template -->
   <script src="js/coming-soon.min.js"></script>
 
+<script>
+    function login() {
+      
+      //Comprobamos que el usuario del json que nos devuelven coincide con el que nos han escrito
+      if (document.getElementById("username").value == "username" ){ //cambiar "username" por Actor.username del JSON
+        // && JSON.Actor.username != "error") { 
+    vistaPrincipal();
+      }
+      else {
+    vistaError();
+      }
+  }
+  
+  function vistaPrincipal() {
+      window.location.replace("vistaPrincipal.html");
+      //switch(JSON.Actor.tipo) { case "Agricultor": window.location.replace("..") etc }
+      window.location.replace("vistaPrincipal.html"); 
+  }
+  function vistaError() {
+      window.location.replace("LoginError.html");
+  }
+<script>
+  function getParametros() {
+    var destino = document.getElementById("destino").value;
+    var id = document.getElementById("id").value;
+    var cantidad1 = document.getElementById("cantidad1").value;
+    var cantidad2 = document.getElementById("cantidad2").value;
+    var cantidad3 = document.getElementById("cantidad3").value;
+    var cantidad4 = document.getElementById("cantidad4").value;
+    var cantidad5 = document.getElementById("cantidad5").value;
+    var cantidad6 = document.getElementById("cantidad6").value;
+    var cantidad7 = document.getElementById("cantidad7").value;
+    var cantidad8 = document.getElementById("cantidad8").value;
+    var cantidad9 = document.getElementById("cantidad9").value;
+
+    var producto1 = document.getElementById("producto1").value;
+    var producto2 = document.getElementById("producto2").value;
+    var producto3 = document.getElementById("producto3").value;
+    var producto4 = document.getElementById("producto4").value;
+    var producto5 = document.getElementById("producto5").value;
+    var producto6 = document.getElementById("producto6").value;
+    var producto7 = document.getElementById("producto7").value;
+    var producto8 = document.getElementById("producto8").value;
+    var producto9 = document.getElementById("producto9").value;
+  
+    
+
+  }
+
+</script>
+
+</script>>
 </body>
 
 </html>
+
+      
