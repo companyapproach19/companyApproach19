@@ -13,23 +13,47 @@ public class OrdenTrazabilidad implements Serializable{
 	 * TODO:Firma?
 	 * 
 	 * */
-	//Es necesario un identificador por cada pedido
-		private String id;
+	/*
+	- ID (número)
+	- Destinatario: (productor, cooperativa, fábrica, retailer, tienda)
+	- Actor: (productor, cooperativa, fábrica, retailer, tienda)
+	- Transportista:
+	  +Empresa:
+	  +Nombre:
+	  +Fecha de recogida:
+	  +Fecha de entrega:
+	- Mensaje:
+	- Estado:
+	- Firmado (boolean): (editado) 
+	*/
+		//Es necesario un identificador por cada pedido
+		private int id;
 		//No esta seguro que sea necesario el mensaje
 		private String mensaje;
 		//Actor que realiza el pedido
-		private Actor emisor;
+		private Actor actorOrigen;
 		//Actor que recibe la peticion
-		private Actor receptor;
+		private Actor destinatario;
 		//Estado del pedido
 		private EstadoProceso estado;
+		private boolean firmado;
 		
-		public void OrdenTrazabilidad(String identificador,String mensaje, Actor emisor, Actor receptor) {
+		//TRANSPORTISTA
+		private Actor transportista;
+		private String empresa;
+		private String fechaRecogida;
+		private String fechaEntrega;
+		
+		
+		public void OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor) {
 			this.id = identificador;
 			this.mensaje=mensaje;
-			this.emisor=emisor;
-			this.receptor=receptor;
+			this.actorOrigen=emisor;
+			this.destinatario=receptor;
 			this.estado=null;
+			this.firmado=false;
+			this.transportista=Actor.TRANSPORTISTA;
+			
 		}
 		
 		public void actualizarEstado(EstadoProceso nuevo) {
