@@ -1,51 +1,42 @@
 import java.io.Serializable;
+import java.util.Date;
 
 public class OrdenTrazabilidad implements Serializable{
 
 	/*
-	 * Esta es la clase que hay que pasar 
-	 * al grupo de trazabilidad
+	 * Los objetos que hay que pasar al grupo de trazabilidad seran de esta clase
 	 * 
-	 * Estado del proceso
-	 * Emisor
-	 * Destino
-	 * Mensaje
-	 * TODO:Firma?
+	 * Contienen la siguiente informacion:
+	 * Identificador(id) para cada pedido
+	 * Origen del pedido(quien hace la orden): (productor, cooperativa, fábrica, retailer, tienda)
+	 * Destino del pedido(a quien le hacen la peticion): (productor, cooperativa, fábrica, retailer, tienda)
+	 * Datos del transportista solicitado: 
+	 * nombre o identificador del transportista, empresa, fecha de recogida y fecha de entrega, firmado
+	 * Mensaje del pedido
+	 * Estado del pedido (definidos los estados en el ENUM EstadoOrden)
 	 * 
-	 * */
-	/*
-	- ID (número)
-	- Destinatario: (productor, cooperativa, fábrica, retailer, tienda)
-	- Actor: (productor, cooperativa, fábrica, retailer, tienda)
-	- Transportista:
-	  +Empresa:
-	  +Nombre:
-	  +Fecha de recogida:
-	  +Fecha de entrega:
-	- Mensaje:
-	- Estado:
-	- Firmado (boolean): (editado) 
 	*/
 		//Es necesario un identificador por cada pedido
 		private int id;
-		//No esta seguro que sea necesario el mensaje
 		private String mensaje;
 		//Actor que realiza el pedido
 		private Actor actorOrigen;
 		//Actor que recibe la peticion
 		private Actor destinatario;
 		//Estado del pedido
-		private EstadoProceso estado;
+		private EstadoOrden estado;
+		//Si el transportista firma
 		private boolean firmado;
 		
 		//TRANSPORTISTA
 		private Actor transportista;
 		private String empresa;
-		private String fechaRecogida;
-		private String fechaEntrega;
+		//Date(int year, int month, int date)
+		private Date fechaRecogida;
+		private Date fechaEntrega;
 		
 		
-		public void OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor) {
+		public OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor) {
 			this.id = identificador;
 			this.mensaje=mensaje;
 			this.actorOrigen=emisor;
@@ -56,16 +47,61 @@ public class OrdenTrazabilidad implements Serializable{
 			
 		}
 		
-		public void actualizarEstado(EstadoProceso nuevo) {
+		public void setEstadoProceso(EstadoOrden nuevo) {
 			this.estado=nuevo;
 		}
 		
+		public void setFechaEntrega(Date entregado) {
+			this.fechaEntrega=entregado;
+		}
 		
+		public int getId() {
+			return id;
+		}
+
+		public String getMensaje() {
+			return mensaje;
+		}
+
+		public Actor getActorOrigen() {
+			return actorOrigen;
+		}
+
+		public Actor getDestinatario() {
+			return destinatario;
+		}
+
+		public EstadoOrden getEstado() {
+			return estado;
+		}
+
+		public boolean isFirmado() {
+			return firmado;
+		}
+
+		public Actor getTransportista() {
+			return transportista;
+		}
+
+		public String getEmpresa() {
+			return empresa;
+		}
+
+		public Date getFechaRecogida() {
+			return fechaRecogida;
+		}
+
+		public Date getFechaEntrega() {
+			return fechaEntrega;
+		}
+
+
+
 		public enum Actor{
 		    PRODUCTOR, COOPERATIVA, FABRICA, RETAILER, TIENDA, TRANSPORTISTA
 		}
 		
-		public enum EstadoProceso{
+		public enum EstadoOrden{
 			EN_PROCESO, LISTO_PARA_ENTREGAR, EN_PROCESO_DE_ENTREGA, ENTREGADO
 		}
 }
