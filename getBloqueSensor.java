@@ -10,7 +10,7 @@
     	ResultSet rs = pst.executeQuery(query);
     	Bloque buscado = new Bloque(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getObject(5));
     	pst.close();
-		rs.close();
+	rs.close();
     	conn.close();
     	return buscado;
     }
