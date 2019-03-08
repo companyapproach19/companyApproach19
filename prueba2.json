@@ -1,15 +1,15 @@
 {
   "ID": "92839282",
   "Destinatario": "Productor",
-  "Actor": "kjabdiu",
+  "Actor": "hoso",
   "Transportista": [
-  		{
-  			"Empresa": ,
-  			"Nombre" : ,
-  			"Fecha de recogida" : ,
-  			"Fecha de entrega" : ,
-  		}
-  	],
+      {
+        "Empresa": "",
+        "Nombre" : "",
+        "Fecha de recogida" : "",
+        "Fecha de entrega" : ""
+      }
+    ],
   "Mensaje": "Hola",
   "Estado" : "No entregado",
   "Firmado": "No"
