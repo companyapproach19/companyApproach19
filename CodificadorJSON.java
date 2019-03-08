@@ -1,4 +1,4 @@
-public class JSONParser {
+public class CodificadorJSON {
 
 	// HOLA
 	
