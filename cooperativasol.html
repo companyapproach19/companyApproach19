@@ -41,15 +41,15 @@
                 </div>
 
     <form id="formulario" method="post" action="datos.php">
-        <label for="apellidos">Remitente:</label>
+        <label for="remitente">Remitente:</label>
         <select name="OS">
         <option value="1">Cooperativa</option>
         </select>  
         <p>
-        <label for="nombre">Destino:</label>
+        <label for="destino">Destino:</label>
         <input type="text" name="destino" id="destino" value="" required>
         <p>
-        <label for="apellidos">Identificador:</label>
+        <label for="id">Identificador:</label>
         <input type="text" name="id" id="id" value="" required>
         <p>
         <label for="producto1">Malta de base pálida</label>
@@ -117,6 +117,7 @@
   function getParametros() {
     var destino = document.getElementById("destino").value;
     var id = document.getElementById("id").value;
+	
     var cantidad1 = document.getElementById("cantidad1").value;
     var cantidad2 = document.getElementById("cantidad2").value;
     var cantidad3 = document.getElementById("cantidad3").value;
