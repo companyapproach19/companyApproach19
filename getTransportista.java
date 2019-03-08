@@ -4,7 +4,7 @@
       *@return transportista
       */
     private Transportista getTransportista (String CIF) throws SQLException{
-    	String query = "SELECT * FROM company.transportista WHERE transportista.CIF = " + CIF + ";"); 
+    	String query = "SELECT * FROM company.transportista WHERE transportista.CIF = " + CIF + ";"; 
     	PreparedStatement pst = conn.prepareStatement(query);
     	ResultSet rs = pst.executeQuery(query);
     	Transportista buscado = new Transportista(rs.getString(1), rs.getString(2));
