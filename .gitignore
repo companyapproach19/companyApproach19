@@ -4,3 +4,10 @@
 /OrdenTrazabilidad$EstadoProceso.class
 /CodificadorJSON.class
 /Principal.class
+/AgricultoresOrdenes.class
+/CooperativaOrdenes.class
+/DescodificacionJson.class
+/FabricaOrdenes.class
+/Pedido.class
+/RetailerOrdenes.class
+/Transportista.class
