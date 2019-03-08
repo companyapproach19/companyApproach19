@@ -20,19 +20,6 @@ h6 {
   font-weight: 700;
 }
 
-video {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 0;
-}
-
 @media (pointer: coarse) and (hover: none) {
   body {
     background: url("../img/bg-mobile-fallback.jpg") #002E66 no-repeat center center scroll;
@@ -60,22 +47,6 @@ video {
   padding-bottom: 3rem;
   z-index: 2;
 }
-
-/*.masthead .masthead-bg {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  min-height: 35rem;
-  height: 100%;
-  background-color: rgba(0, 46, 102, 0.8);
-  -webkit-transform: skewY(4deg);
-  transform: skewY(4deg);
-  -webkit-transform-origin: bottom right;
-  transform-origin: bottom right;
-}*/
 
 .masthead .masthead-content h1 {
   font-size: 2.5rem;
@@ -169,7 +140,7 @@ video {
     width: auto;
   }
   .social-icons ul {
-    margin-top: 0;
+    margin-top: 258px;
     width: auto;
   }
   .social-icons ul > li {
@@ -197,6 +168,7 @@ video {
 .btn-secondary {
   background-color: #A52A2A;
   border-color: #8B4513;
+  margin-left: 10px;
 }
 
 .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
@@ -206,6 +178,8 @@ video {
 .boton1 {
   background-color: #A52A2A;
   border-color: #8B4513;
+  margin-left: 10px;
+  margin-top: 30px;
 }
 
 .boton1:active, .boton1:focus, .boton1:hover {
@@ -260,8 +234,8 @@ video {
 .volver {
   background-color: #A52A2A;
     border-color: #8B4513;
-    margin-left: 550px;
-    margin-top: 50px;
+    margin-left: 8px;
+    margin-top: 70px;
 }
 .volver:active, .volver:focus, .volver:hover {
   background-color: #D2691E !important;
@@ -269,4 +243,8 @@ video {
 }
 .input {
   font-weight: 300 !important;
+}
+
+.mb-5{
+  margin-left: 10px;
 }
