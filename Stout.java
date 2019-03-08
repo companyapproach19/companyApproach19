@@ -127,7 +127,7 @@ public class Stout {
 	}
 
 	public static void setId(int id) {
-		id = id;
+		Stout.id = id;
 	}
 
 }
