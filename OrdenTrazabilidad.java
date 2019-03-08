@@ -1,5 +1,6 @@
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedList;
 
 public class OrdenTrazabilidad implements Serializable{
 
@@ -34,9 +35,12 @@ public class OrdenTrazabilidad implements Serializable{
 		//Date(int year, int month, int date)
 		private Date fechaRecogida;
 		private Date fechaEntrega;
+		//TODO:El formato de la lista
+		//Dependera de la descodificacion de los json
+		private LinkedList productos ;
 		
 		
-		public OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor) {
+		public OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor, LinkedList productos) {
 			this.id = identificador;
 			this.mensaje=mensaje;
 			this.actorOrigen=emisor;
@@ -44,7 +48,7 @@ public class OrdenTrazabilidad implements Serializable{
 			this.estado=null;
 			this.firmado=false;
 			this.transportista=Actor.TRANSPORTISTA;
-			
+			this.productos=productos;
 		}
 		
 		public void setEstadoProceso(EstadoOrden nuevo) {
@@ -94,8 +98,10 @@ public class OrdenTrazabilidad implements Serializable{
 		public Date getFechaEntrega() {
 			return fechaEntrega;
 		}
-
-
+		
+		public LinkedList getProductos() {
+			return productos;
+		}
 
 		public enum Actor{
 		    PRODUCTOR, COOPERATIVA, FABRICA, RETAILER, TIENDA, TRANSPORTISTA
