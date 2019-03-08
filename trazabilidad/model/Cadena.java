@@ -101,6 +101,7 @@ public class Cadena{
         */
 
         Bloque nuevoBloque = new Bloque(this.hashUltimoBloque,tipoBloque, this.numBloques++, this.codLote, dc);
+        nuevoBloque.setTimeStamp();
         String hashNuevo = nuevoBloque.getHashCode();
         boolean insercionCorrecta = BBDD.guardarBloque(nuevoBloque, hashNuevo);
         if(insercionCorrecta){

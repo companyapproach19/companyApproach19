@@ -3,14 +3,19 @@ package main;
 //package distribuidor;
 
 import java.io.IOException;
-
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.sun.net.httpserver.HttpExchange;
 
 import com.sun.net.httpserver.HttpHandler;
 
 import com.sun.net.httpserver.HttpServer;
+
+import trazabilidad.model.Actor;
 
 
 
@@ -57,7 +62,7 @@ public class Distribuidor {
 
 		traductor = new Traductor();
 
-		server.createContext("/", new Handler_Req());
+		server.createContext("/login", new LoginHandler());
 
 		server.setExecutor(null);
 
@@ -66,24 +71,75 @@ public class Distribuidor {
 
 
 	}
-
-
-
-	static class Handler_Req implements HttpHandler {
-		//esta funcion es a la que se llama de manera automatica
-		//cada vez que llega una peticion al servidor
-		public void handle(HttpExchange t) throws IOException {
-			Trad_Res_Req res;
-
-			try{
-				//aqui se procesa la peticion obtteniendose los correspondientes
-				//jsonObject
-				res = traductor.traducir(t);
-				//Aqui se cierra la conexion.
+	
+	
+	static class LoginHandler implements HttpHandler {
+	    public void handle(HttpExchange t) throws IOException {
+	    	//Leemos la peticion
+	    	byte[] request = t.getRequestBody().readAllBytes();
+	    	String requestBody = new String(request);
+	    	String[] params = requestBody.split(";");
+	    	if(params.length!=2) {
+	    		//Devolver error de peticion
+	    	}else {
+	    		String usuario = params[0];
+	    		String contra = params[1];
+	    		
+	    		Actor usuarioLogin = new Actor(usuario,contra);
+	    		Actor actorRespuesta = UsuariosService.logMe(usuarioLogin);
+	    		//Pedir al UsuarioService que logee
+	    		
+	    		//Escribimos respuesta
+				byte[] response = "Welcome Real's HowTo test page".getBytes();
+				t.sendResponseHeaders(200, response.length);
+				OutputStream os = t.getResponseBody();
+				os.write(response);
+				os.close();
+				
 				t.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
+	    	}
+	    	
+	    	private String getJSONFromActor(Actor actor) {
+	    		
+	    		return null;
+	    	}
+	    	
+	    	
+	    	
+	    	
+	    }
 	}
+
+
+
+//	static class Handler_Req implements HttpHandler {
+//		//esta funcion es a la que se llama de manera automatica
+//		//cada vez que llega una peticion al servidor
+//		public void handle(HttpExchange t) throws IOException {
+//			Trad_Res_Req res;
+//
+//			try{
+//				//aqui se procesa la peticion obtteniendose los correspondientes
+//				//jsonObject
+//				res = traductor.traducir(t);	
+//				
+//				//Respuesta a la peticion
+//				byte [] response = "Welcome Real's HowTo test page".getBytes();
+//			    t.sendResponseHeaders(200, response.length);
+//			    OutputStream os = t.getResponseBody();
+//			    os.write(response);
+//			    os.close();
+//			    
+//			    
+//				//Aqui se cierra la conexion.
+//				t.close();
+//			}catch(Exception e){
+//				e.printStackTrace();
+//			}
+//			
+//			
+//			
+//			
+//		}
+//	}
 }
