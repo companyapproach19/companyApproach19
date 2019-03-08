@@ -1,10 +1,12 @@
 import java.io.Serializable;
+//NECESARIO PARA TRAZABILIDAD:
+//import equipo6.model.DatosContainer.java;
 
-public class OrdenTrazabilidad implements Serializable{
+public class OrdenTrazabilidad //extends DatosContainer
+{
 
 	/*
 	 * Los objetos que hay que pasar al grupo de trazabilidad seran de esta clase
-	 * 
 	 * Contienen la siguiente informacion:
 	 * Identificador(id) para cada pedido
 	 * Origen del pedido(quien hace la orden): (productor, cooperativa, fábrica, retailer, tienda)
