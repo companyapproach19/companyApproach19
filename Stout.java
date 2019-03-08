@@ -13,6 +13,11 @@ public class Stout {
 	// Las levaduras no tienen cantidad, es un error???????????????????????????
 	public static boolean levaduraAle;
 	public static int id;
+	public static boolean molido;
+	public static boolean cocinado;
+	public static boolean fermentacion1;
+	public static boolean fermentacion2;
+	public static boolean embotellado;
 
 	public Stout() {
 		//id = AlmacenMMPP.getId();
