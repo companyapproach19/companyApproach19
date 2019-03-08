@@ -1,5 +1,6 @@
-package ISO;
+package iSoftware;
 public class Pilsner {
+	
 	public static double maltaPilsner;
 	public static double maltaCaramelo;
 	public static double lupuloPerle;
@@ -10,18 +11,18 @@ public class Pilsner {
 	public static int id;
 	
 	public Pilsner() {
-	id=AlmacenMMPP.getId();
-	AlmacenMMPP.setId(AlmacenMMPP.getId()+1);
-	agua=27.5;
-	maltaPilsner = 4000;
-	AlmacenMMPP.setMaltaPilsner(AlmacenMMPP.getMaltaPilsner()-4000);
-	maltaCaramelo = 500;
-	AlmacenMMPP.setMaltaCaramelo(AlmacenMMPP.getMaltaCaramelo()-500);
-	lupuloPerle = 20;
-	AlmacenMMPP.setLupuloPerle(AlmacenMMPP.getLupuloPerle()-20);
-	lupuloTettnanger = 40;
-	AlmacenMMPP.setLupuloTettnanger(AlmacenMMPP.getLupuloTettnanger()-40);
-	//Falta la levadura
+	//id=AlmacenMMPP.getId();
+	//AlmacenMMPP.setId(AlmacenMMPP.getId()+1);
+		agua=11956521.7391;
+		maltaPilsner = 1739130434.78;
+		AlmacenMMPP.setMaltaPilsner(AlmacenMMPP.getMaltaPilsner()-1739130434.78);
+		maltaCaramelo = 217391304.348;
+		AlmacenMMPP.setMaltaCaramelo(AlmacenMMPP.getMaltaCaramelo()-217391304.348);
+		lupuloPerle = 8695652.17391;
+		AlmacenMMPP.setLupuloPerle(AlmacenMMPP.getLupuloPerle()-8695652.17391);
+		lupuloTettnanger = 17391304.3478;
+		AlmacenMMPP.setLupuloTettnanger(AlmacenMMPP.getLupuloTettnanger()-17391304.3478);
+		//Falta la levadura
 	}
 
 	public static double getMaltaPilsner() {
