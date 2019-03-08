@@ -8,6 +8,10 @@
 	"fecha_recogida": "09-03-2019",
 	"fecha_entrega": "13-03-2019",
     },
+    "productos": [
+	{ "nombre": "malta", "cantidad": 30 },
+	{ "nombre": "cebada", "cantidad": 20 }
+    ],
     "mensaje": "Este pedido contiene material fragil.",
     "estado": "En proceso",
     "firmado": false
