@@ -1,43 +1,31 @@
-public class Transportista{
-	Persona Transporte;
-	Persona receptor;
-	Persona emisor;
-	Pedido pedido;
-    public Transportista(Persona emisor,Pedido pedido,Persona transporte,Persona receptor) {
-    	Transporte=transporte;
-    	this.pedido=pedido;
-    }
-    public boolean aceptapedido() {
-		return false;
-    	
-    }
-    public void firma() {
-    	
-    }
-    public 	Persona buscarnuevorepartidor() {
-    	return null;
-    }
-    public void inicia() {
-    	boolean respuesta=aceptapedido();
-    	while(!respuesta) {
-    		//notificamos
-    		Transporte=buscarnuevorepartidor();
-    		respuesta=aceptapedido();
-    	}
-    	listopararecoger();
-    }
-    public void listopararecoger() {
-    	
-    	//notificamos
-    	//comunicacion trazabilidad
-    	//esperamos firma
-    	firma();
-    	entransporte();
-    } 
-    public void entransporte() {
-    	//notificamos
-    	//comunicacion trazabilidad
-    	//esperamos firma
-    	firma(); 
-    } 
+public class Transportista {
+
+	private String nombre;
+	private String empresa;
+	private String fecha_recogida;
+	private String fecha_entrega;
+
+	public Transportista(String nombre, String empresa, String fecha_recogida, String fecha_entrega) {
+		this.nombre = nombre;
+		this.empresa = empresa;
+		this.fecha_recogida = fecha_recogida;
+		this.fecha_entrega = fecha_entrega;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public String getFecha_recogida() {
+		return fecha_recogida;
+	}
+
+	public String getFecha_entrega() {
+		return fecha_entrega;
+	}
+
 }

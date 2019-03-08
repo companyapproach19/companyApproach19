@@ -34,11 +34,7 @@ public class OrdenTrazabilidad implements Serializable{
 		private boolean firmadoEntrega;
 		
 		//TRANSPORTISTA
-		private Actor transportista;
-		private String empresa;
-		//Date(int year, int month, int date)
-		private Date fechaRecogida;
-		private Date fechaEntrega;
+		private Transportista transportista;
 		//TODO:El formato de la lista
 		//Dependera de la descodificacion de los json
 		private String[] productos ;
@@ -46,8 +42,8 @@ public class OrdenTrazabilidad implements Serializable{
 		private int[] cantidad ;
 		
 		
-		public OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor, 
-				String[] productos, int[] cantidad) {
+		public OrdenTrazabilidad(int identificador,String mensaje, Actor emisor, Actor receptor,
+								 Transportista transportista, String[] productos, int[] cantidad) {
 			this.id = identificador;
 			this.mensaje=mensaje;
 			this.actorOrigen=emisor;
@@ -55,7 +51,7 @@ public class OrdenTrazabilidad implements Serializable{
 			this.estado=null;
 			this.firmadoRecogida=false;
 			this.firmadoEntrega=false;
-			this.transportista=Actor.TRANSPORTISTA;
+			this.transportista=transportista;
 			this.cantidad=cantidad;
 			this.productos=productos;
 			
@@ -63,10 +59,6 @@ public class OrdenTrazabilidad implements Serializable{
 		
 		public void setEstadoProceso(EstadoOrden nuevo) {
 			this.estado=nuevo;
-		}
-		
-		public void setFechaEntrega(Date entregado) {
-			this.fechaEntrega=entregado;
 		}
 		
 		public int getId() {
@@ -92,24 +84,13 @@ public class OrdenTrazabilidad implements Serializable{
 		public boolean isFirmadoRecogida() {
 			return firmadoRecogida;
 		}
+
 		public boolean isFirmadoEntrega() {
 			return firmadoEntrega;
 		}
 
-		public Actor getTransportista() {
+		public Transportista getTransportista() {
 			return transportista;
-		}
-
-		public String getEmpresa() {
-			return empresa;
-		}
-
-		public Date getFechaRecogida() {
-			return fechaRecogida;
-		}
-
-		public Date getFechaEntrega() {
-			return fechaEntrega;
 		}
 		
 		public String[] getProductos() {
