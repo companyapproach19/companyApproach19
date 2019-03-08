@@ -38,20 +38,18 @@ public class AlmacenLotes{
     }
     
     public static void almacenarLote(Lote name) {
-    	if (lista.size()<=6) {
-    		lista.addFirst(name);
-    	}
-    	else {
-    		System.err.println("error de capacidad en AlmacenLotes: no caben más lotes.");
+    		if (lista.size()<=6) {
+    			lista.addFirst(name);
+    		}
+    		else {
+    			System.err.println("Error de capacidad en AlmacenLotes: no caben más lotes.");
     	}
    
-}
+    }
     public static Lote sacarLote() {
-    	//devuelve el lote  almacenado hace m�s tiempo -- pila FIFO
-    	
-    		if( lista.size() !=0 ) { 
+    		//devuelve el lote  almacenado hace m�s tiempo -- pila FIFO
+    		if( lista.size() !=0 ) 
     			return lista.getLast();
-    		}
     		else {
     			System.err.println("No se puede sacar un lote, el almacén de lotes está vacío o contiene un número de lotes que"
     				+ " excede la capacidad del almacén.");
