@@ -42,8 +42,7 @@
             <div class="input-group input-group-newsletter">
               <form>
                <h3>Pedidos Solicitados<br><br>
-               
-               <p><iframe src="pedidos_aceptados_agricultores.txt" frameborder="0" height="120" width="100%"></iframe></p>
+                 <p><iframe id = "hola" frameborder="0" height="120" width="100%"></iframe></p>
                </h3>
              </form>
               <br>
@@ -64,6 +63,55 @@
           <br>
             <input type="submit" class = "btn btn-secondary" value="Volver" onclick="window.location='Agricultores.html';" />
           </div>
+
+
+
+<script >
+  //Aqui solo habria que cambiar una variable del json 
+  //Recibe el json
+  var json = {
+    "id": 20259,
+    "destinatario": "cooperativa",
+    "emisor": "fabrica",
+    "transportista": {
+  "empresa": "Correos",
+  "nombre": "Juan Jose Romagosa",
+  "fecha_recogida": "09-03-2019",
+  "fecha_entrega": "13-03-2019",
+    },
+    "productos": [
+  { "nombre": "malta", "cantidad": 30 },
+  { "nombre": "cebada", "cantidad": 20 }
+    ],
+    "mensaje": "Este pedido contiene material fragil.",
+    "estado": "En proceso",
+    "firmado": false
+};
+
+//Sacar por pantalla las movidas del json
+//Aquí asigna a las distintas variables los valores que recibe del jspm
+var obj = JSON.parse(json);
+var destinatario = obj.emisor;
+var id = obj.id;
+var productos = obj.productos;
+//TODO: Bucle que Array
+var nomProducto1 = productos[0].nombre;
+var canProducto1 = productos[1].cantidad;
+
+//TODO: sacar por pantalla las variables anteriores
+
+
+//Todo
+  function toJson(){
+
+  }
+
+</script>
+
+
+
+
+
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
