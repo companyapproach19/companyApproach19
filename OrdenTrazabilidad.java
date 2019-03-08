@@ -1,6 +1,4 @@
 import java.io.Serializable;
-import java.util.Date;
-import java.util.LinkedList;
 
 public class OrdenTrazabilidad implements Serializable{
 
