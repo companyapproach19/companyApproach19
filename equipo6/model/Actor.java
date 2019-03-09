@@ -68,7 +68,7 @@ public class Actor implements Serializable{
             throw new Exception
                                 (
                                     "Error al logear usuario : " + usuarioIntentaAcceder.nombreUsuario +
-                                    " contraseña : " + usuarioIntentaAcceder.passwordPlana
+                                    " contraseï¿½a : " + usuarioIntentaAcceder.passwordPlana
                                 );
         }
     }
@@ -99,6 +99,10 @@ public class Actor implements Serializable{
     public int getTipoActor()
     {
         return this.tipoActor;
+    }
+
+    public Actor getUsuarioPrevio(){
+        return this.usuarioPrevio;
     }
 
 }
