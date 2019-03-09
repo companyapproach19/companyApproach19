@@ -37,7 +37,19 @@ public class LoginController {
 	
 	private final String getJSONFromActor(Actor actor) {
 		String salida="";
-		//salida+="{\""+actor.nomUsuario+"\"";
+		//si el actor no esta en la cadena nos llega un actor con todos sus campos a null
+		if (actor.tipoActor != null){
+			String tipo ="";
+			switch (actor.tipoActor){
+			case 0: tipo="Productor";break;
+			case 1: tipo="Coperativa";break;
+			case 2: tipo="Transportista";break;
+			case 3: tipo="Fabrica";break;
+			case 4: tipo="Retailer";break;
+			}
+			salida+="{\n"+actor.getNombreUsuario+"\n"+actor.getEmail+"\n"+tipo+"}";
+		}
+		//si no esta el actor en la cadena devolvemos ""
 		return salida;
 	}
 }
