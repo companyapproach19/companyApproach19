@@ -1,8 +1,15 @@
+import java.lang.reflect.Type;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+ 
 
 public class DescodificadorJson {
 	
-	public DescodificadorJson() {
-		
+	public OrdenTrazabilidad DescodificadorJson(String pedido) {
+		 Gson gson=new Gson();
+		 Type tipoObjeto = new TypeToken<OrdenTrazabilidad>(){}.getType();
+		 return gson.fromJson(pedido, tipoObjeto);  
 	}
 
 	
