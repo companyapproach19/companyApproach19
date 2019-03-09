@@ -1,9 +1,9 @@
-package trazabilidad.model;
+package equipo6.model;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import trazabilidad.objetosTemporales.BBDDTemporal;
+import equipo6.objetosTemporales.*;
 
 public class Cadena{
     private String hashUltimoBloque;
@@ -101,6 +101,7 @@ public class Cadena{
         */
 
         Bloque nuevoBloque = new Bloque(this.hashUltimoBloque,tipoBloque, this.numBloques++, this.codLote, dc);
+        nuevoBloque.setTimeStamp();
         String hashNuevo = nuevoBloque.getHashCode();
         boolean insercionCorrecta = BBDD.guardarBloque(nuevoBloque, hashNuevo);
         if(insercionCorrecta){

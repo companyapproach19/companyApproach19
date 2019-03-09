@@ -1,8 +1,8 @@
-package trazabilidad.model;
+package equipo6.model;
 
 import java.io.Serializable;
 
-import trazabilidad.objetosTemporales.BBDDTemporal;
+import equipo6.objetosTemporales.*;
 
 //package trazabilidad.model;
 

@@ -1,7 +1,7 @@
-package trazabilidad;
+package equipo6.otros;
 
-import trazabilidad.model.*;
-import trazabilidad.objetosTemporales.BBDDTemporal;
+import equipo6.model.*;
+import equipo6.objetosTemporales.BBDDTemporal;
 
 //Esta es la clase a la que van a llamar el resto de grupos para hacer sus
 //gestiones con respecto a los usuarios
@@ -24,8 +24,7 @@ public class UsuariosService{
     	try {
 			return cad.logeaUsuario(usuarioIntentaLogin);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.err.println("Usuario no encontrado.");
+			System.err.println(e.getMessage());
 			return null;
 		}
     }

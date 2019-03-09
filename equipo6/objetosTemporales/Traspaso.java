@@ -1,6 +1,6 @@
-package trazabilidad.objetosTemporales;
+package equipo6.objetosTemporales;
 
-import trazabilidad.model.DatosContainer;
+import equipo6.model.*;
 
 public class Traspaso extends DatosContainer {
 	int codLote;
