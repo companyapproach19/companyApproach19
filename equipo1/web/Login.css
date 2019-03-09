@@ -46,3 +46,8 @@ width: 100px;
 color: white;
 background-color: #D2691E;
 }
+
+.error{
+	color: #ff0000;
+	margin-top: auto;
+}
