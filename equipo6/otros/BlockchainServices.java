@@ -26,10 +26,10 @@ public class BlockchainServices{
     //Recibe un objeto contenedor con la informacion del traspaso, y tenemos que encapsularlo
     //en DatosContainer, y guardarlo en la cadena con los metodos de la clase Cadena correspondientes
     //TODO alejandro
-    public void guardarTraspaso(Traspaso traspaso){
+    public void guardarOrden(OrdenTrazabilidad traspaso){
         //encapsularlo, sin tener los datos de la clase Traspaso no podemos encapsularlo
         DatosContainer dc = traspaso;
-        int codLote = traspaso.getCodLote();
+        int codLote = traspaso.getId();
 
         Cadena cadena = BBDD.getCadena(codLote);
 
@@ -55,7 +55,7 @@ public class BlockchainServices{
     //Obtiene bloque adecuado utilizando los metodos de clase Cadena, y una vez lo tiene 
     //extrae la informacion del traspaso y la devuelve.
     //TODO anton
-    public Traspaso getTraspaso(int codLote){
+    public OrdenTrazabilidad getTraspaso(int codLote){
 //    	Cadena cadena = BBDD.getCadena(codLote);
 //    	List<Bloque> bloques = cadena.getCadena();
 //    	int i =0;
@@ -72,7 +72,7 @@ public class BlockchainServices{
     	Cadena cadena = BBDD.getCadena(codLote);
     	List<Bloque> bloques = cadena.getBloque(0);
     	if(!bloques.isEmpty()) {
-    		return (Traspaso) bloques.get(bloques.size()-1).getDatos();
+    		return (OrdenTrazabilidad) bloques.get(bloques.size()-1).getDatos();
     	}
     	return null;
     	
