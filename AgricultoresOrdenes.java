@@ -1,19 +1,27 @@
 
 public class AgricultoresOrdenes{
-    Persona agricultor;
-    public AgricultoresOrdenes(Persona agricultor){//una persona
-    	this.agricultor=agricultor;
+	
+	//falta la señal para poder cambiar el estado del pedido
+	
+	//nombre del Actor
+    private String nombre;
+    //aceptacion del pedido
+    private boolean aceptadoPedido;
+    
+    //un agricultor
+	public AgricultoresOrdenes(String nombre){
+    	this.nombre=nombre;
+    	this.aceptadoPedido=false;
     }
 
-    public boolean  Agricultoraceptapedido(){ 
-        //miramos si el agricultor acepta el pedido
-		return false;
-    }
-    public Persona getactor(){//la cooperativa con la que firma
-        return agricultor;
-    }
+	public boolean isAceptadoPedido() {
+		return aceptadoPedido;
+	}
+	
     public void notificacion(int cod){//se notifica un mensaje
         //en funcion del codigo lanzaremos un mensaje u otro
+    	
     } 
+    
 
 }
