@@ -26,17 +26,15 @@ public class MainDePrueba {
                     "Juan Jose Romagosa", "Povas",
                     "08-03-2019", "13-03-2019");
 
-            String[] productosPrueba = {"malta", "cebada"};
-            int[] cantidadesPrueba = {20, 40};
+            Productos productos = new Productos(20, 40, 0, 0, 0, 0, 0, 0, 0);
 
             OrdenTrazabilidad pedidoPrueba = new OrdenTrazabilidad(id, "Petición de prueba.",
-                    OrdenTrazabilidad.Actor.FABRICA, OrdenTrazabilidad.Actor.COOPERATIVA, transportistaPrueba,
-                    productosPrueba, cantidadesPrueba);
+                    OrdenTrazabilidad.Actor.FABRICA, OrdenTrazabilidad.Actor.COOPERATIVA,
+                    transportistaPrueba, productos);
             
             //NECESARIO PARA TRAZABILIDAD:
             //BlockchainServices bloque = new BlockchainServices();
             //bloque.guardarBloque(pedidoPrueba);
-            		
             		
             escritor.write(CodificadorJSON.crearJSON(pedidoPrueba));
             escritor.close();
