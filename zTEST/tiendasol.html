@@ -62,8 +62,10 @@ function addTextTXT()
               <h2 class="mb-5"> Solicitar pedido
                 </div>
 				
+				
+				
 	<!--------------------------------->
-    <form id="formulario" method="post" onsubmit="download(this['name'].value, this['id'].value)">
+    <form id="formulario" method="post" onsubmit="download(this['name'].value, getParametros())">
 	<!--------------------------------->
 	
 	 
@@ -85,11 +87,7 @@ function addTextTXT()
         <input type="checkbox" name="producto2" id="producto2" value="Malta Munich">
         <input type="number" name="cantidad2" id="cantidad2" value="" min="0" placeholder="Escribe la cantidad">
         <p>
-          
-              
-        
-        
-         <div class="input">
+        <div class="input">
         <p>
 		
 
@@ -124,7 +122,12 @@ function addTextTXT()
 
     var producto1 = document.getElementById("producto1").value;
     var producto2 = document.getElementById("producto2").value;
+	
+	
+	<!------------------SIMPLEMENTE HABRIA QUE CONCATENAR TODAS LAS VARIABLES--------------->
+	res = id.concat(transportista);
     
+	return res;
 
   }
 
