@@ -1,4 +1,6 @@
+package company;
 import java.sql.Blob;
+
 public class AlmacenLotes {
 
    private int idAlmacenLotes;
