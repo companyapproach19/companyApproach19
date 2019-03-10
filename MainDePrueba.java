@@ -26,7 +26,7 @@ public class MainDePrueba {
                     "Juan Jose Romagosa", "Povas",
                     "08-03-2019", "13-03-2019");
 
-            Productos productos = new Productos(20, 40, 0, 0, 0, 0, 0, 0, 0);
+            Productos productos = new Productos(20, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
             OrdenTrazabilidad pedidoPrueba = new OrdenTrazabilidad(id, "Petición de prueba.",
                     OrdenTrazabilidad.Actor.FABRICA, OrdenTrazabilidad.Actor.COOPERATIVA,
