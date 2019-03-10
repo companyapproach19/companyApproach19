@@ -39,52 +39,20 @@
             <h2 class="mb-5"> Pedidos recibidos
             </h2>
 			
-           <div id="list-example" class="list-group">
-				<a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-				<a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-				<a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-				<a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
-				<a class="list-group-item list-group-item-action" href="#list-item-5">Item 5</a>
-				<a class="list-group-item list-group-item-action" href="#list-item-6">Item 6</a>
-			</div>
-			<div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
-			<h4 id="list-item-1">Item 1</h4>
-			<p>ID</p>
-			<p>Transportista</p>
-			<p>Estado</p>
-			<p>Datos</p>
-			<button class="btn btn-secondary" type="button">Aceptar</button>
-			<h4 id="list-item-2">Item 2</h4>
-			<p>ID</p>
-			<p>Transportista</p>
-			<p>Estado</p>
-			<p>Datos</p>
-			<button class="btn btn-secondary" type="button">Aceptar</button>
-			<h4 id="list-item-3">Item 3</h4>
-			<p>ID</p>
-			<p>Transportista</p>
-			<p>Estado</p>
-			<p>Datos</p>
-			<button class="btn btn-secondary" type="button">Aceptar</button>
-			<h4 id="list-item-4">Item 4</h4>
-			<p>ID</p>
-			<p>Transportista</p>
-			<p>Estado</p>
-			<p>Datos</p>
-			<button class="btn btn-secondary" type="button">Aceptar</button>
-			<h4 id="list-item-5">Item 5</h4>
-			<p>ID</p>
-			<p>Transportista</p>
-			<p>Estado</p>
-			<p>Datos</p>
-			<button class="btn btn-secondary" type="button">Aceptar</button>
-			<h4 id="list-item-6">Item 6</h4>
-			<p>ID</p>
-			<p>Transportista</p>
-			<p>Estado</p>
-			<p>Datos</p>
-			<button class="btn btn-secondary" type="button">Aceptar</button>
-			</div>
+			<h4 class="mb-5"> identificador
+            </h4>
+			<p id="demo2"></p>
+			
+			<h4 class="mb-5"> Recogido
+            </h4>
+			<p id="demo3"></p>
+			
+			<h4 class="mb-5"> Entregado
+            </h4>
+			<p id="demo4"></p>
+       
+	  <!--  <button class="btn btn-secondary" type="button">Asignar</button> -->
+
 				
               </div>
             </div>
@@ -93,6 +61,8 @@
       </div>
     </div>
   </div>
+  
+  
 
   <div class="social-icons">
     <ul class="list-unstyled text-center mb-0">
@@ -113,13 +83,49 @@
       </li>
     </ul>
   </div>
+  
+  
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/coming-soon.min.js"></script>
+  <!-- <script src="js/coming-soon.min.js"></script> -->
+  
+  <script>
+
+
+var jsonTxt = '{"id": 49126,"actorOrigen": "FABRICA","destinatario": "COOPERATIVA","transportista": {"nombre": "Juan Jose Romagosa","empresa": "Povas","fecha_recogida": "08-03-2019","fecha_entrega": "13-03-2019"},"productos": [{"cant_malta_palida": 20,"cant_malta_munich": 40,"cant_malta_negra": 0,"cant_malta_crystal": 0,"cant_malta_chocolate": 0,"cant_malta_caramelo": 0,"cant_cebada": 0,"cant_cebada_tostada": 0,"cant_lupulo_centenial": 0}],"mensaje": "Petición de prueba.","firmadoRecogida": true,"firmadoEntrega": false}';
+var request = new XMLHttpRequest();
+request.open('GET', jsonTxt);
+
+request.responseType = 'json';
+request.send();
+
+var obj = JSON.parse(jsonTxt);
+
+
+var htmlID = obj.id;
+var htmlRecogida = obj.firmadoRecogida;
+var htmlEntrega = obj.firmadoEntrega;
+
+
+
+document.getElementById("demo2").innerHTML = htmlID;
+
+if(htmlRecogida==false)
+document.getElementById("demo3").innerHTML = "NO";
+else if(htmlRecogida==true)
+document.getElementById("demo3").innerHTML = "SI";
+
+if(htmlEntrega==false)
+document.getElementById("demo4").innerHTML = "NO";
+else if(htmlEntrega==true)
+document.getElementById("demo4").innerHTML = "SI";
+
+
+</script>
 
 </body>
 
