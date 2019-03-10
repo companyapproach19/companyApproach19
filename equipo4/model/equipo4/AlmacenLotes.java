@@ -9,7 +9,6 @@ import java.util.*;
 public class AlmacenLotes{
 	public static final int maxCapacidad=7;
 	public static LinkedList<Lote> lista  = new LinkedList<Lote>();
-	public static int ocupado=0;
 	public static int id=1;
 
 	public static int getId() {
@@ -35,7 +34,6 @@ public class AlmacenLotes{
 		AlmacenLotes.id = id;
 	}
 
-	public static int getOcupado() { return ocupado; }
 
 	public AlmacenLotes() {
 	}
