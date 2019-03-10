@@ -6,10 +6,10 @@
    */
     private void insertarTransportista (Transportista transportista) throws SQLException, ClassNotFoundException{
     	    conectar();
-	    String query = "INSERT INTO company.transportista (empresa, CIF) VALUES (?, ?);"; 
+	    String query = "INSERT INTO company.transportista (transportista_cif, empresa_transporte) VALUES (?, ?);"; 
 	    PreparedStatement pst = conn.prepareStatement(query);
-	    pst.setString(1, transportista.getEmpresa());
-	    pst.setString(2, transportista.getCIF());
+	    pst.setString(1, transportista.getTransportistaCif ());
+	    pst.setString(2, transportista.getEmpresaTransporte ());
 	    pst.executeUpdate();
 	    pst.close();
 	    conn.close();
