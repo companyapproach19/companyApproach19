@@ -1,11 +1,14 @@
-package equipo4;
+package iSoftware;
+
+import java.util.LinkedList;
+
 //se implementa una pila FIFO : first in first out 
 /*
  * Es más útil sacar los lotes por el id que para algo está
  */
 public class AlmacenLotes{
 	public static final int maxCapacidad=7;
-	public static Lote[] lista  = new Lote[7];
+	public static LinkedList<Lote> lista  = new LinkedList<Lote>();
 	public static int ocupado=0;
 	public static int id=1;
 	
@@ -24,7 +27,6 @@ public class AlmacenLotes{
 	/*public static Lote[] getLista() {
 		return lista;
 	}
-
 	public static void setLista(Lote[] lista) {
 		AlmacenLotes.lista = lista;
 	}*/
@@ -49,40 +51,25 @@ public class AlmacenLotes{
 	 * y 1 si el almacén está lleno o el lote que se intenta introducir 
 	 * tiene errores.
 	 */
-    public static int almacenarLote(Lote name) {
-    		if (ocupado<7) {
-    			lista[ocupado]=name;
-    			ocupado++;
-    			return 0;
-    		}
-    		else {
-    			System.err.println("Error de capacidad en AlmacenLotes: no caben más lotes.");
-    			return 1;
-    		}
+	public static void almacenarLote(Lote name) {
+    	if (lista.size()<=6) {
+    	lista.addFirst(name);
+    	}
+    	else {
+    		System.err.println("error de capacidad en AlmacenLotes: no caben más lotes.");
+    	}
    
-    }
-    @SuppressWarnings("static-access")
-	public static Lote sacarLote(int id) {
-    		/*//devuelve el lote  almacenado hace m�s tiempo -- pila FIFO
-    		if( lista.size() !=0 ) 
-    			return lista.getLast();
-    		else {
-    			System.err.println("No se puede sacar un lote, el almacén de lotes está vacío o contiene un número de lotes que"
-    				+ " excede la capacidad del almacén.");
-    			return null;
-    		}*/
-    		if (ocupado==0) {
-    			System.err.println("El almacén está vacío.");
-    			return null;
-    		} else {
-    			boolean found = false;
-    			int i;
-    			for (i=0; i<ocupado && found; i++) {
-    				if (lista[i].getCode()==id) 
-    				found = true;
-    			}
-    			ocupado--;
-    			return lista[i];
+}
+    public static Lote sacarLote() {
+    	//devuelve el lote  almacenado hace más tiempo -- pila FIFO
+    	
+    	if( lista.size() !=0 ) { 
+    		return lista.getLast();
     		}
+    	else {
+    		System.err.println("No se puede sacar un lote, el almacén de lotes está vacío o contiene un número de lotes que"
+    				+ "excede la capacidad del almacén.");
+    		return null;
+    	}
 	}
 }
