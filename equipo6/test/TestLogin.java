@@ -22,11 +22,11 @@ class TestLogin {
 	void testInterno() {
 		BBDDTemporal bd = new BBDDTemporal();
 		CadenaActores cad = new CadenaActores();
-		Actor ac=new Actor("jorge","jorge");
+		Actor ac=new Actor("jorge","jorge","jorge@gmail.com",new Actor(),0,0);
 		cad.addActor(ac);
-		Actor ac2=new Actor("jorge2","jorge2");
+		Actor ac2=new Actor("jorge2","jorge2","jorge@gmail.com",ac,1,0);
 		cad.addActor(ac2);
-		Actor ac3=new Actor("jorge3","jorge3");
+		Actor ac3=new Actor("jorge3","jorge3","jorge@gmail.com",ac,2,0);
 		cad.addActor(ac3);
 		bd.guardarCadenaActores(cad);
 		

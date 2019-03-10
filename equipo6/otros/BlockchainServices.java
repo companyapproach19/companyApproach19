@@ -11,13 +11,13 @@ import equipo6.model.*;
 public class BlockchainServices{
 	
 	//Temproal
-	BBDDTemporal BBDD;
-	public void init(BBDDTemporal bd) {
-		this.BBDD=bd;
-	}
+//	BBDDTemporal BBDD;
+//	public void init(BBDDTemporal bd) {
+//		this.BBDD=bd;
+//	}
 	public BlockchainServices() {}
 	public boolean checkConsistencia(int codLote) {
-		return BBDD.getCadena(codLote).checkConsistencia();		
+		return equipo5.getCadena(codLote).checkConsistencia();		
 	}
 
     //Aun tienen que definir los otros grupos cual va a ser la clase
@@ -26,12 +26,12 @@ public class BlockchainServices{
     //Recibe un objeto contenedor con la informacion del traspaso, y tenemos que encapsularlo
     //en DatosContainer, y guardarlo en la cadena con los metodos de la clase Cadena correspondientes
     //TODO alejandro
-    public void guardarTraspaso(Traspaso traspaso){
+    public void guardarOrden(OrdenTrazabilidad traspaso){
         //encapsularlo, sin tener los datos de la clase Traspaso no podemos encapsularlo
         DatosContainer dc = traspaso;
-        int codLote = traspaso.getCodLote();
+        int codLote = traspaso.getId();
 
-        Cadena cadena = BBDD.getCadena(codLote);
+        Cadena cadena = equipo5.getCadena(codLote);
 
         cadena.incorporarBloque(dc, 0); //Cambiar cuando asignemos cada entero a cada tipo de bloque
         /* Bloque bloque = new Bloque();
@@ -55,7 +55,7 @@ public class BlockchainServices{
     //Obtiene bloque adecuado utilizando los metodos de clase Cadena, y una vez lo tiene 
     //extrae la informacion del traspaso y la devuelve.
     //TODO anton
-    public Traspaso getTraspaso(int codLote){
+    public OrdenTrazabilidad getTraspaso(int codLote){
 //    	Cadena cadena = BBDD.getCadena(codLote);
 //    	List<Bloque> bloques = cadena.getCadena();
 //    	int i =0;
@@ -69,10 +69,10 @@ public class BlockchainServices{
     	
     	
     	
-    	Cadena cadena = BBDD.getCadena(codLote);
+    	Cadena cadena = equipo5.getCadena(codLote);
     	List<Bloque> bloques = cadena.getBloque(0);
     	if(!bloques.isEmpty()) {
-    		return (Traspaso) bloques.get(bloques.size()-1).getDatos();
+    		return (OrdenTrazabilidad) bloques.get(bloques.size()-1).getDatos();
     	}
     	return null;
     	
