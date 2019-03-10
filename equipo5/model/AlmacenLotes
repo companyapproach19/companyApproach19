@@ -22,7 +22,7 @@ public class AlmacenLotes {
   private int getOcupado(){
     return this.ocupado;
   }
-  private int maxCapacidad(){
+  private int getMaxCapacidad(){
     return this.maxCapacidad;
   }
   private Blob getLotes(){
