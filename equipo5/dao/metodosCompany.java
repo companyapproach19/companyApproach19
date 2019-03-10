@@ -464,6 +464,44 @@ public class metodosCompany {
 			}
 	    }
 
+
+        private void insertarAlmacenLotes(AlmacenLotes almacen) throws SQLException, ClassNotFoundException {
+	    conectar();
+	    String query = "INSERT INTO company.almacenLotes (idAlmacenLotes, ocupado, maxCapacidad, lotes) VALUES (?, ?, ?, ?);";
+	    PreparedStatement pst = conn.prepareStatement(query);
+	    pst.setInt(1, almacen.getIdAlmacenLotes());
+	    pst.setInt(2, almacen.getOcupado());
+	    pst.setInt(3, almacen.getMaxCapacidad());
+	    pst.setBlob(4, almacen.getLotes());
+	    pst.executeUpdate();
+	    pst.close();
+	    try {
+			exit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+           }
+       }
+
+       
+	
+     public AlmacenLotes consultarAlmacenLotes (int idAlmacenLotes) throws SQLException, ClassNotFoundException {
+	conectar();
+	String query = "SELECT * FROM company.almacenLotes WHERE almacenLotes.idAlmacenLotes =" + idAlmacenLotes + ";";	
+	PreparedStatement pst = conn.prepareStatement(query);
+   	ResultSet rs = pst.executeQuery(query);
+   	AlmacenLotes buscado = new AlmacenLotes(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getBlob(4));
+   	pst.close();
+	rs.close();
+	try {
+		exit();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return buscado;	
+    }
+	
 }
 
 
