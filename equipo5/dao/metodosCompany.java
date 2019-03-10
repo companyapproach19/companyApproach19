@@ -465,7 +465,7 @@ public class metodosCompany {
 	    }
 
 
-        private void insertarAlmacenLotes(AlmacenLotes almacen) throws SQLException, ClassNotFoundException {
+        public void insertarAlmacenLotes(AlmacenLotes almacen) throws SQLException, ClassNotFoundException {
 	    conectar();
 	    String query = "INSERT INTO company.almacenLotes (idAlmacenLotes, ocupado, maxCapacidad, lotes) VALUES (?, ?, ?, ?);";
 	    PreparedStatement pst = conn.prepareStatement(query);
@@ -485,7 +485,7 @@ public class metodosCompany {
 
        
 	
-     private AlmacenLotes consultarAlmacenLotes (int idAlmacenLotes) throws SQLException, ClassNotFoundException {
+     public AlmacenLotes consultarAlmacenLotes (int idAlmacenLotes) throws SQLException, ClassNotFoundException {
 	conectar();
 	String query = "SELECT * FROM company.almacenLotes WHERE almacenLotes.idAlmacenLotes =" + idAlmacenLotes + ";";	
 	PreparedStatement pst = conn.prepareStatement(query);
