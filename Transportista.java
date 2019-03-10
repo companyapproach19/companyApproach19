@@ -1,16 +1,16 @@
 public class Transportista {
-	private String empresa;
-	private String CIF;
+	private String transportista_cif;
+	private String empresa_transporte;
 
-	public Transportista (String empresa, String CIF){
-		this.empresa = empresa;
-		this.CIF = CIF;
+	public Transportista (String transporte_cif, String empresa_transporte){
+		this.transporte_cif = transporte_cif;
+		this.empresa_transporte = empresa_transporte;
 	}
 	
-	public String getEmpresa (){
-		return this.empresa;
+	public String getTransporte_cif (){
+		return this.transporte_cif;
 	}
-	public String getCIF (){
-		return this.CIF;
+	public String getEmpresaTransporte (){
+		return this.empresa_transporte;
 	}
 }
