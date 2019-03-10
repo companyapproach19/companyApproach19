@@ -13,6 +13,24 @@ public class AgricultoresOrdenes{
     
     public void notificacion(int cod){//se notifica un mensaje
         //en funcion del codigo lanzaremos un mensaje u otro
+    	switch (cod) {
+		case 1:
+			System.out.println("---->El sistema contacta con el" + " que suministrara el producto para ver si acepta ");
+			break;
+		case 2:
+			System.out.println("<----El pedido ha sido aceptado");
+			break;
+		case 3:
+			System.out.println("Producto ha cambiado de estado a 'EN_PROCESO_DE_ENTREGA' ");
+			break;
+		case 4:
+			System.out.println("El producto no ha sido entregado");
+			break;
+		case 5:
+			System.out.println("Producto no ha sido firmado");
+			break;
+
+		}
     } 
 
     public boolean getaceptaPedido() {
