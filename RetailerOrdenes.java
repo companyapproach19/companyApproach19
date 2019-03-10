@@ -1,57 +1,74 @@
 
+
 //CLASE de l'grand emperour
 public class RetailerOrdenes {
 	FabricaOrdenes receptor;
 	OrdenTrazabilidad encargo;
 	Transportista transporte;
 	boolean aceptaPedido;
-
+	String mensaje;
+	boolean pedidolisto=false;
 	public RetailerOrdenes(OrdenTrazabilidad encargo) {
 		this.encargo = encargo;
-		this.receptor = new FabricaOrdenes(encargo);
-		this.transporte = new Transportista(encargo);
+		this.receptor = new FabricaOrdenes(encargo); 
 
 	}
 
 	public void crearPedido() {
 		notificacion(1);
 		if (receptor.getaceptaPedido()) {
+			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO);
 			notificacion(2);
-			// que se llama
-			transporte.inicia();
-			// porque ojo dentro del metodo inicia es cuando se firmma
+			while(receptor.listo_recoger()) {}
+			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.LISTO_PARA_ENTREGAR);
 			notificacion(3);
-		} else {
-
+			encargo.getTransportista().firma();
+			encargo.setFirmadoRecogida(true);
+			
+			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO_DE_ENTREGA); 
+			notificacion(4);
+			encargo.getTransportista().firma();
+			encargo.setFirmadoEntrega(true);
+			// CAMBIAR EL ESTADO A EN PROCESO.
+			// comunicacion trazabilidad
+			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.ENTREGADO);
 			notificacion(5);
-			notificacion(6);//ey, por si acaso
+
+		} else {
+			notificacion(7); 
 		}
-		
 	}
+	
 
 	public void notificacion(int cod) {// se notifica un mensaje
 		// en funcion del codigo lanzaremos un mensaje u otro
 		switch (cod) {
 		case 1:
-			System.out.println("---->El sistema contacta con el" + " que suministrara el producto para ver si acepta ");
+			mensaje+="El pedido ha sido aceptado";
 			break;
 		case 2:
-			System.out.println("<----El pedido ha sido aceptado");
+			mensaje+="Su pedido se encuentra en proceso";
 			break;
 		case 3:
-			System.out.println("El transportista ha firmado");
+			mensaje+="Su pedido se encuentra listo para ser recogido";
 			break;
 		case 4:
-			System.out.println("Producto ha cambiado de estado a 'EN_PROCESO_DE_ENTREGA' ");
+			mensaje+="Su producto se encuentra en transporte ";
 			break;
 		case 5:
-			System.out.println("El producto no ha sido aceptado");
-			break;
+			mensaje+="El producto ha sido entregado";
+			break; 
 		case 6:
-			System.out.println("Producto no ha sido firmado");
-			break;
+			mensaje+="El producto no ha sido aceptado";
+			break; 
+		case 7:
+			mensaje+="El usuario "+encargo.getActorOrigen()+"desea encargarle el siguiente pedido :"+encargo.getProductos();
+			break; 
 
 		}
+		encargo.setMensaje(mensaje);
+    	CodificadorJSON aviso=new CodificadorJSON();
+    	aviso.crearJSON(encargo);
 
 	}
 
@@ -66,6 +83,14 @@ public class RetailerOrdenes {
 
 	public void rechazarPedido() {
 		this.aceptaPedido = false;
+	}
+
+	public boolean listo_recoger() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean isPedidolisto() {
+		return pedidolisto;
 	}
 
 	/*

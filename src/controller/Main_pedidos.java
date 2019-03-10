@@ -1,4 +1,4 @@
-
+package controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-
+import otros.*;
+import model.*;
 public class Main_pedidos {
-	   static OrdenTrazabilidad OrdenTrazabilidad; 
-	   private static int codorigen;//
-	   private static int  coddestino;//  	
+	   public static OrdenTrazabilidad OrdenTrazabilidad; 
+	   public static int codorigen;//
+	   public static int  coddestino;//  	
 	   public Main_pedidos(String pedido) {
 		   DescodificadorJson este=new DescodificadorJson();
 		   OrdenTrazabilidad=este.DescodificadorJson(pedido);
@@ -48,7 +48,7 @@ public class Main_pedidos {
 		}
 	}	    
 	
-	static boolean verificar_pedido() {
+	public static boolean verificar_pedido() {
 		System.out.println("---->El sistema verifica que el pedido sea correcto" );
 		boolean valido=false; 
 		sacarCodigoOrigenDestino();
@@ -56,7 +56,7 @@ public class Main_pedidos {
 		return valido;
 	}
 	
-	private static void sacarCodigoOrigenDestino() {
+	public static void sacarCodigoOrigenDestino() {
 		int contador=0;
 		OrdenTrazabilidad.Actor tipo;
 		int codigo;

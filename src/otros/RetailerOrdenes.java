@@ -1,32 +1,34 @@
-
-//CLASE COMPARTIDA CON LARA
-public class FabricaOrdenes {
-	CooperativaOrdenes receptor;
+package otros;
+import model.*;
+//CLASE de l'grand emperour
+public class RetailerOrdenes {
+	FabricaOrdenes receptor;
 	OrdenTrazabilidad encargo;
 	Transportista transporte;
 	boolean aceptaPedido;
-	boolean pedidolisto=false;
 	String mensaje;
+	boolean pedidolisto=false;
+	public RetailerOrdenes(OrdenTrazabilidad encargo) {
+		this.encargo = encargo;
+		this.receptor = new FabricaOrdenes(encargo); 
 
-	public FabricaOrdenes(OrdenTrazabilidad encargo) {
-		this.receptor = new CooperativaOrdenes(encargo);
-		this.encargo=encargo;
 	}
-	public enum EstadoOrden {
-		EN_PROCESO, LISTO_PARA_ENTREGAR, EN_PROCESO_DE_ENTREGA, ENTREGADO
-	}
-	public void crearPedido() { 
+
+	public void crearPedido() {
+		notificacion(1);
 		if (receptor.getaceptaPedido()) {
 			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO);
 			notificacion(2);
 			while(receptor.listo_recoger()) {}
 			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.LISTO_PARA_ENTREGAR);
 			notificacion(3);
-			encargo.getTransportista().firma(); 
+			encargo.getTransportista().firma();
+			encargo.setFirmadoRecogida(true);
 			
 			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO_DE_ENTREGA); 
 			notificacion(4);
-			encargo.getTransportista().firma(); 
+			encargo.getTransportista().firma();
+			encargo.setFirmadoEntrega(true);
 			// CAMBIAR EL ESTADO A EN PROCESO.
 			// comunicacion trazabilidad
 			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.ENTREGADO);
@@ -37,12 +39,9 @@ public class FabricaOrdenes {
 		}
 	}
 	
-     public boolean listo_recoger() {
-		return true;
-	}
-	public void notificacion(int cod) {
-		// todos los mensajes que se han de pasar por pantalla dependiendo del
-		// proceso
+
+	public void notificacion(int cod) {// se notifica un mensaje
+		// en funcion del codigo lanzaremos un mensaje u otro
 		switch (cod) {
 		case 1:
 			mensaje+="El pedido ha sido aceptado";
@@ -74,10 +73,28 @@ public class FabricaOrdenes {
 	}
 
 	public boolean getaceptaPedido() {
-		notificacion(7);
 		return aceptaPedido;
-	} 
+	}
+
+	// si no es ahora luego van a ser necesarios xD
+	public void aceptarPedido() {
+		this.aceptaPedido = true;
+	}
+
+	public void rechazarPedido() {
+		this.aceptaPedido = false;
+	}
+
+	public boolean listo_recoger() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	public boolean isPedidolisto() {
 		return pedidolisto;
 	}
+
+	/*
+	 * esto lo hace el transportista public boolean aceptaPedido(){ //como lo
+	 * ponemos return false; }
+	 */
 }

@@ -1,5 +1,6 @@
-
+package otros;
 //clase de le grand empereur
+import model.*;
 public class CooperativaOrdenes {
 	AgricultoresOrdenes receptor;
 	OrdenTrazabilidad encargo;

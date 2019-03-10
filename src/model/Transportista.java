@@ -1,4 +1,4 @@
-
+package model;
 
 public class Transportista {
 	//en esta clase he añadido los atributos para aceptar el pedido 

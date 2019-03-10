@@ -1,4 +1,4 @@
-
+package model;
 import java.io.Serializable;
 //NECESARIO PARA TRAZABILIDAD:
 //import equipo6.model.DatosContainer.java;

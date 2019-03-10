@@ -1,20 +1,19 @@
-
-//CLASE COMPARTIDA CON LARA
-public class FabricaOrdenes {
-	CooperativaOrdenes receptor;
+package otros;
+import model.*;
+//CLASE de l'grand emperour
+public class TiendaOrdenes {
+	RetailerOrdenes receptor;
 	OrdenTrazabilidad encargo;
 	Transportista transporte;
 	boolean aceptaPedido;
-	boolean pedidolisto=false;
 	String mensaje;
 
-	public FabricaOrdenes(OrdenTrazabilidad encargo) {
-		this.receptor = new CooperativaOrdenes(encargo);
-		this.encargo=encargo;
+	public TiendaOrdenes(OrdenTrazabilidad encargo) {
+		this.encargo = encargo;
+		this.receptor = new RetailerOrdenes(encargo); 
+
 	}
-	public enum EstadoOrden {
-		EN_PROCESO, LISTO_PARA_ENTREGAR, EN_PROCESO_DE_ENTREGA, ENTREGADO
-	}
+
 	public void crearPedido() { 
 		if (receptor.getaceptaPedido()) {
 			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO);
@@ -33,12 +32,8 @@ public class FabricaOrdenes {
 			notificacion(5);
 
 		} else {
-			notificacion(7); 
+			notificacion(6); 
 		}
-	}
-	
-     public boolean listo_recoger() {
-		return true;
 	}
 	public void notificacion(int cod) {
 		// todos los mensajes que se han de pasar por pantalla dependiendo del
@@ -61,10 +56,7 @@ public class FabricaOrdenes {
 			break; 
 		case 6:
 			mensaje+="El producto no ha sido aceptado";
-			break; 
-		case 7:
-			mensaje+="El usuario "+encargo.getActorOrigen()+"desea encargarle el siguiente pedido :"+encargo.getProductos();
-			break; 
+			break;  
 
 		}
 		encargo.setMensaje(mensaje);
@@ -74,10 +66,22 @@ public class FabricaOrdenes {
 	}
 
 	public boolean getaceptaPedido() {
-		notificacion(7);
 		return aceptaPedido;
-	} 
-	public boolean isPedidolisto() {
-		return pedidolisto;
 	}
+
+	// si no es ahora luego van a ser necesarios xD
+	public void aceptarPedido() {
+		this.aceptaPedido = true;
+	}
+
+	public void rechazarPedido() {
+		this.aceptaPedido = false;
+	}
+    public void listo_recoger() {
+		
+	}
+	/*
+	 * esto lo hace el transportista public boolean aceptaPedido(){ //como lo
+	 * ponemos return false; }
+	 */
 }

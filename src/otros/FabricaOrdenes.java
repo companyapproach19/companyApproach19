@@ -1,5 +1,6 @@
-
+package otros;
 //CLASE COMPARTIDA CON LARA
+import model.*;
 public class FabricaOrdenes {
 	CooperativaOrdenes receptor;
 	OrdenTrazabilidad encargo;
