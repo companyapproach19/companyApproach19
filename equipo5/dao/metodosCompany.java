@@ -485,7 +485,7 @@ public class metodosCompany {
 
        
 	
-     public AlmacenLotes consultarAlmacenLotes (int idAlmacenLotes) throws SQLException, ClassNotFoundException {
+     private AlmacenLotes consultarAlmacenLotes (int idAlmacenLotes) throws SQLException, ClassNotFoundException {
 	conectar();
 	String query = "SELECT * FROM company.almacenLotes WHERE almacenLotes.idAlmacenLotes =" + idAlmacenLotes + ";";	
 	PreparedStatement pst = conn.prepareStatement(query);
