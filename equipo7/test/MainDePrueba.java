@@ -38,7 +38,7 @@ public class MainDePrueba {
             //NECESARIO PARA TRAZABILIDAD:
             //BlockchainServices bloque = new BlockchainServices();
             //bloque.guardarBloque(pedidoPrueba);
-            Codificador  ejemplo=new Codificador ();
+            CodificadorJSON  ejemplo=new CodificadorJSON ();
            String json=ejemplo.crearJSON(pedidoPrueba);
            
             Main_pedidos a= new Main_pedidos(json);
