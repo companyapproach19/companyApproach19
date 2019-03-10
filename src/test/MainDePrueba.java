@@ -1,11 +1,13 @@
-
+package test;
 import java.io.File;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 //NECESARIOS PARA TRAZABILIDAD:
 //import equipo6.otros.BlockchainServices.java;
-
+import model.*;
+import otros.*;
+import controller.*;
 public class MainDePrueba {
 
     public static void main(String[] args) {
@@ -36,9 +38,12 @@ public class MainDePrueba {
             //NECESARIO PARA TRAZABILIDAD:
             //BlockchainServices bloque = new BlockchainServices();
             //bloque.guardarBloque(pedidoPrueba);
-           String json=CodificadorJSON.crearJSON(pedidoPrueba);
+            CodificadorJSON ejemplo=new CodificadorJSON();
+           String json=ejemplo.crearJSON(pedidoPrueba);
+           
+            Main_pedidos a= new Main_pedidos(json);
+            a.crear_pedido_pedido();
             escritor.close();
-    		System.out.println(json);
         } catch (IOException e) {
             e.printStackTrace();
         }
