@@ -34,7 +34,7 @@ public class Principal {
 		String answ = sc.nextLine();
 		switch(answ.toLowerCase()) {
 		case "s":
-			if(AlmacenLotes.getOcupado()==AlmacenLotes.getMaxCapacidad()) {
+			if(AlmacenLotes.lista.size()==AlmacenLotes.getMaxCapacidad()) {
 				System.err.println("Alerta: El almacen de lotes esta completo. Recuerde que no podra almacenar el lote "+
 			"que va a producir si no vacia el almacen");
 			}
@@ -97,11 +97,11 @@ public class Principal {
 			System.out.println("Inserte el lote sobre el que desea consultar: ");
 			String lote = sca.nextLine();
 			int id = Integer.parseInt(lote);
-			if (id > AlmacenLotes.id) {
+			if (id > AlmacenLotes.getId() ) {
 				System.err.println("Lote introducido incorrecto.");
 				break;
 			} else {
-				
+				System.out.println("En preparación.");
 			}
 			break;
 		default:
