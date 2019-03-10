@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Fábrica</title>
+
+  <!-- Custom styles for this template -->
+  <link href="archivo.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+  
+  <div class="masthead">
+    <div class="masthead-bg"></div>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto">
+          <div class="masthead-content text-white py-5 py-md-0">
+            <h1 class="mb-3">Fábrica</h1>
+              <h2 class="mb-5"> Solicitar pedido
+                </div>
+
+    <form id="formulario" method="post" action="datos.php">
+      <label for="apellidos">Remitente:</label>
+        <select name="OS">
+        <option value="1">Fábrica</option>
+        </select>  
+        <p>
+        <label for="nombre">Destino:</label>
+        <input type="text" name="nombre" id="nombre" value="" required>
+        <p>
+        <label for="apellidos">Identificador:</label>
+        <input type="text" name="apellidos" id="apellidos" value="" required>
+        <p>
+        <label for="producto1">Malta de base pálida</label>
+        <input type="checkbox" name="producto1" id="producto1" value="Malta de base pálida">
+        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <p>
+          <label for="producto1">Malta Munich</label>
+        <input type="checkbox" name="producto1" id="producto1" value="Malta Munich">
+        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <p>
+          <label for="producto1">Malta negra</label>
+        <input type="checkbox" name="producto1" id="producto1" value="Malta negra">
+        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <p>
+          <label for="producto1">Malta crystal</label>
+        <input type="checkbox" name="producto1" id="producto1" value="Malta crystal">
+        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <p>
+          <label for="producto1">Malta chocolate</label>
+        <input type="checkbox" name="producto1" id="producto1" value="Malta chocolate">
+        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <p>
+          <label for="producto1">Malta caramelo</label>
+        <input type="checkbox" name="producto1" id="producto1" value="Malta">
+        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <p>
+        <label for="producto2">Cebada</label>
+        <input type="checkbox" name="producto2" id="producto2" value="Cebada">
+        <input type="number" name="cantidad2" id="cantidad2" min="0"  placeholder="Escribe la cantidad">     
+        <p>
+           <label for="producto2">Cebada Tostada</label>
+        <input type="checkbox" name="producto2" id="producto2" value="Cebada Tostada">
+        <input type="number" name="cantidad2" id="cantidad2" min="0"  placeholder="Escribe la cantidad">     
+        <p>
+        <label for="producto3">Lúpulo centenial</label>
+        <input type="checkbox" name="producto1" id="producto3" value="Lúpulo centenial">
+        <input type="number" name="cantidad1" id="cantidad3" value="" min="0" placeholder="Escribe la cantidad">        
+        <p>
+        <label for="nombre">Transportista:</label>
+        <input type="text" name="nombre" id="nombre" value="" placeholder="Elige transportista" required>
+        <p>
+		 <div class="input">        
+            <input type="submit" class = "btn btn-secondary" value="Enviar pedido">
+            <input type="reset" class = "btn btn-secondary" value="Limpiar formulario">
+        </div>
+</form>
+  <div>
+          <br>
+          <br>
+            <input type="submit" class = "btn btn-secondary" value="Volver" onclick="window.location='Fábrica.html';" />
+          </div>
+
+
+
+            <div class="input-group input-group-newsletter"></div>
+</body>
+
+</html>
