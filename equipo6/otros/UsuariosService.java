@@ -8,10 +8,10 @@ import equipo6.objetosTemporales.BBDDTemporal;
 public class UsuariosService{
 	
 	//Temporal
-	BBDDTemporal BBDD;
-	public void init(BBDDTemporal bd) {
-		this.BBDD=bd;
-	}
+//	BBDDTemporal BBDD;
+//	public void init(BBDDTemporal bd) {
+//		this.BBDD=bd;
+//	}
 	public UsuariosService() {}
 	
 
@@ -19,14 +19,23 @@ public class UsuariosService{
     //Obtiene la cadena de BBDD, y utiliza el metodo logIn de la cadena
     //TODO anton (habla con gonzalo si necesitas entender como funciona su clase modelo)
     public Actor logUsuario(Actor usuarioIntentaLogin){
-    	CadenaActores cad = BBDD.getCadenaActores();
+    	Actor actor = equipo5.getActor(usuarioIntentaLogin.getNombreUsuario());
+    	if(actor!=null) {
+    		if(actor.actor_compare(usuarioIntentaLogin)) {
+    			return actor;
+    		}else {
+    			return new Actor();
+    		}
+    	}else {
+    		return new Actor();
+    	}
     	
-    	try {
-			return cad.logeaUsuario(usuarioIntentaLogin);
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-			return null;
-		}
+//    	try {
+//			return cad.logeaUsuario(usuarioIntentaLogin);
+//		} catch (Exception e) {
+//			System.err.println(e.getMessage());
+//			return null;
+//		}
     }
 
     

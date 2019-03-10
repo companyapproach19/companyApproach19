@@ -13,7 +13,7 @@ public class Actor implements Serializable{
     private int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer
 
 
-    private boolean actor_compare(Actor usuarioIntentaAcceder)
+    public boolean actor_compare(Actor usuarioIntentaAcceder)
     {
         return (
                     this.nombreUsuario.equals(usuarioIntentaAcceder.nombreUsuario) &&
@@ -38,6 +38,15 @@ public class Actor implements Serializable{
     public Actor(String nombreUsuario, String passwordSalt, String email,Actor usuarioPrevio, int tipoActor){
         this.nombreUsuario = nombreUsuario;
         this.passwordSalt = passwordSalt;
+        this.email = email;
+        this.usuarioPrevio = usuarioPrevio;
+        this.tipoActor = tipoActor;
+    }
+    
+    
+    public Actor(String nombreUsuario, String passwordPlana, String email,Actor usuarioPrevio, int tipoActor,int vacio){
+        this.nombreUsuario = nombreUsuario;
+        this.passwordPlana = passwordPlana;
         this.email = email;
         this.usuarioPrevio = usuarioPrevio;
         this.tipoActor = tipoActor;
@@ -103,6 +112,15 @@ public class Actor implements Serializable{
 
     public Actor getUsuarioPrevio(){
         return this.usuarioPrevio;
+    }
+    
+    private boolean isActorValido() {
+    	boolean valido=true;
+    	if(this.nombreUsuario==null || this.nombreUsuario=="")valido=false;
+    	if(this.passwordPlana==null || this.passwordPlana=="")valido=false;
+    	if(this.email==null || this.email=="")valido=false;
+    	
+    	return valido;
     }
 
 }

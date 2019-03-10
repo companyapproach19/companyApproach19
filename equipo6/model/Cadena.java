@@ -12,10 +12,10 @@ public class Cadena{
     
     
     //Temporal para pruebas
-    private BBDDTemporal BBDD = new BBDDTemporal();
-    public void setBBDDTemporal(BBDDTemporal bd) {
-    	this.BBDD=bd;
-    }
+//    private BBDDTemporal BBDD = new BBDDTemporal();
+//    public void setBBDDTemporal(BBDDTemporal bd) {
+//    	this.BBDD=bd;
+//    }
 
     //Constructor por defecto
     //TODO alejandro
@@ -30,12 +30,12 @@ public class Cadena{
     //TODO alejandro
     public List<Bloque> getBloque(int tipoBloque){
     	List<Bloque> lista = new LinkedList<Bloque>();
-    	Bloque anadir = BBDD.getBloque(hashUltimoBloque) ;
+    	Bloque anadir = equipo5.getBloqueOrden(hashUltimoBloque) ;
     	for (int j=0;j<numBloques;j++) {    		
     		if (anadir.getTipoBloque()==tipoBloque) {
     			lista.add(anadir);    			
     		}
-    		anadir = BBDD.getBloque(anadir.getHashPrevio());    		
+    		anadir = equipo5.getBloqueOrden(anadir.getHashPrevio());    		
     	}
     	return lista;
     }
@@ -45,10 +45,10 @@ public class Cadena{
     //TODO alejandro
     public List<Bloque> getCadena(){
     	List<Bloque> lista = new LinkedList<Bloque>();
-    	Bloque anadir = BBDD.getBloque(hashUltimoBloque) ;
+    	Bloque anadir = equipo5.getBloqueOrden(hashUltimoBloque) ;
     	for (int j=0;j<numBloques;j++){
     		lista.add(anadir);	
-    		anadir = BBDD.getBloque(anadir.getHashPrevio());
+    		anadir = equipo5.getBloqueOrden(anadir.getHashPrevio());
     	}    	
     	return lista;
     }
@@ -70,9 +70,9 @@ public class Cadena{
     // de un bloque a otro hasta llegar a un bloque cuyo valor de hashPrevio sea "INICIO"
     //TODO alejandro
     public boolean checkConsistencia(){
-        Bloque anadir = BBDD.getBloque(hashUltimoBloque) ;
+        Bloque anadir = equipo5.getBloqueOrden(hashUltimoBloque) ;
     	for (int j=0;j<numBloques-1;j++){
-    		anadir = BBDD.getBloque(anadir.getHashPrevio());
+    		anadir = equipo5.getBloqueOrden(anadir.getHashPrevio());
     	}
     	if(anadir.getHashPrevio().equals("INICIO")){
     		return true;    		
@@ -103,10 +103,10 @@ public class Cadena{
         Bloque nuevoBloque = new Bloque(this.hashUltimoBloque,tipoBloque, this.numBloques++, this.codLote, dc);
         nuevoBloque.setTimeStamp();
         String hashNuevo = nuevoBloque.getHashCode();
-        boolean insercionCorrecta = BBDD.guardarBloque(nuevoBloque, hashNuevo);
+        boolean insercionCorrecta = equipo5.insertarBloqueOrden(nuevoBloque);
         if(insercionCorrecta){
             this.hashUltimoBloque=hashNuevo;
-            BBDD.guardarCadena(this, this.codLote);
+            equipo5.guardarCadena(this, this.codLote);
         }
 
     }

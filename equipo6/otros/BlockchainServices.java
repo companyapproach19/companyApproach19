@@ -11,13 +11,13 @@ import equipo6.model.*;
 public class BlockchainServices{
 	
 	//Temproal
-	BBDDTemporal BBDD;
-	public void init(BBDDTemporal bd) {
-		this.BBDD=bd;
-	}
+//	BBDDTemporal BBDD;
+//	public void init(BBDDTemporal bd) {
+//		this.BBDD=bd;
+//	}
 	public BlockchainServices() {}
 	public boolean checkConsistencia(int codLote) {
-		return BBDD.getCadena(codLote).checkConsistencia();		
+		return equipo5.getCadena(codLote).checkConsistencia();		
 	}
 
     //Aun tienen que definir los otros grupos cual va a ser la clase
@@ -31,7 +31,7 @@ public class BlockchainServices{
         DatosContainer dc = traspaso;
         int codLote = traspaso.getId();
 
-        Cadena cadena = BBDD.getCadena(codLote);
+        Cadena cadena = equipo5.getCadena(codLote);
 
         cadena.incorporarBloque(dc, 0); //Cambiar cuando asignemos cada entero a cada tipo de bloque
         /* Bloque bloque = new Bloque();
@@ -69,7 +69,7 @@ public class BlockchainServices{
     	
     	
     	
-    	Cadena cadena = BBDD.getCadena(codLote);
+    	Cadena cadena = equipo5.getCadena(codLote);
     	List<Bloque> bloques = cadena.getBloque(0);
     	if(!bloques.isEmpty()) {
     		return (OrdenTrazabilidad) bloques.get(bloques.size()-1).getDatos();
