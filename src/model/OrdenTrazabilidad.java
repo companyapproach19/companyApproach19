@@ -1,3 +1,4 @@
+package model;
 import java.io.Serializable;
 //NECESARIO PARA TRAZABILIDAD:
 //import equipo6.model.DatosContainer.java;
@@ -9,8 +10,8 @@ public class OrdenTrazabilidad //extends DatosContainer
 	 * Los objetos que hay que pasar al grupo de trazabilidad seran de esta clase
 	 * Contienen la siguiente informacion:
 	 * Identificador(id) para cada pedido
-	 * Origen del pedido(quien hace la orden): (productor, cooperativa, fábrica, retailer, tienda)
-	 * Destino del pedido(a quien le hacen la peticion): (productor, cooperativa, fábrica, retailer, tienda)
+	 * Origen del pedido(quien hace la orden): (productor, cooperativa, fï¿½brica, retailer, tienda)
+	 * Destino del pedido(a quien le hacen la peticion): (productor, cooperativa, fï¿½brica, retailer, tienda)
 	 * Datos del transportista solicitado: 
 	 * nombre o identificador del transportista, empresa, fecha de recogida y fecha de entrega, firmado
 	 * Mensaje del pedido
@@ -19,6 +20,10 @@ public class OrdenTrazabilidad //extends DatosContainer
 	*/
 		//Es necesario un identificador por cada pedido
 		private int id;
+		public void setMensaje(String mensaje) {
+			this.mensaje = mensaje;
+		}
+
 		//Actor que realiza el pedido
 		private Actor actorOrigen;
 		//Actor que recibe la peticion
@@ -94,4 +99,13 @@ public class OrdenTrazabilidad //extends DatosContainer
 		public enum EstadoOrden {
 			EN_PROCESO, LISTO_PARA_ENTREGAR, EN_PROCESO_DE_ENTREGA, ENTREGADO
 		}
+
+		public void setFirmadoRecogida(boolean firmadoRecogida) {
+			this.firmadoRecogida = firmadoRecogida;
+		}
+
+		public void setFirmadoEntrega(boolean firmadoEntrega) {
+			this.firmadoEntrega = firmadoEntrega;
+		}
+ 
 }

@@ -1,3 +1,4 @@
+package controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -10,32 +11,35 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-
+import otros.*;
+import model.*;
 public class Main_pedidos {
-	   static OrdenTrazabilidad OrdenTrazabilidad; 
-	   private static int codorigen;//
-	   private static int  coddestino;//  	
-	
-	  public static void crear_pedido_pedido (String json) { 
+	   public static OrdenTrazabilidad OrdenTrazabilidad; 
+	   public static int codorigen;//
+	   public static int  coddestino;//  	
+	   public Main_pedidos(String pedido) {
+		   DescodificadorJson este=new DescodificadorJson();
+		   OrdenTrazabilidad=este.DescodificadorJson(pedido);
+	   }
+	  public static void crear_pedido_pedido () { 
 		
 		if(verificar_pedido()) {//simulacion pedido a fabrica para una cooperativa
 			switch(codorigen) {
 			case 2:
 				CooperativaOrdenes cooperativa = new CooperativaOrdenes(OrdenTrazabilidad);
-				cooperativa.Hacerpedido();//creamos el pedido
+				cooperativa.crearPedido();//creamos el pedido
 				break;
 			case 3:
 				FabricaOrdenes fabrica = new FabricaOrdenes(OrdenTrazabilidad);
-				fabrica.CrearPedido();//creamos el pedido
+				fabrica.crearPedido();//creamos el pedido
 				break;
 			case 4:
 				RetailerOrdenes retailer=new RetailerOrdenes(OrdenTrazabilidad);
-				retailer.Hacerpedido();//creamos el pedido
+				retailer.crearPedido();//creamos el pedido
 				break;
 			case 5:
-				FabricaOrdenes tienda=new FabricaOrdenes(OrdenTrazabilidad);
-				tienda.CrearPedido();//creamos el pedido
+				TiendaOrdenes tienda=new TiendaOrdenes(OrdenTrazabilidad);
+				tienda.crearPedido();//creamos el pedido
 				break;
 			}
 		}
@@ -44,7 +48,7 @@ public class Main_pedidos {
 		}
 	}	    
 	
-	private static boolean verificar_pedido() {
+	public static boolean verificar_pedido() {
 		System.out.println("---->El sistema verifica que el pedido sea correcto" );
 		boolean valido=false; 
 		sacarCodigoOrigenDestino();
@@ -52,29 +56,28 @@ public class Main_pedidos {
 		return valido;
 	}
 	
-	private static void sacarCodigoOrigenDestino() {
+	public static void sacarCodigoOrigenDestino() {
 		int contador=0;
-		String tipo="";
+		OrdenTrazabilidad.Actor tipo;
 		int codigo;
 		while(contador<2) {
 			if(contador==0) {
-				tipo=OrdenTrazabilidad.getActorOrigen().name();	
+				tipo=OrdenTrazabilidad.getActorOrigen();
 			}
 			else {
-				tipo=OrdenTrazabilidad.getDestinatario().name();
+				tipo=OrdenTrazabilidad.getDestinatario();
 			}
 			switch(tipo) {
-				case "PRODUCTOR":codigo=1;break;
-				case "COOPERATIVA":codigo=2;break;
-				case "FABRICA":codigo=3;break;
-				case "RETAILER":codigo=4;break;
-				case "TIENDA":codigo=5;break;
-				default:codigo=100;break;//caso error no existe dicho usuario anomalia
+				case PRODUCTOR:codigo=1;break;
+				case COOPERATIVA:codigo=2;break;
+				case FABRICA:codigo=3;break;
+				case RETAILER:codigo=4;break;
+				case TIENDA:codigo=5;break;
+				default:codigo=100;break;//caso error no existe dicho usuario 
 			}
 			if(contador==0) codorigen=codigo;
 			else coddestino=codigo;
 			contador++;
 		}
-	}
-	
+	} 
 }

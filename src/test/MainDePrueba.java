@@ -1,10 +1,13 @@
+package test;
 import java.io.File;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 //NECESARIOS PARA TRAZABILIDAD:
 //import equipo6.otros.BlockchainServices.java;
-
+import model.*;
+import otros.*;
+import controller.*;
 public class MainDePrueba {
 
     public static void main(String[] args) {
@@ -28,17 +31,19 @@ public class MainDePrueba {
 
             Productos productos = new Productos(20, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-            OrdenTrazabilidad pedidoPrueba = new OrdenTrazabilidad(id, "Petición de prueba.",
+            OrdenTrazabilidad pedidoPrueba = new OrdenTrazabilidad(id, "Peticiï¿½n de prueba.",
                     OrdenTrazabilidad.Actor.FABRICA, OrdenTrazabilidad.Actor.COOPERATIVA,
                     transportistaPrueba, productos);
             
             //NECESARIO PARA TRAZABILIDAD:
             //BlockchainServices bloque = new BlockchainServices();
             //bloque.guardarBloque(pedidoPrueba);
-            		
-            escritor.write(CodificadorJSON.crearJSON(pedidoPrueba));
+            CodificadorJSON ejemplo=new CodificadorJSON();
+           String json=ejemplo.crearJSON(pedidoPrueba);
+           
+            Main_pedidos a= new Main_pedidos(json);
+            a.crear_pedido_pedido();
             escritor.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }

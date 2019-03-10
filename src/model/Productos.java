@@ -1,3 +1,4 @@
+package model;
 public class Productos {
 
     private int cant_malta_palida;

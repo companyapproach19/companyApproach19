@@ -1,8 +1,9 @@
+package otros;
 import java.lang.reflect.Type;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
- 
+import model.*;
 
 public class DescodificadorJson {
 	

@@ -1,7 +1,10 @@
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import java.io.IOException;
+package otros;
 
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder; 
+import model.*;
+import test.*;
 public class CodificadorJSON {
 
     /* Esta clase se encarga de pasar de objetos en Java
