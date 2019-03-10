@@ -19,7 +19,7 @@
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
-  <link href="transportista.css" rel="stylesheet">
+  <link href="Transportista.css" rel="stylesheet">
 
 </head>
 
@@ -38,15 +38,15 @@
           <p class="mb-5">Ver el pedido que va a transportar
             </p>
             <div class="input-group-append">
-            <button class="btn btn-secondary" type="button">Aceptar</button>
+            <button class="btn btn-secondary" onclick="pedidoATransportar()" type="button">Aceptar</button>
          <p class="mb-5"> Firma del pedido
             </p>
-            <button class="btn btn-secondary" type="button">Aceptar</button>
+            <button class="btn btn-secondary" onclick="firmar()" type="button">Aceptar</button>
                 <p class="mb-5">Ver las condiciones del producto
             </p>
                 <button class="btn btn-secondary" type="button">Aceptar</button>
                 <p class="mb-5"> Ver pedidos aceptados</p>
-                <button class="btn btn-secondary" type="button">Aceptar</button>
+                <button class="btn btn-secondary" onclick="pedidosAceptados()" type="button">Aceptar</button>
                  <p class="btn btn-secondary">   
          </p>
                 <button type="button" class="btn boton1">Agricultor</p>
@@ -133,6 +133,18 @@
 	window.location.replace("Login.html");
     }
 
+    function pedidoATransportar() {
+	window.location.replace("Transportistas2.html");
+    }
+
+    function firmar() {
+	window.location.replace("Firmar.html");
+    }
+
+    function pedidosAceptados() {
+	window.location.replace("Transportistas.html");
+    }
+    
   </script>
 
 </body>

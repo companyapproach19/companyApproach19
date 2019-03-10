@@ -44,16 +44,18 @@
               <div class="input-group-append">
 
         <!--textarea name="comentarios" rows="10" cols="40"></textarea-->
-                <button class="btn btn-secondary" type="button">Aceptar</button>
+                <button class="btn btn-secondary" onclick="agricultoresped()" type="button">Aceptar</button>
          <p class="mb-5"> Mirar histórico de pedidos 
             </p>
         <!--textarea name="comentarios" rows="10" cols="40"></textarea-->
                 <button class="btn btn-secondary" type="button">Aceptar</button>
               
                  <p class="mb-5"> Ver pedidos aceptados</p>
-                <button class="btn btn-secondary" type="button">Aceptar</button>
-                <p class="btn btn-secondary"></p>
+                <button class="btn btn-secondary" onclick="agricultoresacep()" type="button">Aceptar</button>
 
+
+		
+<p class="btn btn-secondary"></p>
                  <button type="button" class="btn boton1">Agricultor</p>
 
                   <select>
@@ -135,6 +137,19 @@
     function cerrarSesion() {
 	window.location.replace("Login.html");
     }
+
+    function agricultoresped() {
+	window.location.replace("agricultoresped.html");
+    }
+
+    function agricultoresacep() {
+	window.location.replace("agricultoresacep.html");
+    }
+
+    function actualizarStock() {
+	// Pedir stock actual
+    }
+    
   </script>
 
 </body>

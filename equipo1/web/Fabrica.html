@@ -45,13 +45,13 @@
               <div class="input-group-append">
 
         <!--textarea name="comentarios" rows="10" cols="40"></textarea-->
-                <button class="btn btn-secondary" type="button">Aceptar</button>
+                <button class="btn btn-secondary" onclick="fabricasol()" type="button">Aceptar</button>
          <p class="mb-5"> Ver pedidos de los retailers
             </p>
         <!--textarea name="comentarios" rows="10" cols="40"></textarea-->
-                <button class="btn btn-secondary" type="button">Aceptar</button>
+                <button class="btn btn-secondary" onclick="fabricaped()" type="button">Aceptar</button>
                 <p class="mb-5"> Ver pedidos aceptados</p>
-                <button class="btn btn-secondary" type="button">Aceptar</button>
+                <button class="btn btn-secondary" onclick="fabricaacep()" type="button">Aceptar</button>
                  <p class="btn btn-secondary">   
          </p>
                  <button type="button" class="btn boton1">Agricultor</p>
@@ -136,6 +136,18 @@
 
     function cerrarSesion() {
 	window.location.replace("Login.html");
+    }
+
+    function fabricasol() {
+	window.location.replace("fabricasol.html");
+    }
+
+    function fabricaped() {
+	window.location.replace("fabricaped.html");
+    }
+
+    function fabricaacep() {
+	window.location.replace("fabricaacep.html");
     }
 
   </script>

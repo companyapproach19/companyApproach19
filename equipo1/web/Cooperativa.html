@@ -39,27 +39,26 @@
               <!--input type="text" class="form-control" placeholder="200 kg de cebada." aria-label="Pedido a realizar..." aria-describedby="basic-addon"><br>
               <div class="input-group-append"-->
 			  <!--img src="Captura.jpg"-->
-          <p class="mb-5"> Mandar pedido a los agricultores
-            </p>
+              <p class="mb-5"> Mandar pedido a los agricultores </p>
             
               <div class="input-group-append">
 
         <!--textarea name="comentarios" rows="10" cols="40"></textarea-->
-                <button class="btn btn-secondary" type="button">Aceptar</button>
-         <p class="mb-5"> Ver pedidos de la fábrica
-            </p>
+                   <button class="btn btn-secondary" onclick="cooperativasol()" type="button">Aceptar</button>
+		<p class="mb-5"> Ver pedidos de la fábrica </p>
         <!--textarea name="comentarios" rows="10" cols="40"></textarea-->
-                <button class="btn btn-secondary" type="button">Aceptar</button>
-                <p class="mb-5"> Ver materias primas almacenadas
-            </p>
-                <button class="btn btn-secondary" type="button">Aceptar</button>
-                <p class="mb-5"> Ver pedidos aceptados</p>
-                <button class="btn btn-secondary" type="button">Aceptar</button>
-                <p class="btn btn-secondary"></p>
-            
-                 <button type="button" class="btn boton1">Agricultor</p>
+                   <button class="btn btn-secondary" onclick="cooperativaped()" type="button">Aceptar</button>
+		   
+<p class="mb-5"> Ver materias primas almacenadas </p>
+<button class="btn btn-secondary" type="button">Aceptar</button>
 
-                  <select>
+<p class="mb-5"> Ver pedidos aceptados</p>
+<button class="btn btn-secondary" onclick="cooperativaacep()" type="button">Aceptar</button>
+<p class="btn btn-secondary"></p>
+
+<button type="button" class="btn boton1">Agricultor</p>
+
+<select>
                     <option>..........</option>
                     <option>..........</option>
                     
@@ -141,6 +140,18 @@
 	window.location.replace("Login.html");
     }
 
+    function cooperativasol() {
+	window.location.replace("cooperativasol.html");
+    }
+
+    function cooperativaped() {
+	window.location.replace("cooperativaped.html");
+    }
+
+    function cooperativaacep() {
+	window.location.replace("cooperativaacep.html");
+    }
+    
   </script>
 </body>
 
