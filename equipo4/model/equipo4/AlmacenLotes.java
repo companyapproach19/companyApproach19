@@ -1,15 +1,15 @@
-package iSoftware;
+package equipo4;
 
 import java.util.*;
 
 //se implementa una pila FIFO : first in first out 
 /*
- * Es m·s ˙til sacar los lotes por el id que para algo est·
+ * Es m√°s √∫til sacar los lotes por el id que para algo est√°
  */
 public class AlmacenLotes{
-	public static final int maxCapacidad=7;
+	private static final int maxCapacidad=7;
 	public static LinkedList<Lote> lista  = new LinkedList<Lote>();
-	public static int id=1;
+	private static int id=1;
 
 	public static int getId() {
 		return id;
@@ -34,7 +34,6 @@ public class AlmacenLotes{
 		AlmacenLotes.id = id;
 	}
 
-
 	public AlmacenLotes() {
 	}
 
@@ -43,19 +42,19 @@ public class AlmacenLotes{
 			lista.addFirst(name);
 		}
 		else {
-			System.err.println("error de capacidad en AlmacenLotes: no caben m·s lotes.");
+			System.err.println("error de capacidad en AlmacenLotes: no caben m√°s lotes.");
 		}
 
 	}
 	public static Lote sacarLote() {
-		//devuelve el lote  almacenado hace m·s tiempo -- pila FIFO
+		//devuelve el lote  almacenado hace m√°s tiempo -- pila FIFO
 
 		if( lista.size() !=0 ) { 
 			return lista.pollLast();
 		}
 		else {
-			System.err.println("No se puede sacar un lote, el almacÈn de lotes est· vacÌo o contiene un n˙mero de lotes que"
-					+ "excede la capacidad del almacÈn.");
+			System.err.println("No se puede sacar un lote, el almac√©n de lotes est√° vac√≠o o contiene un n√∫mero de lotes que"
+					+ "excede la capacidad del almac√©n.");
 			return null;
 		}
 	}
