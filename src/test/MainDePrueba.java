@@ -4,7 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 //NECESARIOS PARA TRAZABILIDAD:
-//import equipo6.otros.BlockchainServices.java;
+import equipo6.otros.BlockchainServices.java;
+
 import model.*;
 import otros.*;
 import controller.*;
@@ -36,8 +37,8 @@ public class MainDePrueba {
                     transportistaPrueba, productos);
             
             //NECESARIO PARA TRAZABILIDAD:
-            //BlockchainServices bloque = new BlockchainServices();
-            //bloque.guardarBloque(pedidoPrueba);
+            BlockchainServices bloque = new BlockchainServices();
+            bloque.guardarOrden(pedidoPrueba);
             CodificadorJSON ejemplo=new CodificadorJSON();
            String json=ejemplo.crearJSON(pedidoPrueba);
            

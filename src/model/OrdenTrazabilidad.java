@@ -1,9 +1,9 @@
 package model;
 import java.io.Serializable;
 //NECESARIO PARA TRAZABILIDAD:
-//import equipo6.model.DatosContainer.java;
+import equipo6.model.DatosContainer.java;
 
-public class OrdenTrazabilidad //extends DatosContainer
+public class OrdenTrazabilidad extends DatosContainer
 {
 
 	/*
