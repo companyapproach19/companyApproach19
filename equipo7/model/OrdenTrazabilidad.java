@@ -1,9 +1,9 @@
 package model;
 import java.io.Serializable;
 //NECESARIO PARA TRAZABILIDAD:
-//import equipo6.model.DatosContainer.java;
+import equipo6.model.DatosContainer.java;
 
-public class OrdenTrazabilidad //extends DatosContainer
+public class OrdenTrazabilidad extends DatosContainer
 {
 
 	/*
@@ -54,6 +54,10 @@ public class OrdenTrazabilidad //extends DatosContainer
 		
 		public void setEstadoProceso(EstadoOrden nuevo) {
 			this.estado=nuevo;
+		}
+		
+		public void setId(int id) {
+			this.id=id;
 		}
 		
 		public int getId() {

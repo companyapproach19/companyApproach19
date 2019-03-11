@@ -10,11 +10,14 @@ public class Productos {
     private int cant_cebada;
     private int cant_cebada_tostada;
     private int cant_lupulo_centenial;
+    private int cant_cajas_stout;
+    private int cant_cajas_bisner;
 
     public Productos(int cant_malta_palida, int cant_malta_munich,
                      int cant_malta_negra, int cant_malta_crystal,
                      int cant_malta_chocolate, int cant_malta_caramelo,
-                     int cant_cebada, int cant_cebada_tostada, int cant_lupulo_centenial) {
+                     int cant_cebada, int cant_cebada_tostada, int cant_lupulo_centenial,
+                     int cant_cajas_stout, int cant_cajas_bisner) {
         this.cant_malta_palida = cant_malta_palida;
         this.cant_malta_munich = cant_malta_munich;
         this.cant_malta_negra = cant_malta_negra;
@@ -24,6 +27,8 @@ public class Productos {
         this.cant_cebada = cant_cebada;
         this.cant_cebada_tostada = cant_cebada_tostada;
         this.cant_lupulo_centenial = cant_lupulo_centenial;
+        this.cant_cajas_stout = cant_cajas_stout;
+        this.cant_cajas_bisner = cant_cajas_bisner;
     }
 
     public int getCant_malta_palida() {
@@ -60,5 +65,13 @@ public class Productos {
 
     public int getCant_lupulo_centenial() {
         return cant_lupulo_centenial;
+    }
+
+    public int getCant_cajas_stout() {
+        return cant_cajas_stout;
+    }
+
+    public int getCant_cajas_bisner() {
+        return cant_cajas_bisner;
     }
 }

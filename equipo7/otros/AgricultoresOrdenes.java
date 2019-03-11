@@ -2,34 +2,21 @@ package otros;
 import model.*;
 
 
-public class AgricultoresOrdenes{
+public class AgricultoresOrdenes extends Orden{
 	
+	public AgricultoresOrdenes(OrdenTrazabilidad peticion) {
+		super(peticion);
+	}
 	
-	OrdenTrazabilidad encargo;
-	boolean aceptaPedido;
-	String mensaje;
-	
-    public AgricultoresOrdenes(OrdenTrazabilidad encargo){//una String
-    	this.encargo=encargo;
-    }
-
-    
     public void notificacion(int cod){//se notifica un mensaje
         //en funcion del codigo lanzaremos un mensaje u otro
+    	String mensaje="";
     	switch (cod) {
 		case 1:
-			mensaje+="El usuario "+encargo.getActorOrigen()+"desea encargarle el siguiente pedido :"+encargo.getProductos();
+			mensaje+="El usuario "+this.getPedido().getActorOrigen()+" desea encargarle el siguiente pedido :"+this.getPedido().getProductos();
 			break;  
 		}
-    	encargo.setMensaje(mensaje);
-    	CodificadorJSON aviso=new CodificadorJSON();
-    	aviso.crearJSON(encargo);
-    	//enviar el Json
+    	this.getPedido().setMensaje(mensaje);
     } 
 
-    public boolean getaceptaPedido() {
-    	notificacion(1);
-		return aceptaPedido;
-	} 
-    
 }
