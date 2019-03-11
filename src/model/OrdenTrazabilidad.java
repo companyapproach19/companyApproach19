@@ -56,6 +56,10 @@ public class OrdenTrazabilidad extends DatosContainer
 			this.estado=nuevo;
 		}
 		
+		public void setId(int id) {
+			this.id=id;
+		}
+		
 		public int getId() {
 			return id;
 		}

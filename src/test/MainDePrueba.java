@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 //NECESARIOS PARA TRAZABILIDAD:
-import equipo6.otros.BlockchainServices.java;
+import equipo6.otros.BlockchainServices;
 
 import model.*;
 import otros.*;

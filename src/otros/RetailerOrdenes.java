@@ -1,47 +1,20 @@
 package otros;
 import model.*;
-//CLASE de l'grand emperour
-public class RetailerOrdenes {
+public class RetailerOrdenes  extends Orden {
+	
 	FabricaOrdenes receptor;
-	OrdenTrazabilidad encargo;
-	Transportista transporte;
-	boolean aceptaPedido;
-	String mensaje;
-	boolean pedidolisto=false;
-	public RetailerOrdenes(OrdenTrazabilidad encargo) {
-		this.encargo = encargo;
-		this.receptor = new FabricaOrdenes(encargo); 
-
-	}
-
-	public void crearPedido() {
-		notificacion(1);
-		if (receptor.getaceptaPedido()) {
-			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO);
-			notificacion(2);
-			while(receptor.listo_recoger()) {}
-			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.LISTO_PARA_ENTREGAR);
-			notificacion(3);
-			encargo.getTransportista().firma();
-			encargo.setFirmadoRecogida(true);
-			
-			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO_DE_ENTREGA); 
-			notificacion(4);
-			encargo.getTransportista().firma();
-			encargo.setFirmadoEntrega(true);
-			// CAMBIAR EL ESTADO A EN PROCESO.
-			// comunicacion trazabilidad
-			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.ENTREGADO);
-			notificacion(5);
-
-		} else {
-			notificacion(7); 
-		}
+	
+	public RetailerOrdenes(OrdenTrazabilidad peticion) {
+		super(peticion);
 	}
 	
-
+	public void crearPedido() {
+		receptor = new FabricaOrdenes(super.getPedido());
+	}
+	
 	public void notificacion(int cod) {// se notifica un mensaje
 		// en funcion del codigo lanzaremos un mensaje u otro
+		String mensaje="";
 		switch (cod) {
 		case 1:
 			mensaje+="El pedido ha sido aceptado";
@@ -62,39 +35,12 @@ public class RetailerOrdenes {
 			mensaje+="El producto no ha sido aceptado";
 			break; 
 		case 7:
-			mensaje+="El usuario "+encargo.getActorOrigen()+"desea encargarle el siguiente pedido :"+encargo.getProductos();
+			mensaje+="El usuario "+this.getPedido().getActorOrigen()+"desea encargarle el siguiente pedido :"+this.getPedido().getProductos();
 			break; 
 
 		}
-		encargo.setMensaje(mensaje);
-    	CodificadorJSON aviso=new CodificadorJSON();
-    	aviso.crearJSON(encargo);
+		this.getPedido().setMensaje(mensaje);
 
 	}
 
-	public boolean getaceptaPedido() {
-		return aceptaPedido;
-	}
-
-	// si no es ahora luego van a ser necesarios xD
-	public void aceptarPedido() {
-		this.aceptaPedido = true;
-	}
-
-	public void rechazarPedido() {
-		this.aceptaPedido = false;
-	}
-
-	public boolean listo_recoger() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	public boolean isPedidolisto() {
-		return pedidolisto;
-	}
-
-	/*
-	 * esto lo hace el transportista public boolean aceptaPedido(){ //como lo
-	 * ponemos return false; }
-	 */
 }

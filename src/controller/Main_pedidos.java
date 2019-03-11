@@ -17,39 +17,35 @@ public class Main_pedidos {
 	   public static OrdenTrazabilidad OrdenTrazabilidad; 
 	   public static int codorigen;//
 	   public static int  coddestino;//  	
+	   
 	   public Main_pedidos(String pedido) {
 		   DescodificadorJson este=new DescodificadorJson();
 		   OrdenTrazabilidad=este.DescodificadorJson(pedido);
 	   }
-	  public static void crear_pedido_pedido () { 
-		
-		if(verificar_pedido()) {//simulacion pedido a fabrica para una cooperativa
+	  
+	   public Orden crear_pedido () { 
+		  sacarCodigoOrigenDestino();
+		  Orden devolver = new Orden(OrdenTrazabilidad);
 			switch(codorigen) {
 			case 2:
-				CooperativaOrdenes cooperativa = new CooperativaOrdenes(OrdenTrazabilidad);
-				cooperativa.crearPedido();//creamos el pedido
+				devolver = new CooperativaOrdenes(OrdenTrazabilidad);
 				break;
 			case 3:
-				FabricaOrdenes fabrica = new FabricaOrdenes(OrdenTrazabilidad);
-				fabrica.crearPedido();//creamos el pedido
+				devolver = new FabricaOrdenes(OrdenTrazabilidad);
 				break;
 			case 4:
-				RetailerOrdenes retailer=new RetailerOrdenes(OrdenTrazabilidad);
-				retailer.crearPedido();//creamos el pedido
+				devolver = new RetailerOrdenes(OrdenTrazabilidad);
 				break;
 			case 5:
-				TiendaOrdenes tienda=new TiendaOrdenes(OrdenTrazabilidad);
-				tienda.crearPedido();//creamos el pedido
+				devolver = new TiendaOrdenes(OrdenTrazabilidad);
 				break;
 			}
-		}
-		else {
-			System.out.println("<--- pedido incorrecto :El sistema verifica que el pedido sea correcto");
-		}
+			devolver.crearPedido();
+			return devolver;
 	}	    
 	
 	public static boolean verificar_pedido() {
-		System.out.println("---->El sistema verifica que el pedido sea correcto" );
+		//System.out.println("---->El sistema verifica que el pedido sea correcto" );
 		boolean valido=false; 
 		sacarCodigoOrigenDestino();
 		if((codorigen-coddestino)==1) {valido=true;} 

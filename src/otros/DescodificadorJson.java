@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import model.*;
 
+
 public class DescodificadorJson {
 	
 	public OrdenTrazabilidad DescodificadorJson(String pedido) {

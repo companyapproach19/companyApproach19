@@ -1,49 +1,20 @@
 package otros;
-//CLASE COMPARTIDA CON LARA
 import model.*;
-public class FabricaOrdenes {
+public class FabricaOrdenes  extends Orden{
+	
 	CooperativaOrdenes receptor;
-	OrdenTrazabilidad encargo;
-	Transportista transporte;
-	boolean aceptaPedido;
-	boolean pedidolisto=false;
-	String mensaje;
-
-	public FabricaOrdenes(OrdenTrazabilidad encargo) {
-		this.receptor = new CooperativaOrdenes(encargo);
-		this.encargo=encargo;
-	}
-	public enum EstadoOrden {
-		EN_PROCESO, LISTO_PARA_ENTREGAR, EN_PROCESO_DE_ENTREGA, ENTREGADO
-	}
-	public void crearPedido() { 
-		if (receptor.getaceptaPedido()) {
-			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO);
-			notificacion(2);
-			while(receptor.listo_recoger()) {}
-			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.LISTO_PARA_ENTREGAR);
-			notificacion(3);
-			encargo.getTransportista().firma(); 
-			
-			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.EN_PROCESO_DE_ENTREGA); 
-			notificacion(4);
-			encargo.getTransportista().firma(); 
-			// CAMBIAR EL ESTADO A EN PROCESO.
-			// comunicacion trazabilidad
-			encargo.setEstadoProceso(OrdenTrazabilidad.EstadoOrden.ENTREGADO);
-			notificacion(5);
-
-		} else {
-			notificacion(7); 
-		}
+	
+	public FabricaOrdenes(OrdenTrazabilidad peticion) {
+		super(peticion);
 	}
 	
-     public boolean listo_recoger() {
-		return true;
+	public void crearPedido() {
+		receptor = new CooperativaOrdenes(super.getPedido());
 	}
 	public void notificacion(int cod) {
 		// todos los mensajes que se han de pasar por pantalla dependiendo del
 		// proceso
+		String mensaje="";
 		switch (cod) {
 		case 1:
 			mensaje+="El pedido ha sido aceptado";
@@ -64,21 +35,12 @@ public class FabricaOrdenes {
 			mensaje+="El producto no ha sido aceptado";
 			break; 
 		case 7:
-			mensaje+="El usuario "+encargo.getActorOrigen()+"desea encargarle el siguiente pedido :"+encargo.getProductos();
+			mensaje+="El usuario "+this.getPedido().getActorOrigen()+"desea encargarle el siguiente pedido :"+this.getPedido().getProductos();
 			break; 
 
 		}
-		encargo.setMensaje(mensaje);
-    	CodificadorJSON aviso=new CodificadorJSON();
-    	aviso.crearJSON(encargo);
+		this.getPedido().setMensaje(mensaje);
 
 	}
 
-	public boolean getaceptaPedido() {
-		notificacion(7);
-		return aceptaPedido;
-	} 
-	public boolean isPedidolisto() {
-		return pedidolisto;
-	}
 }
