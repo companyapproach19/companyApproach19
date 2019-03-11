@@ -26,7 +26,7 @@ public class ProyectoCerveza{
 	
 	private void insercionBloqueFabrica (Bloque bloqueFabrica) throws SQLException, ClassNotFoundException{
 		conectar();
-	    String query = "INSERT INTO company.bloqueFabrica (hashPrevio, tipoBloque, numBloque, codLote, datos) VALUES (?, ?, ?, ?, ?);"; 
+	    String query = "INSERT INTO company.bloqueFabrica (hashCode, hashPrevio, tipoBloque, numBloque, codLote, datos) VALUES (?, ?, ?, ?, ?);"; 
 	    PreparedStatement pst = (PreparedStatement) conn.prepareStatement(query);
 	    pst.setString(1, bloqueFabrica.getHashPrevio());
 	    pst.setInt(2, bloqueFabrica.getTipoBloque());
@@ -77,7 +77,7 @@ public class ProyectoCerveza{
 	    conn.close();
     }
        
-    private Agricultor consultaAgricultor(String cif) throws SQLException, ClassNotFoundException{
+    private Agricultor getAgricultor(String cif) throws SQLException, ClassNotFoundException{
     	conectar();  
     	String query = "SELECT * FROM company.agricultor WHERE agricultor.cif = " + cif;
     	PreparedStatement pst = (PreparedStatement) conn.prepareStatement(query);
@@ -89,9 +89,9 @@ public class ProyectoCerveza{
     	return buscado;
     }
   
-    private Bloque consultaBloqueFabrica(Bloque fabrica) throws SQLException, ClassNotFoundException{
+    private Bloque getBloqueFabrica(int numBloque) throws SQLException, ClassNotFoundException{
     	conectar();  
-    	String query = "SELECT * FROM company.bloqueFabrica WHERE bloqueFabrica.tipoBloque = " + fabrica.getTipoBloque() + " AND bloqueFabrica.numBloque = " + fabrica.getNumBloque() + " AND bloqueFabrica.codLote = " + fabrica.getCodLote();
+    	String query = "SELECT * FROM company.bloqueFabrica WHERE bloqueFabrica.numBloque = " + numBloque;
     	PreparedStatement pst = (PreparedStatement) conn.prepareStatement(query);
     	ResultSet rs = pst.executeQuery(query);
     	Bloque buscado = new Bloque(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), (DatosContainer) rs.getObject(5));
@@ -101,9 +101,9 @@ public class ProyectoCerveza{
     	return buscado;
     }
     
-    private Actor consultaActor(String nombreUsuario, String passwordSalt, String email, Actor usuarioPrevio, int tipoActor) throws SQLException, ClassNotFoundException{
+    private Actor getActor(String nombreUsuario) throws SQLException, ClassNotFoundException{
     	conectar();
-    	String query = "SELECT * FROM company.actor WHERE actor.nombreUsuario = " + nombreUsuario + " AND actor.passwordSalt = " + passwordSalt + " AND actor.email = " + email + " AND actor.usuarioPrevio = " + usuarioPrevio + " AND actor.tipoActor = " + tipoActor;
+    	String query = "SELECT * FROM company.actor WHERE actor.nombreUsuario = " + nombreUsuario;
     	PreparedStatement pst = (PreparedStatement) conn.prepareStatement(query);
     	ResultSet rs = pst.executeQuery(query);
     	Actor buscado = new Actor(rs.getString(1), rs.getString(2), rs.getString(3), (Actor) rs.getObject(4), rs.getInt(5));
@@ -113,7 +113,7 @@ public class ProyectoCerveza{
     	return buscado;
     }
     
-    private Cooperativa consultaCooperativa(String cif) throws SQLException, ClassNotFoundException{
+    private Cooperativa getCooperativa(String cif) throws SQLException, ClassNotFoundException{
     	conectar();
     	String query = "SELECT * FROM company.actor WHERE cooperativa.cif = " + cif;
     	PreparedStatement pst = (PreparedStatement) conn.prepareStatement(query);
@@ -124,5 +124,5 @@ public class ProyectoCerveza{
     	conn.close();
     	return buscado;
     }
-}
 
+}
