@@ -1,0 +1,128 @@
+<!------ Include the above in your HEAD tag ---------->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="Login.css">
+</head>
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" id="username">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" id="password">
+					</div>
+					<div class="form-group">
+						<input type="button" onclick="login()" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+				<p class="error" id="mensajeError"><strong>Usuario o contraseña incorrectos</strong></p>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<! Utilizaremos jquery más adelante para las peticiones >
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script>
+
+  // Este array de usuarios será innecesario en el futuro, ahora mismo lo tenemos para tests.
+  // Cuando podamos recibir peticiones e importar en este código de JS el JSON correspondiente, ésto se borrará.
+  var usuarios = new Array ( '{ "nombre":"Agricultor","mail":"agricultor@email.com", "tipoActor":"Agricultor" }',
+				'{ "nombre":"Cooperativa","mail":"cooperativa@email.com", "tipoActor":"Cooperativa" }',
+				'{ "nombre":"Transportista","mail":"transportista@email.com", "tipoActor":"Transportista" }',
+				'{ "nombre":"Fábrica","mail":"fabrica@email.com", "tipoActor":"Fábrica" }',
+				'{ "nombre":"Retailer","mail":"retailer@email.com", "tipoActor":"Retailer" }' )
+
+  function login() {
+
+      /*
+       Aquí irá una petición Ajax al servidor que nos devolverá en el body del http el JSON del actor que se está intentando loggear. Si en los campos de JSON pone "error", se tomará como login incorrecto. En otro caso, el login habrá sido correcto.
+       hacerPeticion(document.getElementById("username").value , document.getElementById("password").value);
+       */
+      
+      /*
+       Aquí partimos de que ya tenemos el JSON. Lo parseamos y lo obtenemos como un objeto de JS.
+      */
+            
+      //Comprobamos que el usuario del json que nos devuelven coincide con el que nos han escrito
+
+      for (var i = 0; i < usuarios.length; i++) {
+	  var actor = JSON.parse( usuarios[i] );
+	  console.log("Actor: " + actor);
+	  if (document.getElementById("username").value == actor.nombre //cambiar "username" por Actor.username del JSON
+	      // && JSON.Actor.username != "error") {     esto será necesario cuando leamos el json que nos manda el servidor
+	      && document.getElementById("password").value == "password" ) { //ésto sobrará cuando el json nos devuelva el usuario con la contraseña ya comprobada en el servidor
+		  vistaPrincipal(actor.tipoActor)
+		  break;
+	  }
+	  else {
+	      vistaError()
+	  }
+      }
+  }
+  
+ function hacerPeticion(usuario, contraseña){
+      // TODO
+  }
+  
+  function vistaPrincipal(tipoActor) {
+      // Para cuando leamos del JSON:
+      // switch(JSON.Actor.tipo) { case "Agricultor": window.location.replace("..") etc }
+
+      // Para pruebas con el array usuarios
+      switch (tipoActor) {
+      case "Agricultor" :
+	  window.location.replace("Agricultores.html");
+	  break;
+      case "Cooperativa":
+	  window.location.replace("Cooperativa.html");
+	  break;
+      case "Transportista":
+	  window.location.replace("Transportista.html");
+	  break;
+      case "Fábrica":
+	  window.location.replace("Fabrica.html");
+	  break;
+      case "Retailer":
+	  window.location.replace("Retailer.html");
+	  break;
+      default:
+	  vistaError();
+      }
+  }
+  function vistaError() {
+      window.location.replace("LoginError.html");
+  }
+</script>
+
+</body>
+</html>

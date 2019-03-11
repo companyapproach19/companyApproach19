@@ -1,0 +1,31 @@
+package company;
+import java.sql.Blob;
+
+public class AlmacenLotes {
+
+   private int idAlmacenLotes;
+   private int ocupado;
+   private int maxCapacidad;
+   private Blob lotes;
+   
+   
+  public AlmacenLotes (int idAlmacenLotes, int ocupado, int maxCapacidad, Blob lotes){
+    this.idAlmacenLotes = idAlmacenLotes;
+    this.ocupado = ocupado;
+    this.maxCapacidad = maxCapacidad;
+    this.lotes = lotes;
+  }
+  
+  private int getIdAlmacenLotes(){
+    return this.idAlmacenLotes;
+  }
+  private int getOcupado(){
+    return this.ocupado;
+  }
+  private int getMaxCapacidad(){
+    return this.maxCapacidad;
+  }
+  private Blob getLotes(){
+    return this.lotes;
+  }
+}
