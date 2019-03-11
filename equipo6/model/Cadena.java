@@ -106,7 +106,7 @@ public class Cadena{
         boolean insercionCorrecta = equipo5.insertarBloqueOrden(nuevoBloque);
         if(insercionCorrecta){
             this.hashUltimoBloque=hashNuevo;
-            equipo5.guardarCadena(this, this.codLote);
+            equipo5.dao.metodosCompany.insertarCadena(this, this.codLote);
         }
 
     }

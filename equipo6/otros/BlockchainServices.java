@@ -11,7 +11,7 @@ import equipo6.model.*;
 public class BlockchainServices{
 	public BlockchainServices() {}
 	public boolean checkConsistencia(int codLote) {
-		return equipo5.getCadena(codLote).checkConsistencia();		
+		return equipo5.dao.metodosCompany.extraerCadena(codLote).checkConsistencia();		
 	}
 
     //Aun tienen que definir los otros grupos cual va a ser la clase
@@ -25,19 +25,9 @@ public class BlockchainServices{
         DatosContainer dc = traspaso;
         int codLote = traspaso.getId();
 
-        Cadena cadena = equipo5.getCadena(codLote);
+        Cadena cadena = equipo5.dao.metodosCompany.extraerCadena(codLote);
 
-        cadena.incorporarBloque(dc, 0); //Cambiar cuando asignemos cada entero a cada tipo de bloque
-        /* Bloque bloque = new Bloque();
-
-    	Bloque bloque = null;
-    	
-    	Cadena cadena = new Cadena(0);    	
-    	
-    	//meterlo a la cadena
-    	cadena.incorporarBloque(dc,bloque.getTipoBloque()); */
-    	
-    	
+        cadena.incorporarBloque(dc, 0); //Cambiar cuando asignemos cada entero a cada tipo de bloque  
     }
 
 
@@ -63,7 +53,7 @@ public class BlockchainServices{
     	
     	
     	
-    	Cadena cadena = equipo5.getCadena(codLote);
+    	Cadena cadena = equipo5.dao.metodosCompany.extraerCadena(codLote);
     	List<Bloque> bloques = cadena.getBloque(0);
     	if(!bloques.isEmpty()) {
     		return (OrdenTrazabilidad) bloques.get(bloques.size()-1).getDatos();
