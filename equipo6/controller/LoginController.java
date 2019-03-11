@@ -15,6 +15,7 @@ import equipo6.otros.*;
 @Controller
 public class LoginController {
 	
+
 	@Scope("request")
 	@ResponseBody
 	@RequestMapping("/loginUser")
