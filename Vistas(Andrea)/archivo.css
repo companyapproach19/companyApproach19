@@ -3,11 +3,15 @@ html {
 }
 
 body {
-  height: 50rem;
+  text-align: center;
+  height: 55rem;
   min-height: 35rem;
   position: relative;
   font-family: 'Critter';
   font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -26,28 +30,26 @@ h6 {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: #DEB887;
+  background-color: #FFFFFF;
   opacity: 0.7;
-  /* z-index: 1; */
 }
 
 .masthead {
   position: absolute;
   overflow: hidden;
   padding-bottom: 3rem;
-  /* z-index: 2; */
 }
 /* TXT*/
 body {
     width: 100%;
-    font-family: courier, courier new, serif;
+    font-family: 'Critter';
     font-size: 14px;  
 }
 
 form {
     /* Sólo para centrar el formulario a la página */
-    margin: 0 auto;
     width: 500px;
+	
     /* Para ver el borde del formulario */
     padding: 10px;
     border: 4px solid #DEB887;
@@ -69,6 +71,7 @@ label {
     display: inline-block;
     width: 200px;
     text-align: right;
+	font-weight: bold;
 }
 /* TXT*/
 em {
@@ -130,16 +133,55 @@ background-color: #FFCC66;
   }
 }
 
-.btn-secondary {
-  background-color: #A52A2A;
-  border-color: #8B4513;
-}
+/* .btn-secondary { */
+  /* background-color: #DEB887; */
+  /* border-color: #DEB887; */
+  /* border-radius: 12px; */
+/* } */
 
-.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
-  background-color: #D2691E !important;
-  border-color: #D2691E !important;
-}
+/* .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover { */
+  /* background-color: #8B4513 !important; */
+  /* border-color: #8B4513 !important; */
+/* } */
 
 .input {
   font-weight: 300 !important;
 }
+
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #DEB887;
+  border-radius: 0.6em;
+  color: #DEB887;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 15px;
+  padding: 0.6em 1.5em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.btn:hover, .btn:focus {
+  color: #FFFFFF;
+  outline: 0;
+}
+
+.first {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.first:hover {
+  box-shadow: 0 0 40px 40px #DEB887 inset;
