@@ -49,6 +49,7 @@ body {
 form {
     /* Sólo para centrar el formulario a la página */
     width: 500px;
+	text-align:center;
 	
     /* Para ver el borde del formulario */
     padding: 10px;
@@ -58,7 +59,7 @@ form {
 
 .input {
     /* Posiciona los botones a la misma posición que los campos de texto */
-    padding-left: 200px; /* Mismo tamaño a todos los elementos label */
+    padding-left: 12px; /* Mismo tamaño a todos los elementos label */
 }
 
 input {
@@ -69,8 +70,7 @@ input {
 label {
     /* Asegura todos los labels con el mismo tamaño y están alineados */
     display: inline-block;
-    width: 200px;
-    text-align: right;
+    width: 8rem;
 	font-weight: bold;
 }
 /* TXT*/
@@ -182,6 +182,15 @@ background-color: #FFCC66;
 .first {
   -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  display: inline-block;
+  margin-right:0.1rem;
+  margin-top:1rem;
+  margin-bottom:1rem;
+  
 }
 .first:hover {
   box-shadow: 0 0 40px 40px #DEB887 inset;
+}
+.volver{
+	margin-right:500px;
+}
