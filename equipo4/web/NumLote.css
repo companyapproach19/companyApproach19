@@ -120,10 +120,14 @@ video {
   }
   .aside {
     height: 100%;
-    min-height: 100;
+    min-width: 100%;
+  min-height: 100%;
     width: 40.5rem;
     padding-bottom: 0;
-    margin-left: 300px;
+    margin-left: 150px;
+	
+	position: fixed;
+  top: 33%;
   }
   .masthead .masthead-bg {
     min-height: 0;
