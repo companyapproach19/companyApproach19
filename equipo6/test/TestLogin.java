@@ -12,7 +12,6 @@ import equipo6.model.CadenaActores;
 import equipo6.objetosTemporales.BBDDTemporal;
 
 class TestLogin {
-
 	@Test
 	void test() {
 		testInterno();
