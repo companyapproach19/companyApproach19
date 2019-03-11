@@ -108,22 +108,8 @@ video {
   .masthead {
     height: 100%;
     min-height: 0;
-    width: 100rem;
-    padding-bottom: 0;
-  }
-  .article{
-  height: 100%;
-    min-height: 0;
     width: 40.5rem;
     padding-bottom: 0;
-    float: left;
-  }
-  .aside {
-    height: 100%;
-    min-height: 100;
-    width: 40.5rem;
-    padding-bottom: 0;
-    margin-left: 300px;
   }
   .masthead .masthead-bg {
     min-height: 0;
@@ -228,8 +214,6 @@ video {
 .boton1 {
   background-color: #A52A2A;
   border-color: #8B4513;
-  margin-left: 800px;
-  margin-top: 10px;
 }
 
 .boton1:active, .boton1:focus, .boton1:hover {
