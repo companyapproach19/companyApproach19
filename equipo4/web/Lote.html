@@ -39,27 +39,37 @@
               
               
               <div class="input-group-append">
-              <p class="mb-5"> Llegada a la fábrica
+              <p class="mb-5"> 1. Llegada a la fábrica </p>
                 <button class="btn btn-secondary" type="button">+ info.</button>
 
-              <p class="mb-5"> Molienda
+              <p class="mb-5"> 2. Molienda </p>
                 <button class="btn btn-secondary" type="button">+ info.</button>
 
-              <p class="mb-5"> Cocción
+              <p class="mb-5"> 3. Cocción </p>
                <button class="btn btn-secondary" type="button">+ info.</button>
 
-              <p class="mb-5"> Fermentación
+              <p class="mb-5"> 4. Fermentación </p>
                <button class="btn btn-secondary" type="button">+ info.</button>
 
-              <p class="mb-5"> Embotellado
+              <p class="mb-5"> 5. Embotellado </p>
                <button class="btn btn-secondary" type="button">+ info.</button>
 
-              <p class="mb-5"> Salida a la fábrica
+              <p class="mb-5"> 6. Salida a la fábrica </p>
                <button class="btn btn-secondary" type="button">+ info.</button>
            
+              
+   
+              <div class="progress">
+
+                33 %  <progress id="html5" max="100" value="33"></progress>
+                <span></span>
+              </div>
+              
+
               <button class="btn volver" type="button">volver</button>
+
               </div>      
-            </div>
+             </div>
             </div>
           </div>
         </div>
@@ -93,6 +103,74 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/coming-soon.min.js"></script>
+
+<!-- PRUEBA -->
+
+<script>
+
+  // Este array de usuarios será innecesario en el futuro, ahora mismo lo tenemos para tests.
+  // Cuando podamos recibir peticiones e importar en este código de JS el JSON correspondiente, ésto se borrará.
+  var fases = new Array ( '{ "Llegada"}','{"Molienda"}','{"Cocción"}', '{"Fermentación"}','{"Embotellado" }',
+        '{ "Salida"}' )
+  var lotes = new Array ( '{ "001"}','{"002"}','{"003"}', '{"004"}','{"005" }','{ "006"}' )
+  
+  function lote() {
+
+      /*
+       Aquí irá una petición Ajax al servidor que nos devolverá en el body del http el JSON del actor que se está intentando loggear. Si en los campos de JSON pone "error", se tomará como login incorrecto. En otro caso, el login habrá sido correcto.
+       hacerPeticion(document.getElementById("username").value , document.getElementById("password").value);
+       */
+      
+      /*
+       Aquí partimos de que ya tenemos el JSON. Lo parseamos y lo obtenemos como un objeto de JS.
+      */
+            
+      //Comprobamos que el usuario del json que nos devuelven coincide con el que nos han escrito
+
+      for (var i = 0; i < lotes.length; i++) {
+    var lot = JSON.parse( lotes[i] );
+    console.log("Lote: " + lotes);
+    
+    if (document.getElementById("Lote").value == lotes //cambiar "username" por Actor.username del JSON
+        // && JSON.Actor.username != "error") {     esto será necesario cuando leamos el json que nos manda el servidor
+         ) { //ésto sobrará cuando el json nos devuelva el usuario con la contraseña ya comprobada en el servidor
+      console.log("Lote correcto");
+      vistaPrincipal(fases);
+      break;
+    }
+    else {
+        vistaError();
+    }
+      }
+  }
+
+  function hacerPeticion(lotes){
+      // TODO
+  }
+  
+  function vistaLote(lotes) {
+      // Para cuando leamos del JSON:
+      // switch(JSON.Actor.tipo) { case "Agricultor": window.location.replace("..") etc }
+
+      // Para pruebas con el array usuarios
+      switch (tipoActor) {
+      case "Llegada" :
+    window.location.replace("Llegada.html");
+    break;
+      case "Molienda":
+    window.location.replace("Molienda.html");
+    break;
+      case "Cocción":
+    window.location.replace("Cocción.html");
+    break;
+      default:
+    vistaError();
+      }
+  }
+  function vistaError() {
+      window.location.replace("LoginError.html");
+  }
+</script>
 
 </body>
 

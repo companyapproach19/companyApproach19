@@ -217,6 +217,10 @@ video {
   letter-spacing: 1px;
   padding: 1rem;
 }
+.progress {
+  margin-left: 100px;
+    margin-top: 50px;
+}
 .volver {
   background-color: #A52A2A;
     border-color: #8B4513;
