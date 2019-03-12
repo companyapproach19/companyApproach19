@@ -9,8 +9,18 @@ public class Actor implements Serializable{
     private String passwordPlana;
     private String passwordSalt;
     private String email;
-    Actor usuarioPrevio;
-    private int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer
+  package company;
+import java.io.Serializable;
+
+public class Actor implements Serializable{
+    static final long serialVersionUID=10L;
+    private int id;
+    private String nombreUsuario;
+    private String passwordPlana;
+    private String passwordSalt = null;
+    private String email = null;
+    Actor usuarioPrevio = null;
+    private int tipoActor = 0; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer
 
 
     private boolean actor_compare(Actor usuarioIntentaAcceder)
@@ -35,7 +45,8 @@ public class Actor implements Serializable{
     //Constructor usado por la BBDD para instanciar el objeto que nos va a devolver
     //TODO gonzalo
 
-    public Actor(String nombreUsuario, String passwordSalt, String email,Actor usuarioPrevio, int tipoActor){
+    public Actor(int id, String nombreUsuario, String passwordSalt, String email,Actor usuarioPrevio, int tipoActor){
+    	this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.passwordSalt = passwordSalt;
         this.email = email;
@@ -43,6 +54,14 @@ public class Actor implements Serializable{
         this.tipoActor = tipoActor;
     }
 
+    public Actor(int id, String nombreUsuario, String passwordSalt, String email, int tipoActor){
+    	this.id = id;
+        this.nombreUsuario = nombreUsuario;
+        this.passwordSalt = passwordSalt;
+        this.email = email;
+        //this.usuarioPrevio = usuarioPrevio;
+        this.tipoActor = tipoActor;
+    }
     //Funcion que, checkea si el Actor pasado como parametro se corresponde con este (this),
     //y si no es asi, llama a este mÃ©todo en el Actor guardado en el campo usuarioPrevio.
     //De esta manera se recorre la lista de Actores desde el final al principio.
@@ -106,4 +125,35 @@ public class Actor implements Serializable{
     	return this.usuarioPrevio = usuarioPrevio;
     }
 
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public void setPasswordPlana(String passwordPlana) {
+        this.passwordPlana = passwordPlana;
+    }
+
+    public void setPasswordSalt(String passwordSalt) {
+        this.passwordSalt = passwordSalt;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUsuarioPrevio(Actor usuarioPrevio) {
+        this.usuarioPrevio = usuarioPrevio;
+    }
+
+    public void setTipoActor(int tipoActor) {
+        this.tipoActor = tipoActor;
+    }
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }
