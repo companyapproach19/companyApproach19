@@ -8,7 +8,7 @@ Para poder ejecutar el código de Arduino se necesita tener instalado el siguien
   - Processing: https://processing.org/download/
           - Software que permite escribir ficheros desde arduino.
           
- ----------------------------------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------------
   Los registros se envían a través de bluetooth a la carpeta de Data-Log que se encuentra en un ordenador, desde allí tienen 
   que subirse periodicamente al servidor.
   El servidor en este caso es una aplicación Heroku, integrada al repositorio de github "companyApproach19
