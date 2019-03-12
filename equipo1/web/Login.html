@@ -16,6 +16,10 @@
 
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="Login.css">
+
+	<!-- Import jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -54,76 +58,46 @@
 
 <script>
 
-  // Este array de usuarios será innecesario en el futuro, ahora mismo lo tenemos para tests.
-  // Cuando podamos recibir peticiones e importar en este código de JS el JSON correspondiente, ésto se borrará.
-  var usuarios = new Array ( '{ "nombre":"Agricultor","mail":"agricultor@email.com", "tipoActor":"Agricultor" }',
-				'{ "nombre":"Cooperativa","mail":"cooperativa@email.com", "tipoActor":"Cooperativa" }',
-				'{ "nombre":"Transportista","mail":"transportista@email.com", "tipoActor":"Transportista" }',
-				'{ "nombre":"Fábrica","mail":"fabrica@email.com", "tipoActor":"Fábrica" }',
-				'{ "nombre":"Retailer","mail":"retailer@email.com", "tipoActor":"Retailer" }' )
+  var respuesta;
   
   function login() {
 
-      /*
-       Aquí irá una petición Ajax al servidor que nos devolverá en el body del http el JSON del actor que se está intentando loggear. Si en los campos de JSON pone "error", se tomará como login incorrecto. En otro caso, el login habrá sido correcto.
-       hacerPeticion(document.getElementById("username").value , document.getElementById("password").value);
-       */
+      var actor = hacerPeticion();
       
-      /*
-       Aquí partimos de que ya tenemos el JSON. Lo parseamos y lo obtenemos como un objeto de JS.
-      */
-            
       //Comprobamos que el usuario del json que nos devuelven coincide con el que nos han escrito
-
-      for (var i = 0; i < usuarios.length; i++) {
-	  var actor = JSON.parse( usuarios[i] );
-	  console.log("Actor: " + actor.nombre);
-	  console.log("usuario y contraseña:" + document.getElementById("username").value + " , " + document.getElementById("password").value);
-	  if (document.getElementById("username").value == actor.nombre //cambiar "username" por Actor.username del JSON
-	      // && JSON.Actor.username != "error") {     esto será necesario cuando leamos el json que nos manda el servidor
-	      && document.getElementById("password").value == "password" ) { //ésto sobrará cuando el json nos devuelva el usuario con la contraseña ya comprobada en el servidor
-		  console.log("Login correcto");
-		  vistaPrincipal(actor.tipoActor);
-		  break;
-	  }
-	  else {
-	      vistaError();
-	  }
+      if (actor != null) {
+	  window.open(actor.redirect);
       }
   }
 
-  function hacerPeticion(usuario, contraseña){
-      // TODO
+  function hacerPeticion(){
+       var request = $.ajax({
+	   // la URL para la petición
+	   url : '/loginUser',
+	   
+	   // la información a enviar
+	   // (también es posible utilizar una cadena de datos)
+	   data : '{ "name":"' + $("#username") + '" , "pwd":"' + $("#password") + ' " }',
+	   
+	   // especifica si será una petición POST o GET
+	   type : 'POST',
+	   
+	   // el tipo de información que se espera de respuesta
+	   dataType : 'json',
+	   
+	   // código a ejecutar si la petición es satisfactoria;
+	   // la respuesta es pasada como argumento a la función
+       });
+      request.done(function(data){
+	  return JSON.parse(data);
+      });
+      request.fail(function(data) {
+	  
+      });
+      
   }
   
-  function vistaPrincipal(tipoActor) {
-      // Para cuando leamos del JSON:
-      // switch(JSON.Actor.tipo) { case "Agricultor": window.location.replace("..") etc }
-
-      // Para pruebas con el array usuarios
-      switch (tipoActor) {
-      case "Agricultor" :
-	  window.location.replace("Agricultores.html");
-	  break;
-      case "Cooperativa":
-	  window.location.replace("Cooperativa.html");
-	  break;
-      case "Transportista":
-	  window.location.replace("Transportista.html");
-	  break;
-      case "Fábrica":
-	  window.location.replace("Fabrica.html");
-	  break;
-      case "Retailer":
-	  window.location.replace("Retailer.html");
-	  break;
-      default:
-	  vistaError();
-      }
-  }
-  function vistaError() {
-      window.location.replace("LoginError.html");
-  }
+ 
 </script>
 
 </body>
