@@ -19,7 +19,7 @@ public class Test extends metodosCompany {
          try {
              conectar();
              crearBD();
-           
+             
             //prueba almacenMMPP
             AlmacenMMPP almacen = new AlmacenMMPP(2,200,2.0,3.0,4.1,5.2,7.2,8.3,8.2,9.5,7.6,10.1,9.9,8.8,14.0);
             insertarAlMMPP(almacen);
@@ -104,12 +104,12 @@ public class Test extends metodosCompany {
             // System.out.print(getProductos(1).getCant_malta_palida());
              
              //Prueba Actor
-             Actor pri = new Actor(0,"pri", "***", "correo@aux.es", null, 0);
+             Actor pri = new Actor(0,"pri", "***", "correo@aux.es", 0);
              pri.setPasswordPlana("cont");
              pri.setId(0);
-             Actor em = new Actor(1, "lperez", "**********","lperez@gmail.com", pri ,0);
+             Actor em = new Actor(1, "lperez", "**********","lperez@gmail.com", 0);
              em.setPasswordPlana("holahola");
-             Actor re = new Actor(2, "mlopez", "**********", "mlopez@yahoo.es", em, 1);
+             Actor re = new Actor(2, "mlopez", "**********", "mlopez@yahoo.es", 1);
              re.setPasswordPlana("holar");
              insercionActor(pri);
              insercionActor(em);
@@ -123,9 +123,10 @@ public class Test extends metodosCompany {
              getOrdenTrazabalidad(1);
              
              //prueba bloque --> NO FUNCIONA DA ERROR EL GETHASHCODE
-             /*Bloque bloq = new Bloque("pasGD312463", 1, 2, 1, (DatosContainer) orden);
-             insertarBloque(bloq);
-             getBloque(bloq.getHashCode());*/ 
+             Bloque bloq = new Bloque("pasGD312463", 1, 2, 1, (DatosContainer) orden);
+             insertarBloqueOrden(bloq);
+             getBloqueOrden(bloq.getHashCode());
+             
              
              System.out.print("Pasados todos los test correctamente");
             

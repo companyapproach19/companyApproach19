@@ -131,4 +131,9 @@ public class Actor implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public void setPasswordPlana(String string) {
+		this.passwordPlana=string;
+		
+	}
 }
