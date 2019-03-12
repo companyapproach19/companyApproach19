@@ -1,0 +1,6 @@
+Test de simulación de búsqueda de temperatura por fecha en un Log de datos, el Data-Log sigue el siguiente formato:
+
+año-mes-dia hora:minuto:segundo temperaturaºC
+
+A tener en cuenta que cuando se lee el registro hay líneas que no aportan información útil para encontrar una temperatura 
+pasando una fecha. El propio método buscar, implementado en la clase Sensor, será el encargado de ignorar esas líneas.
