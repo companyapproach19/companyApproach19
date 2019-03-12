@@ -1,15 +1,23 @@
 package company;
 
 
+
 import java.io.Serializable;
-import java.sql.Blob;
 
 public class DatosContainer implements Serializable{
-    //Dependemos del resto de grupos que nos digan que va a haber dentro
     Object datos;
-
-    //Serializa el objeto a bytes y devuelve el SHA256 hash del contenido serializado
-    public String getDigest(){
-    	return "";
+    
+    public DatosContainer(){}
+    
+    public DatosContainer(Object datos){
+        this.datos=datos;
+    }
+    
+    public Object getDatos(){
+        return this.datos;   
+    }
+    
+    public void setDatos(Object datos){
+        this.datos=datos;   
     }
 }

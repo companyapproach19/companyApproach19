@@ -1,5 +1,4 @@
 package company;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -11,7 +10,7 @@ public class Bloque implements Serializable{
     private String hashPrevio;
     private int tipoBloque;
     private int numBloque;
-    private int codLote; //identificador
+    private int codLote;
     DatosContainer datos;
 	private long timeStamp;
 
@@ -52,7 +51,6 @@ public class Bloque implements Serializable{
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");	        
             //Applies sha256 to our input, 
-            this.setTimeStamp();
 			String input=this.toBLOBString();
 			byte[] hash = digest.digest(input.getBytes());	        
 			StringBuffer hexString = new StringBuffer(); // This will contain hash as hexidecimal
@@ -78,15 +76,12 @@ public class Bloque implements Serializable{
         return Base64.getEncoder().encodeToString(baos.toByteArray()); 
     }
 
-  private void setTimeStamp() {
+  public void setTimeStamp() {
 		this.timeStamp=System.currentTimeMillis();
 	}
 
-public long getTimeStamp() {
+public float getTimeStamp() {
+	// TODO Auto-generated method stub
 	return timeStamp;
-}
-
-public void setTimeStamp(long timeStamp) {
-	this.timeStamp = timeStamp;
 }
 }
