@@ -50,7 +50,7 @@ public class LoginController {
 		Actor actorRespuesta = usrv.logUsuario(usuarioLogin);		
 		
 		//Devuelve el actor logeado como JSON
-		return getJSNFromActor(actorRespuesta);
+		return getJSONFromActor(actorRespuesta);
 	}
 	
 	
