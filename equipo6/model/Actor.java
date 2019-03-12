@@ -9,7 +9,6 @@ public class Actor implements Serializable{
     private String passwordPlana;
     private String passwordSalt;
     private String email;
-    Actor usuarioPrevio;
     private int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer; -1 para Login Incorrecto
 
 
@@ -41,20 +40,18 @@ public class Actor implements Serializable{
     //Constructor usado por la BBDD para instanciar el objeto que nos va a devolver
     //TODO gonzalo
 
-    public Actor(String nombreUsuario, String passwordSalt, String email,Actor usuarioPrevio, int tipoActor){
+    public Actor(String nombreUsuario, String passwordSalt, String email, int tipoActor){
         this.nombreUsuario = nombreUsuario;
         this.passwordSalt = passwordSalt;
         this.email = email;
-        this.usuarioPrevio = usuarioPrevio;
         this.tipoActor = tipoActor;
     }
     
     
-    public Actor(String nombreUsuario, String passwordPlana, String email,Actor usuarioPrevio, int tipoActor,int vacio){
+    public Actor(String nombreUsuario, String passwordPlana, String email, int tipoActor,int vacio){
         this.nombreUsuario = nombreUsuario;
         this.passwordPlana = passwordPlana;
         this.email = email;
-        this.usuarioPrevio = usuarioPrevio;
         this.tipoActor = tipoActor;
     }
 
@@ -72,11 +69,6 @@ public class Actor implements Serializable{
         {
         	System.out.println("Usuario encontrado.");
         	return this;
-        }
-        else if(this.usuarioPrevio != null)
-        {
-        	System.out.println("Usuario NO encontrado. Hemos probado: "+this.getNombreUsuario());
-            return this.usuarioPrevio.logMe(usuarioIntentaAcceder);
         }
         else
         {
@@ -114,10 +106,6 @@ public class Actor implements Serializable{
     public int getTipoActor()
     {
         return this.tipoActor;
-    }
-
-    public Actor getUsuarioPrevio(){
-        return this.usuarioPrevio;
     }
     
     private boolean isActorValido() {
