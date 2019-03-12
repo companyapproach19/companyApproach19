@@ -77,8 +77,8 @@ public class LoginController {
 		}
 		salida += "{\n \"nomUsuario\":\"" + actor.getNombreUsuario();
 		salida += "\" , \n \"email\":\"" + actor.getEmail();
-		salida += "\" , \n \"tipoActor\":\"" + tipo
-		salida += "\" , \n \"redirect\":\""+tipo+".html\"}";
+		salida += "\" , \n \"tipoActor\":\"" + tipo;
+		salida += "\" , \n \"redirect\":\""+tipo+".html\"\n}";
 
 		//si no esta el actor en la cadena devolvemos ""
 		return salida;
