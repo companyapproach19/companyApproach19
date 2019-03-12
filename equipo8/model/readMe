@@ -1,0 +1,6 @@
+Clase que representa el Sensor, contiene los siguientes métodos:
+
+  - Buscar temperatura según una fecha.
+  - Getters/Setters fecha, hora y temperatura.
+  
+ Está comunicada con el container para que en el futuro la cadena pueda obtener los datos que necesite.
