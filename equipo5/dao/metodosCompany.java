@@ -1,5 +1,6 @@
 package company;
 
+
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.Date;
@@ -734,28 +735,9 @@ public class metodosCompany {
 		        pst.executeUpdate();
 		        pst.close();
 		    }
-
-		    public Actor getActores() throws SQLException, ClassNotFoundException {
-		        conectar();
-		        Actor actor = new Actor();
-		        String query = "SELECT * FROM company.actor ";
-		        Statement pst = (PreparedStatement) conn.prepareStatement(query);
-		        ResultSet rs = pst.executeQuery(query);
-		        rs.next();
-		        ActorBBDD buscado = new ActorBBDD(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
-		        pst.close();
-		        rs.close();
-		        actor.setEmail(buscado.getEmail());
-		        actor.setNombreUsuario(buscado.getNombreUsuario());
-		        actor.setPasswordPlana(buscado.getPasswordPlana());
-		        actor.setPasswordSalt(buscado.getPasswordSalt());
-		        actor.setTipoActor(buscado.getTipoActor());
-		        actor.setUsuarioPrevio(getActor(buscado.getUsuarioPrevio()));
-		        return actor;
-		    }
 		    
-		   public static Bloque getBloque(String hashBloquePedido) throws SQLException, ClassNotFoundException {
-                /*conectar();
+		   public static Bloque getBloqueOrden(String hashBloquePedido) throws SQLException, ClassNotFoundException {
+                conectar();
                 Bloque devolver =null;
                 String query = "SELECT * FROM company.bloque WHERE id = '" + hashBloquePedido + "'" ;
                 Statement pst = conn.createStatement();
@@ -779,12 +761,11 @@ public class metodosCompany {
                 pst.close();
                 rs.close();
                 conn.close();
-                return devolver;*/
-			   return null;
+                return devolver;
             }
 
-            public static void insertarBloque(Bloque bloqAinsertar) throws SQLException, ClassNotFoundException {
-                /*int data=0;
+            public static void insertarBloqueOrden(Bloque bloqAinsertar) throws SQLException, ClassNotFoundException {
+                int data=0;
                 switch (bloqAinsertar.getTipoBloque()) {
                     case 0:
                         OrdenTrazabilidad aInsertar = (OrdenTrazabilidad) bloqAinsertar.getDatos();
@@ -805,10 +786,11 @@ public class metodosCompany {
                 pst.setInt(6, data);
                 pst.setFloat(7, bloqAinsertar.getTimeStamp());
                 pst.executeUpdate();
-                pst.close();*/
-            	
-
+                pst.close();
             }
+
+
+		
 
 
 
