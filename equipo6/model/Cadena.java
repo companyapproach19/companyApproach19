@@ -30,12 +30,12 @@ public class Cadena{
     //TODO alejandro
     public List<Bloque> getBloque(int tipoBloque){
     	List<Bloque> lista = new LinkedList<Bloque>();
-    	Bloque anadir = equipo5.getBloqueOrden(hashUltimoBloque) ;
+    	Bloque anadir = metodosCompany.getBloqueOrden(hashUltimoBloque) ;
     	for (int j=0;j<numBloques;j++) {    		
     		if (anadir.getTipoBloque()==tipoBloque) {
     			lista.add(anadir);    			
     		}
-    		anadir = equipo5.getBloqueOrden(anadir.getHashPrevio());    		
+    		anadir = metodosCompany.getBloqueOrden(anadir.getHashPrevio());    		
     	}
     	return lista;
     }
@@ -45,10 +45,10 @@ public class Cadena{
     //TODO alejandro
     public List<Bloque> getCadena(){
     	List<Bloque> lista = new LinkedList<Bloque>();
-    	Bloque anadir = equipo5.getBloqueOrden(hashUltimoBloque) ;
+    	Bloque anadir = metodosCompany.getBloqueOrden(hashUltimoBloque) ;
     	for (int j=0;j<numBloques;j++){
     		lista.add(anadir);	
-    		anadir = equipo5.getBloqueOrden(anadir.getHashPrevio());
+    		anadir = metodosCompany.getBloqueOrden(anadir.getHashPrevio());
     	}    	
     	return lista;
     }
@@ -70,9 +70,9 @@ public class Cadena{
     // de un bloque a otro hasta llegar a un bloque cuyo valor de hashPrevio sea "INICIO"
     //TODO alejandro
     public boolean checkConsistencia(){
-        Bloque anadir = equipo5.getBloqueOrden(hashUltimoBloque) ;
+        Bloque anadir = metodosCompany.getBloqueOrden(hashUltimoBloque) ;
     	for (int j=0;j<numBloques-1;j++){
-    		anadir = equipo5.getBloqueOrden(anadir.getHashPrevio());
+    		anadir = metodosCompany.getBloqueOrden(anadir.getHashPrevio());
     	}
     	if(anadir.getHashPrevio().equals("INICIO")){
     		return true;    		
@@ -103,7 +103,7 @@ public class Cadena{
         Bloque nuevoBloque = new Bloque(this.hashUltimoBloque,tipoBloque, this.numBloques++, this.codLote, dc);
         nuevoBloque.setTimeStamp();
         String hashNuevo = nuevoBloque.getHashCode();
-        boolean insercionCorrecta = equipo5.insertarBloqueOrden(nuevoBloque);
+        boolean insercionCorrecta = metodosCompany.insertarBloqueOrden(nuevoBloque);
         if(insercionCorrecta){
             this.hashUltimoBloque=hashNuevo;
             equipo5.dao.metodosCompany.insertarCadena(this, this.codLote);
