@@ -1,0 +1,27 @@
+Para poder ejecutar el código de Arduino se necesita tener instalado el siguiente software:
+
+
+  -Arduino:  https://www.arduino.cc/en/Main/Software
+          - Dependiendo de la funcionalidad que tenga se han de descargar unas librerías u otras, en nuestro caso
+          se han de dscargar las que vengan en el include, es decir SoftwareSerial y Wire
+         
+  - Processing: https://processing.org/download/
+          - Software que permite escribir ficheros desde arduino.
+          
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+  Los registros se envían a través de bluetooth a la carpeta de Data-Log que se encuentra en un ordenador, desde allí tienen 
+  que subirse periodicamente al servidor.
+
+
+  El servidor en este caso es una aplicación Heroku, integrada al repositorio de github "companyApproach19
+  ", por eso mismo, hay que crear un script que permita hacer un backup de la carpeta Data-Log a una carpeta similar dentro del repositorio.
+
+
+  En este link en el step 6 vienen los comandos que se tienen que ejecutar para hacer un volcado periódico de la carpeta en cuestión
+  http://sivareddy.in/automatic-backup-project-data-git
+
+
+  Queda pendiente ver si está idea se va a llevar a cabo y si es así crear el script para automatizarlo.
