@@ -197,19 +197,11 @@ video {
 .btn-secondary {
   background-color: #A52A2A;
   border-color: #8B4513;
-  margin-left: 133px;
 }
 
 .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
   background-color: #D2691E !important;
   border-color: #D2691E !important;
-}
-
-.volver {
-  background-color: #A52A2A;
-    border-color: #8B4513;
-    margin-left: 550px;
-    margin-top: 50px;
 }
 .boton1 {
   background-color: #A52A2A;
@@ -265,33 +257,17 @@ video {
   background-color: #D2691E !important;
   border-color: #D2691E !important;
 }
-.volver:active, .volver:focus, .volver:hover {
-  background-color: #D2691E !important;
-  border-color: #D2691E !important;
-}
-.masthead .masthead-content .input-group-newsletter input {
-  height: auto;
-  font-size: 1rem;
-  padding: 1rem;
-}
-
-.masthead .masthead-content .input-group-newsletter button {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 1rem;
-}
 .volver {
   background-color: #A52A2A;
     border-color: #8B4513;
-    margin-left: 450px;
+    margin-left: 550px;
     margin-top: 50px;
 }
 .volver:active, .volver:focus, .volver:hover {
   background-color: #D2691E !important;
   border-color: #D2691E !important;
 }
+
 .input {
   font-weight: 300 !important;
 }

@@ -1,0 +1,187 @@
+html {
+  height: 100%;
+}
+
+body {
+  text-align: center;
+  height: 70rem;
+  min-height: 35rem;
+  position: relative;
+  font-family: 'Critter';
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Critter';
+  font-weight: 700;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #FFFFFF;
+  opacity: 0.7;
+}
+
+.masthead {
+  position: absolute;
+  overflow: hidden;
+  padding-bottom: 3rem;
+}
+/* TXT*/
+body {
+    width: 100%;
+    font-family: 'Critter';
+    font-size: 14px;  
+}
+
+form {
+    /* Sólo para centrar el formulario a la página */
+    width: 500px;
+	
+    /* Para ver el borde del formulario */
+    padding: 10px;
+    border: 4px solid #DEB887;
+    border-radius: 1em;
+}
+
+.input {
+    /* Posiciona los botones a la misma posición que los campos de texto */
+    padding-left: 200px; /* Mismo tamaño a todos los elementos label */
+}
+
+input {
+    /* Este margen extra representa aproximadamente el mismo espacio que el espacio entre los labels y sus campos de texto */
+    margin-left: .5em;
+}
+
+label {
+    /* Asegura todos los labels con el mismo tamaño y están alineados */
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+	font-weight: bold;
+}
+/* TXT*/
+em {
+position: relative;
+top: 5px;
+left: 100px;
+background-color: #FFCC66;
+}
+
+.masthead .masthead-content h1 {
+  font-size: 2.5rem;
+}
+
+.masthead .masthead-content p {
+  font-size: 1.2rem;
+}
+
+.masthead .masthead-content p strong {
+  font-weight: 700;
+}
+
+.masthead .masthead-content .input-group-newsletter input {
+  height: auto;
+  font-size: 1.5rem;
+  overflow: scroll;
+}
+
+.masthead .masthead-content .input-group-newsletter button {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .masthead {
+    height: 100%;
+    min-height: 0;
+    width: 40.5rem;
+    padding-bottom: 0;
+  }
+  .masthead .masthead-bg {
+    min-height: 0;
+    -webkit-transform: skewX(-8deg);
+    transform: skewX(-8deg);
+    -webkit-transform-origin: top right;
+    transform-origin: top right;
+  }
+  .masthead .masthead-content {
+    padding-left: 3rem;
+    padding-right: 10rem;
+  }
+  .masthead .masthead-content h1 {
+    font-size: 3.5rem;
+  }
+  .masthead .masthead-content p {
+    font-size: 1.3rem;
+  }
+}
+
+/* .btn-secondary { */
+  /* background-color: #DEB887; */
+  /* border-color: #DEB887; */
+  /* border-radius: 12px; */
+/* } */
+
+/* .btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover { */
+  /* background-color: #8B4513 !important; */
+  /* border-color: #8B4513 !important; */
+/* } */
+
+.input {
+  font-weight: 300 !important;
+}
+
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #DEB887;
+  border-radius: 0.6em;
+  color: #DEB887;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 15px;
+  padding: 0.6em 1.5em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.btn:hover, .btn:focus {
+  color: #FFFFFF;
+  outline: 0;
+}
+
+.first {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.first:hover {
+  box-shadow: 0 0 40px 40px #DEB887 inset;

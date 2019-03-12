@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Transportista</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="Transportista.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="Transportista.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+  <div class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto">
+          <div class="masthead-content text-white py-5 py-md-0">
+            <h1 class="mb-3">Transportista</h1>
+              <h2 class="mb-5"> Opciones
+                </div>
+            <div class="input-group input-group-newsletter">
+          <p class="mb-5">Ver el pedido que va a transportar
+            </p>
+            <div class="input-group-append">
+            <button class="btn btn-secondary" onclick="pedidoATransportar()" type="button">Aceptar</button>
+         <p class="mb-5"> Firma del pedido
+            </p>
+            <button class="btn btn-secondary" onclick="firmar()" type="button">Aceptar</button>
+                <p class="mb-5">Ver las condiciones del producto
+            </p>
+                <button class="btn btn-secondary" type="button">Aceptar</button>
+                <p class="mb-5"> Ver pedidos aceptados</p>
+                <button class="btn btn-secondary" onclick="pedidosAceptados()" type="button">Aceptar</button>
+                 <p class="btn btn-secondary">   
+         </p>
+                <button type="button" class="btn boton1">Agricultor</p>
+
+                  <select>
+                    <option>..........</option>
+                    <option>..........</option>
+                    
+                  </select>
+
+                </button>
+                <button type="button" class="btn boton2">Transportista</p> 
+                  <select>
+                    <option>......... </option>
+                    <option>.........</option>
+                    
+                  </select>
+                  
+                </button>
+                <button type="button" class="btn boton3">Cooperativa</p>
+                  <select>
+                    <option>.........</option>
+                    <option>.........</option>
+                    
+                  </select>
+                  
+                </button>
+                <button type="button" class="btn boton4">Fabrica</p>
+                  <select>
+                    <option>............</option>
+                    <option>............</option>
+                    
+                  </select>
+                  
+                </button>
+                <button type="button" class="btn boton5">Transportista</p>
+                  <select>
+                    <option>........</option>
+                    <option>........</option>
+                    
+                  </select>
+                  
+                </button>
+                <button type="button" class="btn boton6">Retailer</p>
+                  <select>
+                    <option>........</option>
+                    <option>.........</option>
+                    
+                  </select>
+                  
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div s="social-icons">
+    <button class="btn volver" onclick="cerrarSesion()" type="button">Cerrar sesion</button>
+    <ul class="list-unstyled text-center mb-0">
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+
+    function cerrarSesion() {
+	window.location.replace("Login.html");
+    }
+
+    function pedidoATransportar() {
+	window.location.replace("Transportistas2.html");
+    }
+
+    function firmar() {
+	window.location.replace("Firmar.html");
+    }
+
+    function pedidosAceptados() {
+	window.location.replace("Transportistas.html");
+    }
+    
+  </script>
+
+</body>
+
+</html>

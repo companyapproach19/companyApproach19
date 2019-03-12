@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+
+<!--------------------------------->
+<script language="Javascript" >
+function download(filename, text) {
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+  pom.style.display = 'none';
+  
+  document.body.appendChild(pom);
+  pom.click();
+  
+  document.body.removeChild(pom);
+}
+function addTextTXT()
+{
+    document.addtext.name.value = document.addtext.name.value + ".txt"
+}
+</script>
+<!--------------------------------->
+
+
+  <!-- Custom styles for this template -->
+  <link href="archivo.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+ 
+  <div class="masthead">
+    <div class="masthead-bg"></div>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto">
+          <div class="masthead-content text-white py-5 py-md-0">
+            <h1 class="mb-3">Tienda</h1>
+              <h2 class="mb-5"> Solicitar pedido
+                </div>
+
+    <!--------------------------------->
+    <form id="formulario" method="post" onsubmit="download(this['name'].value, getParametros())">
+  <!--------------------------------->
+        
+        <p>
+        <label for="apellidos">Identificador:</label>
+        <input type="text" name="apellidos" id="apellidos" value="" required>
+        <p>
+		<p>
+        <label for="apellidos">Transportistas:</label>
+        <input type="text" name="apellidos" id="apellidos" value="" required>
+        <p>
+        <label for="producto1">Cajas Stoul</label>
+        <input type="checkbox" name="producto1" id="producto1" value="Malta de base pálida">
+        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <p>
+          <label for="producto1">Cajas Bisner</label>
+        <input type="checkbox" name="producto1" id="producto1" value="Malta Munich">
+        <input type="number" name="cantidad1" id="cantidad1" value="" min="0" placeholder="Escribe la cantidad">
+        <p>
+          
+              
+        
+        
+         <div class="input">
+        <p></p>
+		<button type="submit" class="btn first">Enviar pedido</button>
+		<button type="reset" class="btn first">Limpiar formulario</button>
+        </div>
+</form>
+<div class="volver">
+<button class="btn first" value="Volver" onclick="window.location='Reatiler.html';">Volver</button>
+</div>
+
+<script>
+  function getParametros() {
+  
+    var id = document.getElementById("id").value;
+    var transportista = document.getElementById("transportista").value;
+    
+    var cantidad1 = document.getElementById("cantidad1").value;
+    var cantidad2 = document.getElementById("cantidad2").value;
+    
+    var producto1 = document.getElementById("producto1").value;
+    var producto2 = document.getElementById("producto2").value;
+  
+  
+  <!------------------SIMPLEMENTE HABRIA QUE CONCATENAR TODAS LAS VARIABLES--------------->
+  res = "ID:   ".concat(id).concat("\nTransportista:  ").concat(transportista).concat("\nCajas Stoul:  ").concat(cantidad1).concat("\nCajas Bisner:  ").concat(cantidad2);
+    
+  return res;
+  }
+
+function getJson(){
+
+	 //Aqui recogemoslasvariables
+    var id = document.getElementById("id").value;
+    var transportista = document.getElementById("transportista").value;
+    
+    var cantidad1 = document.getElementById("cantidad1").value;
+    var cantidad2 = document.getElementById("cantidad2").value;
+    
+    var producto1 = document.getElementById("producto1").value;
+    var producto2 = document.getElementById("producto2").value;
+    
+   var hola = { 
+    "id": id,
+    actorOrigen: "Tienda",
+    "destinatario": destino,
+    'transportista': {
+  "nombre": transportista,
+  "empresa": "Povas",
+  "fecha_recogida": "08-03-2019",
+  "fecha_entrega": "13-03-2019"
+    },
+    "productos": {
+  "cant_malta_palida": cantidad1,
+  "cant_malta_munich": cantidad2,
+  "cant_malta_negra": cantidad3,
+  "cant_malta_crystal": cantidad4,
+  "cant_malta_chocolate": cantidad5,
+  "cant_malta_caramelo": cantidad6,
+  "cant_cebada": cantidad7,
+  "cant_cebada_tostada": cantidad8,
+  "cant_lupulo_centenial": cantidad9
+    },
+    "mensaje": "Petición de prueba.",
+    "firmadoRecogida": false,
+    "firmadoEntrega": false
+}
+//Aqui se hace json de verdad
+var myJson = JSON.stringify(hola);  
+
+
+
+/*
+
+$.ajax({
+    // la URL para la petición
+    url : '',
+ 
+    // la información a enviar
+    // (también es posible utilizar una cadena de datos)
+    data : myJson,
+ 
+    // especifica si será una petición POST o GET
+    type : 'POST',
+ 
+    // el tipo de información que se espera de respuesta
+    dataType : 'json',
+ 
+    // código a ejecutar si la petición es satisfactoria;
+    // la respuesta es pasada como argumento a la función
+
+    })
+
+
+*/
+
+
+
+}
+
+</script>
+  <div class="input-group input-group-newsletter"></div>
+
+</body>
+
+</html>
