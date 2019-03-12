@@ -51,7 +51,8 @@
     </div>
 			   
 			   <center>
-			  <button type="button" class = "btn btn-secondary" onclick="mostrar()">MOSTRAR PEDIDOS SOLICITADOS</button>
+			   
+			  <button type="button" class = "btn btn-secondary" onclick="mostrar(); style.display = 'none' ">MOSTRAR PEDIDOS SOLICITADOS</button>
 			 </center>
 			   
                
@@ -162,6 +163,8 @@
     var table_body_element = document.createElement('tbody');
     table_body_element.innerHTML = tabla;
     document.getElementById('my_table').appendChild(table_body_element);
+	
+	
 	
 			   
 			   }
