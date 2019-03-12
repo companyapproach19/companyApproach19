@@ -50,7 +50,7 @@ public class LoginController {
 		Actor actorRespuesta = usrv.logUsuario(usuarioLogin);		
 		
 		//Devuelve el actor logeado como JSON
-		return actorRespuesta;
+		return getJSNFromActor(actorRespuesta);
 	}
 	
 	
@@ -60,10 +60,10 @@ public class LoginController {
 		String tipo = "";
 		switch (actor.getTipoActor()) {
 		case 0:
-			tipo = "Productor";
+			tipo = "Agricultores";
 			break;
 		case 1:
-			tipo = "Coperativa";
+			tipo = "Cooperativa";
 			break;
 		case 2:
 			tipo = "Transportista";
@@ -75,7 +75,10 @@ public class LoginController {
 			tipo = "Retailer";
 			break;
 		}
-		salida += "{\n" + actor.getNombreUsuario() + "\n" + actor.getEmail() + "\n" + tipo + "}";
+		salida += "{\n \"nomUsuario\":\"" + actor.getNombreUsuario();
+		salida += "\" , \n \"email\":\"" + actor.getEmail();
+		salida += "\" , \n \"tipoActor\":\"" + tipo
+		salida += "\" , \n \"redirect\":\""+tipo+".html\"}";
 
 		//si no esta el actor en la cadena devolvemos ""
 		return salida;
