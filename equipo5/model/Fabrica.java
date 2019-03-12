@@ -3,10 +3,10 @@ package company;
 public class Fabrica {
 	private String CIF;
 	private String direccion;
-	private String idAlmacenMaterias;
-	private String idAlmacenLotes;
+	private int idAlmacenMaterias;
+	private int idAlmacenLotes;
 	
-	public Fabrica(String CIF,String direccion,String idAlmacenMaterias,String idAlmacenLotes) {
+	public Fabrica(String CIF,String direccion,int idAlmacenMaterias,int idAlmacenLotes) {
 		this.CIF= CIF;
 		this.direccion= direccion;
 		this.idAlmacenMaterias=idAlmacenMaterias;
@@ -26,19 +26,19 @@ public class Fabrica {
 		CIF = cif;
 	}
 
-	public String getIdAlmacenMaterias() {
+	public int getIdAlmacenMaterias() {
 		return idAlmacenMaterias;
 	}
 
-	public void setIdAlmacenMaterias(String idAlmacenMaterias) {
+	public void setIdAlmacenMaterias(int idAlmacenMaterias) {
 		this.idAlmacenMaterias = idAlmacenMaterias;
 	}
 
-	public String getIdAlmacenLotes() {
+	public int getIdAlmacenLotes() {
 		return idAlmacenLotes;
 	}
 
-	public void setIdAlmacenLotes(String idAlmacenLotes) {
+	public void setIdAlmacenLotes(int idAlmacenLotes) {
 		this.idAlmacenLotes = idAlmacenLotes;
 	}
 	

@@ -1,15 +1,4 @@
 package company;
-
-import java.io.Serializable;
-
-public class Actor implements Serializable{
-    static final long serialVersionUID=10L;
-    
-    private String nombreUsuario;
-    private String passwordPlana;
-    private String passwordSalt;
-    private String email;
-  package company;
 import java.io.Serializable;
 
 public class Actor implements Serializable{
@@ -63,12 +52,12 @@ public class Actor implements Serializable{
         this.tipoActor = tipoActor;
     }
     //Funcion que, checkea si el Actor pasado como parametro se corresponde con este (this),
-    //y si no es asi, llama a este mÃ©todo en el Actor guardado en el campo usuarioPrevio.
+    //y si no es asi, llama a este método en el Actor guardado en el campo usuarioPrevio.
     //De esta manera se recorre la lista de Actores desde el final al principio.
     //Si usuario se corresponde, devolverse a si mismo (de momento, ya veremos como lo hacemos con la vista)
     //Si no se corresponde, pero existe usuario previo, devolver lo que devuelva la llamada a logMe del usuario previo
     //Si usuarioPrevio==Actor vacio (campos nombre y mail vacios) (inicio de la lista), se 
-    //lanza una excepcion genÃ©rica, y devolver null
+    //lanza una excepcion genérica, y devolver null
     //TODO gonzalo
 
     public Actor logMe(Actor usuarioIntentaAcceder) throws Exception{
@@ -87,7 +76,7 @@ public class Actor implements Serializable{
             throw new Exception
                                 (
                                     "Error al logear usuario : " + usuarioIntentaAcceder.nombreUsuario +
-                                    " contraseña : " + usuarioIntentaAcceder.passwordPlana
+                                    " contrase�a : " + usuarioIntentaAcceder.passwordPlana
                                 );
         }
     }

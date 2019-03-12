@@ -2,6 +2,7 @@ package company;
 
 
 import java.io.Serializable;
+import java.sql.Blob;
 
 public class DatosContainer implements Serializable{
     //Dependemos del resto de grupos que nos digan que va a haber dentro
