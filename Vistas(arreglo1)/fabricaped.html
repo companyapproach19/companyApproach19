@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Fábrica</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="archivo.css" rel="stylesheet">
+  
+  <script type="text/javascript" src="data.json"></script>
+
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="mp4/bg.mp4" type="video/mp4">
+  </video>
+
+  <div class="masthead">
+    <div class="masthead-bg"></div>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto">
+          <div class="masthead-content text-white py-5 py-md-0">
+            <h1 class="mb-3">Fábrica</h1>
+              <h2 class="mb-5"> Pedidos Recibidos
+                </div>
+            <div class="input-group input-group-newsletter">
+              <form>
+               <h3>Pedidos Solicitados<br><br></h3>
+               
+               <div class="container">
+      <table id="my_table" class="table">
+      </table>
+    </div>
+			   
+               
+			   <script>
+			   
+			   
+			   
+			   
+			   
+			   
+    var local_data = data;
+	
+    var enunciado = ' desde ' + local_data.actorOrigen + ' hasta ' + local_data.destinatario;
+	
+   
+	
+    var transporte =  '<tr>' +
+	    
+		' <td>' + 'transportista: ' + local_data.transportista.nombre + '</td>' +
+        ' <td>' + 'empresa: ' + local_data.transportista.empresa +  '</td>' +
+        ' <td>' + 'fecha recogida: ' + local_data.transportista.fecha_recogida + '</td>' +
+        ' <td>' + 'fecha entrega: ' + local_data.transportista.fecha_entrega + '</td>' +
+		
+        '</tr>';
+	   
+	var espacio = '<p>' + ' PRODUCTOS ' + '</p>';
+	   
+	   
+	   
+	var productos =  '<tr>' +
+	    
+		' <td>' + 'Cantidad '  + '</td>' +
+        ' <td>' + ' Productos '   +  '</td>' +
+        
+        '</tr>' +
+		
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_malta_palida  + '</td>' +
+        ' <td>' + ' Malta Palida'   +  '</td>' +
+        
+        '</tr>' + 
+		
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_malta_munich  + '</td>' +
+        ' <td>' + ' Malta Munich'   +  '</td>' +
+        
+        '</tr>' +
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_malta_negra  + '</td>' +
+        ' <td>' + ' Malta Negra'   +  '</td>' +
+        
+        '</tr>' +  
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_malta_crystal  + '</td>' +
+        ' <td>' + ' Malta Crystal'   +  '</td>' +
+        
+        '</tr>' +
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_malta_chocolate  + '</td>' +
+        ' <td>' + ' Malta Chocolate'   +  '</td>' +
+        
+        '</tr>' +
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_malta_caramelo  + '</td>' +
+        ' <td>' + ' Malta Caramelo'   +  '</td>' +
+        
+        '</tr>' + 
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_cebada  + '</td>' +
+        ' <td>' + ' Cebada'   +  '</td>' +
+        
+        '</tr>' + 
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_cebada_tostada  + '</td>' +
+        ' <td>' + ' Cebada Tostada'   +  '</td>' +
+        
+        '</tr>' +
+		'<tr>' +
+	    
+		' <td>' + local_data.productos.cant_lupulo_centenial  + '</td>' +
+        ' <td>' + ' Lupulo Centenial'   +  '</td>' +
+        
+        '</tr>';
+     var mensaje = ' VERIFICACION ' ;
+		 
+     var firma =  '<tr>' +
+	    
+		' <td>' + 'Mensaje: ' + local_data.mensaje + '</td>' +
+        ' <td>' + 'Firma Recogida: ' + local_data.firmadoRecogida +  '</td>' +
+        ' <td>' + 'Firma Entrega: ' + local_data.firmadoEntrega + '</td>' +
+        
+		
+        '</tr>';
+		
+    
+	var tabla = enunciado + transporte +  espacio + productos + mensaje + firma
+	
+    var table_body_element = document.createElement('tbody');
+    table_body_element.innerHTML = tabla;
+    document.getElementById('my_table').appendChild(table_body_element);
+	
+	
+	
+	
+  </script>
+			   
+			   
+               
+             </form>
+              <br>
+               <br>
+               <br>
+               <form>
+               <id="formulario" method="post" action="datos.php">
+                  <label for="nombre">Insertar Pedido:</label>
+                  <input type="text" name="nombre" id="nombre" value="" required >
+                    <p>
+                  <div class="input">
+
+                      <input type="submit" class = "btn btn-secondary" value="Aceptarlo"> 
+                  </div>
+                </form>
+                <div>
+          <br>
+          <br>
+            <input type="submit" class = "btn btn-secondary" value="Volver" onclick="window.location='Fábrica.html';" />
+          </div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/coming-soon.min.js"></script>
+
+</body>
+
+</html>
