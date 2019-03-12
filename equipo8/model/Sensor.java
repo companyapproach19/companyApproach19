@@ -6,67 +6,74 @@ import java.io.IOException;
 
 public class Sensor extends DatosContainer{
 	
-	//Aquí se encuentra el .txt con el registro
+	//AquÃ­ se encuentra el .txt con el registro
   	private static BufferedReader log; 
   	
-  	
+  	//Contiene cada linea del registro
   	private static String linea;
+	//Formato aÃ±o-mes-dia
   	private static String fecha;
   	private static String anio;
   	private static String mes;
   	private static String dia;
+	// Al principio contiene hora:minuto:segundo, despuÃ©s solo la hora
+	private static String hora;
+  	private static String min;
+  	private static String sec;
+	//Array que sirve para detectar las partes de la fecha y de la hora
   	private static String partes [];
-  	private static String partesFecha [] ;
+  	private static String partesFecha [];
  	private static String partesHora [];
-  	private static String hora ;
-  	private static String min ;
-  	private static String sec ;
+  	//Donde se guardarÃ¡ la temperatura
   	private static String temperatura ;
 
-  	
-  	// Cambiar por la ruta donde esté el log que se quiera probar
+  	// Cambiar por la ruta donde estÃ© el log que se quiera probar
   	private static String ruta="C:\\Users\\Laura Colomer\\Documents\\datosSensor.txt" ;
   	
-  	//Permite buscar la temperatura ó humedad de una determinada fecha y hora dentro del registro
+  	//Permite buscar la temperatura Ã³ humedad de una determinada fecha y hora dentro del registro
 	public String buscar(String anioParam, String mesParam, String diaParam, String horaParam, String minParam, String secParam) throws IOException {
+		// log contiene todo el registro de temperaturas
 		log = new BufferedReader(new FileReader(ruta)); 
-		
-		// Va leyendo línea por línea...
+		// Va leyendo lÃ­nea por lÃ­nea...
 		while ((linea = log.readLine()) != null) {
+			//Se saltan las lineas vacÃ­as
 			if(!linea.isEmpty()){
 				partes  = linea.split(" ");
 				fecha = partes[0];
 				partesFecha  = fecha.split("-");
 				anio=partesFecha [0];
+				//Si coincide toda la fecha...
 				if(anio.equals(anioParam)) {
 					mes=partesFecha [1];
 					if(mes.equals(mesParam)) {
 						dia=partesFecha [2];
-							if(dia.equals(diaParam)) {
-								hora = partes[1];
-										partesHora = hora.split(":");
-										hora=partesHora[0];
-										if(hora.equals(horaParam)){
-											min=partesHora[1];
-											if(min.equals(minParam)){
-												sec=partesHora[2];
-													if(sec.equals(secParam)){
-														if(partes[2].contains("ºC")){
-															return partes[2];
-														}
-													}
-																				
-											}
+						if(dia.equals(diaParam)) {
+							hora = partes[1];
+							partesHora = hora.split(":");
+							hora=partesHora[0];
+							//Si coincide toda la hora...
+							if(hora.equals(horaParam)){
+								min=partesHora[1];
+								if(min.equals(minParam)){
+									sec=partesHora[2];
+									if(sec.equals(secParam)){
+										if(partes[2].contains("ÂºC")){
+											//Devuelve la temperatura "XÂºC"
+											return partes[2];
 										}
+									}																		
+								}
 							}
+						}
 					}
 				}
 			}
 		}
 		log.close();
-		return "-1";
+		return "Incorrecto";
 	}
 
+	//Futuros gettes y setters
 	public static String getTemperatura() {
 		return temperatura;
 	}
