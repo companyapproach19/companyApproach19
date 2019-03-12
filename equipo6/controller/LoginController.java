@@ -74,6 +74,9 @@ public class LoginController {
 		case 4:
 			tipo = "Retailer";
 			break;
+		default:
+			tipo="LoginError";
+			break;
 		}
 		salida += "{\n \"nomUsuario\":\"" + actor.getNombreUsuario();
 		salida += "\" , \n \"email\":\"" + actor.getEmail();
