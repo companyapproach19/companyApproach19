@@ -21,7 +21,7 @@ public class LoginController {
 	@Scope("request")
 	@ResponseBody
 	@RequestMapping("/loginUser")
-	public Actor loginUser(
+	public String loginUser(
 			@RequestParam(name="usuario", required=true) String usuario,
 			@RequestParam(name="pwd", required=true) String pwd,
 			Model model) {
