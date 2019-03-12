@@ -19,15 +19,19 @@ public class UsuariosService{
     //Obtiene la cadena de BBDD, y utiliza el metodo logIn de la cadena
     //TODO anton (habla con gonzalo si necesitas entender como funciona su clase modelo)
     public Actor logUsuario(Actor usuarioIntentaLogin){
-    	Actor actor = metodosCompany.getActor(usuarioIntentaLogin.getNombreUsuario());
-    	if(actor!=null) {
-    		if(actor.actor_compare(usuarioIntentaLogin)) {
-    			return actor;
-    		}else {
-    			return new Actor();
-    		}
-    	}else {
-    		return new Actor();
+    	try {
+			Actor actor = metodosCompany.getActor(usuarioIntentaLogin.getNombreUsuario());
+			if (actor != null) {
+				if (actor.actor_compare(usuarioIntentaLogin)) {
+					return actor;
+				} else {
+					return new Actor();
+				}
+			} else {
+				return new Actor();
+			}
+    	}catch(Exception ex) {
+    		ex.printStackTrace();
     	}
     	
 //    	try {
