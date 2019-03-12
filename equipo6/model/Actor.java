@@ -10,7 +10,7 @@ public class Actor implements Serializable{
     private String passwordSalt;
     private String email;
     Actor usuarioPrevio;
-    private int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer
+    private int tipoActor; //0->4 para Productor, Cooperativa, Transportista, Fabrica y Retailer; -1 para Login Incorrecto
 
 
     public boolean actor_compare(Actor usuarioIntentaAcceder)
@@ -22,7 +22,13 @@ public class Actor implements Serializable{
                 );
     }
 
-    public Actor(){}
+    public Actor(){
+        this.nombreUsuario="";
+        this.email="";
+        this.tipoActor=-1;
+        this.passwordPlana="";
+        this.passwordSalt="";
+    }
 
     //Constructor utilizado por la vista para pasarnos los datos
     //TODO gonzalo
