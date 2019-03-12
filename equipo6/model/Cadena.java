@@ -31,12 +31,12 @@ public class Cadena{
     public List<Bloque> getBloque(int tipoBloque){
     	List<Bloque> lista = new LinkedList<Bloque>();
     	try {
-			Bloque anadir = metodosCompany.getBloqueOrden(hashUltimoBloque);
+			Bloque anadir = metodosCompany.getBloque(hashUltimoBloque);
 			for (int j = 0; j < numBloques; j++) {
 				if (anadir.getTipoBloque() == tipoBloque) {
 					lista.add(anadir);
 				}
-				anadir = metodosCompany.getBloqueOrden(anadir.getHashPrevio());
+				anadir = metodosCompany.getBloque(anadir.getHashPrevio());
 			}
 			return lista;
     	}catch(Exception ex) {
@@ -51,10 +51,10 @@ public class Cadena{
     public List<Bloque> getCadena(){
 		try {
 			List<Bloque> lista = new LinkedList<Bloque>();
-			Bloque anadir = metodosCompany.getBloqueOrden(hashUltimoBloque);
+			Bloque anadir = metodosCompany.getBloque(hashUltimoBloque);
 			for (int j = 0; j < numBloques; j++) {
 				lista.add(anadir);
-				anadir = metodosCompany.getBloqueOrden(anadir.getHashPrevio());
+				anadir = metodosCompany.getBloque(anadir.getHashPrevio());
 			}
 			return lista;
 		} catch (Exception ex) {
@@ -80,9 +80,9 @@ public class Cadena{
     //TODO alejandro
     public boolean checkConsistencia(){
 		try {
-			Bloque anadir = metodosCompany.getBloqueOrden(hashUltimoBloque);
+			Bloque anadir = metodosCompany.getBloque(hashUltimoBloque);
 			for (int j = 0; j < numBloques - 1; j++) {
-				anadir = metodosCompany.getBloqueOrden(anadir.getHashPrevio());
+				anadir = metodosCompany.getBloque(anadir.getHashPrevio());
 			}
 			if (anadir.getHashPrevio().equals("INICIO")) {
 				return true;
@@ -117,7 +117,7 @@ public class Cadena{
         nuevoBloque.setTimeStamp();
         String hashNuevo = nuevoBloque.getHashCode();
 		try {
-			boolean insercionCorrecta = metodosCompany.insertarBloqueOrden(nuevoBloque);
+			boolean insercionCorrecta = metodosCompany.insertarBloque(nuevoBloque);
 			if (insercionCorrecta) {
 				this.hashUltimoBloque = hashNuevo;
 				equipo5.dao.metodosCompany.insertarCadena(this, this.codLote);

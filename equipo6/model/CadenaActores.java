@@ -44,8 +44,6 @@ public class CadenaActores implements Serializable{
     //TODO gonzalo
 
     public int addActor(Actor nuevoActor) {
-        
-        nuevoActor.usuarioPrevio = this.cola;
         this.cola = nuevoActor;
         this.length++;
         return 0/*id del usuario*/;
