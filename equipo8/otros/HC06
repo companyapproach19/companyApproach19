@@ -19,9 +19,12 @@ SoftwareSerial BTserial(2, 3); // RX | TX
 // Connect the HC-06 TX to the Arduino RX on pin 2. 
 // Connect the HC-06 RX to the Arduino TX on pin 3 through a voltage divider.
 String cadena;
-int i = 0;
 int celsius;
 bool on=false;
+int segs = 0;
+unsigned long startMillis;  //some global variables available anywhere in the program
+unsigned long currentMillis;
+const unsigned long period = 30000;  //the value is a number of milliseconds
  
 void setup() 
 {
@@ -33,12 +36,34 @@ void setup()
  
 void loop()
 {
-     
+
+  currentMillis = millis();  //get the current "time" (actually the number of milliseconds since the program started)
+  if (currentMillis - startMillis >= period)  //test whether the period has elapsed
+  {
+      if(!on){
+        digitalWrite(11,HIGH);
+      }
+      delay(1000);
+      celsius = read_temp(77);
+      Serial.print(celsius);
+      Serial.print("ºC (Auto)\n");
+      if (BTserial.available()){
+        BTserial.print(celsius);
+        BTserial.print("ºC\n");
+      }
+      delay(1000);
+      if(!on){
+        digitalWrite(11,LOW);
+      }
+      startMillis = currentMillis;
+  }
+    
      // Keep reading from HC-06 and send to Arduino Serial Monitor
     if (BTserial.available())
     {  
         cadena = BTserial.readString();
           Serial.print(cadena);
+          delay(1000);
 
         if(cadena == "on"){
           delay(2000);
