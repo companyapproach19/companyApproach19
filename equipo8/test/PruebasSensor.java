@@ -14,8 +14,8 @@ public class PruebasSensor extends DatosContainer{
 		System.out.println("Prueba 2   Fecha correcta Temperatura:"+sensorPrueba.buscar("2019","3","10","16","15","33"));
 		System.out.println("Prueba 3   Fecha incorrecta Temperatura:"+sensorPrueba.buscar("2019","4","10","16","15","53"));
 		System.out.println("Prueba 4   Fecha incorrecta Temperatura:"+sensorPrueba.buscar("2029","3","04","12","33","45"));
-		System.out.println("Prueba 5   Par·metros incorrectos :"+sensorPrueba.buscar("dd","0d3","0d4","1v2","33v","4v5"));
-		System.out.println("Prueba 6   Sin Par·metros:"+sensorPrueba.buscar("","","","","",""));
+		System.out.println("Prueba 5   Par√°metros incorrectos :"+sensorPrueba.buscar("dd","0d3","0d4","1v2","33v","4v5"));
+		System.out.println("Prueba 6   Sin Par√°metros:"+sensorPrueba.buscar("","","","","",""));
 
 
 	}
