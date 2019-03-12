@@ -106,14 +106,12 @@ function addTextTXT()
          <div class="input">
         <p>
          
-            <input type="submit" class = "btn btn-secondary" value="Enviar pedido">
-            <input type="reset" class = "btn btn-secondary" value="Limpiar formulario">
+            <button type="submit" class="btn first">Enviar pedido</button>
+			<button type="reset" class="btn first">Limpiar formulario</button>
         </div>
 </form>
-<div>
-          <br>
-          <br>
-            <input type="submit" class = "btn btn-secondary" value="Volver" onclick="window.location='Cooperativa.html';" />
+		  <div class="volver">
+            <button class="btn first" value="Volver" onclick="window.location='Cooperativa.html';">Volver</button>
           </div>
 
 
@@ -150,6 +148,81 @@ function addTextTXT()
 
 function getJson(){
 
+
+  var destino = document.getElementById("destino").value;
+    var id = document.getElementById("id").value;
+  
+    var cantidad1 = document.getElementById("cantidad1").value;
+    var cantidad2 = document.getElementById("cantidad2").value;
+    var cantidad3 = document.getElementById("cantidad3").value;
+    var cantidad4 = document.getElementById("cantidad4").value;
+    var cantidad5 = document.getElementById("cantidad5").value;
+    var cantidad6 = document.getElementById("cantidad6").value;
+    var cantidad7 = document.getElementById("cantidad7").value;
+    var cantidad8 = document.getElementById("cantidad8").value;
+    var cantidad9 = document.getElementById("cantidad9").value;
+    var producto1 = document.getElementById("producto1").value;
+    var producto2 = document.getElementById("producto2").value;
+    var producto3 = document.getElementById("producto3").value;
+    var producto4 = document.getElementById("producto4").value;
+    var producto5 = document.getElementById("producto5").value;
+    var producto6 = document.getElementById("producto6").value;
+    var producto7 = document.getElementById("producto7").value;
+    var producto8 = document.getElementById("producto8").value;
+    var producto9 = document.getElementById("producto9").value;
+//Json
+   var hola = { 
+    "id": id,
+    "actorOrigen": "Tienda",
+    "destinatario": destino,
+    'transportista': {
+  "nombre":"pablo" ,
+  "empresa": "Povas",
+  "fecha_recogida": "08-03-2019",
+  "fecha_entrega": "13-03-2019"
+    },
+    "productos": {
+  "cant_malta_palida": cantidad1,
+  "cant_malta_munich": cantidad2,
+  "cant_malta_negra": cantidad3,
+  "cant_malta_crystal": cantidad4,
+  "cant_malta_chocolate": cantidad5,
+  "cant_malta_caramelo": cantidad6,
+  "cant_cebada": cantidad7,
+  "cant_cebada_tostada": cantidad8,
+  "cant_lupulo_centenial": cantidad9
+    },
+    "mensaje": "Petición de prueba.",
+    "firmadoRecogida": false,
+    "firmadoEntrega": false
+}
+//Aqui se hace json de verdad
+var myJson = JSON.stringify(hola); 
+
+
+/*
+
+$.ajax({
+    // la URL para la petición
+    url : '',
+ 
+    // la información a enviar
+    // (también es posible utilizar una cadena de datos)
+    data : myJson,
+ 
+    // especifica si será una petición POST o GET
+    type : 'POST',
+ 
+    // el tipo de información que se espera de respuesta
+    dataType : 'json',
+ 
+    // código a ejecutar si la petición es satisfactoria;
+    // la respuesta es pasada como argumento a la función
+
+    })
+
+
+*/
 }
 
 </script>

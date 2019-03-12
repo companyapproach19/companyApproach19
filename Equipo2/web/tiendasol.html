@@ -3,15 +3,7 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <title>Tienda</title>
-
-  <!-- Custom styles for this template -->
-  <link href="archivo.css" rel="stylesheet">
 
 <!--------------------------------->
 <script language="Javascript" >
@@ -33,11 +25,6 @@ function addTextTXT()
 </script>
 <!--------------------------------->
 
-
-
-
-
-  
 
   <!-- Custom styles for this template -->
   <link href="archivo.css" rel="stylesheet">
@@ -83,14 +70,14 @@ function addTextTXT()
         
         
          <div class="input">
-        <p>
-            <input type="submit" class = "btn btn-secondary" value="Enviar pedido">
-            <input type="reset" class = "btn btn-secondary" value="Limpiar formulario">
+        <p></p>
+		<button type="submit" class="btn first">Enviar pedido</button>
+		<button type="reset" class="btn first">Limpiar formulario</button>
         </div>
 </form>
-<p>
-
-<input type="submit"  class= "btn btn-secondary" value="Volver" onclick="window.location='Retailer.html';" /> 
+<div class="volver">
+<button class="btn first" value="Volver" onclick="window.location='Reatiler.html';">Volver</button>
+</div>
 
 <script>
   function getParametros() {
@@ -112,6 +99,72 @@ function addTextTXT()
   }
 
 function getJson(){
+
+	 //Aqui recogemoslasvariables
+    var id = document.getElementById("id").value;
+    var transportista = document.getElementById("transportista").value;
+    
+    var cantidad1 = document.getElementById("cantidad1").value;
+    var cantidad2 = document.getElementById("cantidad2").value;
+    
+    var producto1 = document.getElementById("producto1").value;
+    var producto2 = document.getElementById("producto2").value;
+    
+   var hola = { 
+    "id": id,
+    actorOrigen: "Tienda",
+    "destinatario": destino,
+    'transportista': {
+  "nombre": transportista,
+  "empresa": "Povas",
+  "fecha_recogida": "08-03-2019",
+  "fecha_entrega": "13-03-2019"
+    },
+    "productos": {
+  "cant_malta_palida": cantidad1,
+  "cant_malta_munich": cantidad2,
+  "cant_malta_negra": cantidad3,
+  "cant_malta_crystal": cantidad4,
+  "cant_malta_chocolate": cantidad5,
+  "cant_malta_caramelo": cantidad6,
+  "cant_cebada": cantidad7,
+  "cant_cebada_tostada": cantidad8,
+  "cant_lupulo_centenial": cantidad9
+    },
+    "mensaje": "Petición de prueba.",
+    "firmadoRecogida": false,
+    "firmadoEntrega": false
+}
+//Aqui se hace json de verdad
+var myJson = JSON.stringify(hola);  
+
+
+
+/*
+
+$.ajax({
+    // la URL para la petición
+    url : '',
+ 
+    // la información a enviar
+    // (también es posible utilizar una cadena de datos)
+    data : myJson,
+ 
+    // especifica si será una petición POST o GET
+    type : 'POST',
+ 
+    // el tipo de información que se espera de respuesta
+    dataType : 'json',
+ 
+    // código a ejecutar si la petición es satisfactoria;
+    // la respuesta es pasada como argumento a la función
+
+    })
+
+
+*/
+
+
 
 }
 
