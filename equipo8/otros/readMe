@@ -1,0 +1,10 @@
+Para poder ejecutar el código de Arduino se necesita tener instalado el siguiente software:
+
+
+  -Arduino:  https://www.arduino.cc/en/Main/Software
+          - Dependiendo de la funcionalidad que tenga se han de descargar unas librerías u otras, en nuestro caso
+          se han de dscargar las que vengan en el include, es decir SoftwareSerial y Wire
+         
+  - Processing: https://processing.org/download/
+          - Software que permite escribir ficheros desde arduino.
+ 
