@@ -38,6 +38,11 @@ public class ManejaPeticiones {
 		//TODO: configurar identificador
 		if(pedido.verificar_pedido()) {
 			pedido.OrdenTrazabilidad.setId(this.peticiones.size()+1);
+			
+			//NECESARIO PARA TRAZABILIDAD:
+	        BlockchainServices bloque = new BlockchainServices();
+	        bloque.guardarOrden(pedido.OrdenTrazabilidad);
+	        
 			return CodificadorJSON.crearJSON(pedido.OrdenTrazabilidad);
 		}
 		else return "ERROR";
