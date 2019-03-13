@@ -39,6 +39,7 @@ public class ManejaPeticiones {
 		if(pedido.verificar_pedido()) {
 			pedido.OrdenTrazabilidad.setId(this.peticiones.size()+1);
 			
+			//TODO: mirar el estado del pedido al crearlo(no deberia estar en en_proceso)
 			//NECESARIO PARA TRAZABILIDAD:
 	        BlockchainServices bloque = new BlockchainServices();
 	        bloque.guardarOrden(pedido.OrdenTrazabilidad);
@@ -52,7 +53,8 @@ public class ManejaPeticiones {
 	@Scope("request")
 	@RequestMapping("/aceptarPedido")
 	@ResponseBody
-	public String aceptarPedido(String json) {
+	public String aceptarPedido(
+			@RequestParam(name="json", required=true) String json) {
 		
 		Main_pedidos pedido = new Main_pedidos(json);
 		Orden origen = pedido.crear_pedido();
@@ -61,6 +63,9 @@ public class ManejaPeticiones {
 		this.peticiones.add(origen);
 		
 		//NECESARIO PARA TRAZABILIDAD:
+		//TODO: Hablar con blockchain o base de datos para preguntar si
+		//TODO: Hay que actualizar el objeto_pedido o 
+		//TODO: creamos uno nuevo con el mismo identificador y lo mandamos???(Ellos lo actualizan)
         BlockchainServices bloque = new BlockchainServices();
         bloque.guardarOrden(pedido.OrdenTrazabilidad);
         
@@ -71,7 +76,8 @@ public class ManejaPeticiones {
 	@Scope("request")
 	@RequestMapping("/listoPedido")
 	@ResponseBody
-	public String listoPedido(String json) {
+	public String listoPedido(
+			@RequestParam(name="json", required=true) String json) {
 		
 		Main_pedidos pedido = new Main_pedidos(json);
 		//Hay que compara los identificadores de los ordentrazabilidad
@@ -81,7 +87,7 @@ public class ManejaPeticiones {
 		//Para cambiar el estado del pedido
 		origen.listoParaEntregar();
 		
-		
+		//TODO: mandar petición a los transportistas???? Aqui o en recogido
 		//NECESARIO PARA TRAZABILIDAD:
         BlockchainServices bloque = new BlockchainServices();
         bloque.guardarOrden(pedido.OrdenTrazabilidad);
@@ -93,7 +99,8 @@ public class ManejaPeticiones {
 	@Scope("request")
 	@RequestMapping("/recogidoPedido")
 	@ResponseBody
-	public String recogidoPedido(String json) {
+	public String recogidoPedido(
+			@RequestParam(name="json", required=true) String json) {
 		
 		Main_pedidos pedido = new Main_pedidos(json);
 		//Hay que compara los identificadores de los ordentrazabilidad
@@ -115,7 +122,8 @@ public class ManejaPeticiones {
 	@Scope("request")
 	@RequestMapping("/entregadoPedido")
 	@ResponseBody
-	public String entregadoPedido(String json) {
+	public String entregadoPedido(
+			@RequestParam(name="json", required=true) String json) {
 		
 		Main_pedidos pedido = new Main_pedidos(json);
 		//Hay que compara los identificadores de los ordentrazabilidad
