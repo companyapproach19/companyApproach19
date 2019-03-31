@@ -1,0 +1,5 @@
+public class NotInDatabaseException extends Exception{
+	public bb(String msg) {
+        super(msg);
+    }
+}
